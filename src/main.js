@@ -1,10 +1,37 @@
 import Vue from 'vue';
-import App from './App.vue';
-import store from './store';
+import Vuex from 'vuex';
+import Router from './Router.vue';
 
-Vue.config.productionTip = false;
+Vue.use(Vuex);
 
-new Vue({
+const store = new Vuex.Store({
+  state: {
+    language: null,
+    appUrl: window.location.origin,
+    Router,
+  },
+  mutations: {
+  },
+  getters: {
+    lang: (state) => (state.language ? state.language : 'fr'),
+  },
+});
+
+// eslint-disable-next-line
+const vue = new Vue({
+  el: '#app',
   store,
-  render: (h) => h(App),
-}).$mount('#app');
+  data: {
+    currentPath: window.location.pathname,
+  },
+  computed: {
+    currentView() {
+      return Router.apps[this.currentPath];
+    },
+  },
+  methods: {
+  },
+  render(h) {
+    return h(this.currentView);
+  },
+});
