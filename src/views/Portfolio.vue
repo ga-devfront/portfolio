@@ -1,9 +1,6 @@
 <template>
   <main>
-<Nav
-:currentSection="currentSection"
-:currentSectionName="currentSectionName"
-/>
+<Nav/>
 </main>
 </template>
 
@@ -21,15 +18,6 @@ export default {
     };
   },
   computed: {
-    currentSectionKey() {
-      return this.$store.state.Router.sectionMapper[window.location.pathname];
-    },
-    currentSection() {
-      return this.$store.state.Router.sections[this.currentSectionKey];
-    },
-    currentSectionName() {
-      return this.getSectionName(this.currentSection);
-    },
   },
   methods: {
     initializeLang() {

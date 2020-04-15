@@ -1,13 +1,13 @@
 <template>
   <nav>
-  <span class="actual">{{currentSectionName}}</span>
+  <span class="actual">{{$store.getters.currentSectionName}}</span>
     <ul class="menu">
         <li
         v-for="section in $store.state.Router.sections"
         :id="section.name.en"
-        :class="isActive(section)"
+        :class="$store.getters.isActive(section)"
         v-bind:key="section.name.en"
-        v-on:click="changeNav(section.url[$store.getters.lang])"
+        v-on:click.prevent.stop="$store.commit('setSection', section)"
         >
             <div class="item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
@@ -21,30 +21,7 @@
 <script>
 export default {
   name: 'Nav',
-  props: {
-    currentSection: {
-      type: Object,
-      required: true,
-    },
-    currentSectionName: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      sections: this.$store.state.Router.sections,
-    };
-  },
   methods: {
-    isActive(section) {
-      return (section === this.currentSection) ? 'active' : 'inactive';
-    },
-    changeNav(val) {
-      if (val !== window.location.pathname) {
-        window.location.pathname = val;
-      }
-    },
   },
 };
 </script>
@@ -135,7 +112,6 @@ nav>span.actual {
   right: 50%;
   left: 50%;
   transform: rotate(-90deg) translate(50%);
-  transition: opacity 0.2s easy-in-out;
 }
 
 nav {
