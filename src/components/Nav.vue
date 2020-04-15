@@ -2,7 +2,13 @@
   <nav>
   <span class="actual">{{currentSectionName}}</span>
     <ul class="menu">
-        <li v-for="section in $store.state.Router.sections" :id="section.name.en" :class="isActive(section)" v-bind:key="section.name.en" v-on:click="changeNav(section.url[$store.getters.lang])">
+        <li
+        v-for="section in $store.state.Router.sections"
+        :id="section.name.en"
+        :class="isActive(section)"
+        v-bind:key="section.name.en"
+        v-on:click="changeNav(section.url[$store.getters.lang])"
+        >
             <div class="item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
             </div>
@@ -121,7 +127,7 @@ li:hover span {
 }
 
 nav>span.actual {
-  display: inline-block;
+  white-space:nowrap;
   font-family: Arial;
   font-weight: bold;
   color: white;
