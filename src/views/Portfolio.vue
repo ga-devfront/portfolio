@@ -31,7 +31,13 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: "Aquawax";
+  src: url('../../public/Aquawax-Pro-DemiBold.ttf')
+}
+
 body {
     background: red;
+    font-family: Arial, 'Courier New', Courier, monospace;
 }
 </style>

@@ -86,7 +86,7 @@ li {
 li>span {
   display: inline-block;
   opacity: 0;
-  font-family: Arial;
+  font-family: 'Aquawax', Arial;
   color: white;
   position: absolute;
   width: max-content;
@@ -105,7 +105,7 @@ li:hover span {
 
 nav>span.actual {
   white-space:nowrap;
-  font-family: Arial;
+  font-family: 'Aquawax', Arial;
   font-weight: bold;
   color: white;
   position: absolute;
