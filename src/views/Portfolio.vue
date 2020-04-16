@@ -1,16 +1,16 @@
 <template>
   <main>
-<Nav v-if="screenWidth > 1080"/>
+<NavDesktop v-if="screenWidth > 1080"/>
 </main>
 </template>
 
 <script>
-import Nav from '../components/Nav.vue';
+import NavDesktop from '../components/NavDesktop.vue';
 
 export default {
   name: 'Portfolio',
   components: {
-    Nav,
+    NavDesktop,
   },
   data() {
     return {
