@@ -14,6 +14,21 @@
             </div>
             <span>{{section.name[$store.getters.lang]}}</span>
         </li>
+        <li>
+          <button class="lang">{{$store.getters.lang}}</button>
+          <span>
+            <div
+            :class="$store.getters.isLang('fr')"
+            v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+            fr
+            </div>
+            <div
+            :class="$store.getters.isLang('en')"
+            v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+            en
+            </div>
+          </span>
+        </li>
 </ul>
 </nav>
 </template>
@@ -29,6 +44,8 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+  font-family: 'Aquawax', Arial;
+  color: #ffffff;
 }
 ul.menu {
   display: flex;
@@ -36,11 +53,11 @@ ul.menu {
   align-items: center;
   list-style: none;
   border-radius: 30px;
-  border: 6px solid #fff;
+  border: 4px solid #fff;
   width: max-content;
   padding: 0;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 div.item {
@@ -57,17 +74,42 @@ div.item {
 }
 
 li.active>div.item,
-li:not(.active):hover div.item {
+li:not(.active) div.item:hover {
   height: 30px;
   width: 30px;
   margin-left: 5px;
   margin-right: 5px;
   background: rgba(0, 0, 0, 0);
-  border: 3px solid #fff;
+  border: 2px solid #fff;
 }
 
-div.item>span {
-  position: absolute;
+li>button.lang {
+  margin-top: 15px;
+  border: none;
+  background: none;
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+li>button.lang:focus {
+  padding: 1px 0px 1px 0px;
+}
+
+li>button.lang ~ span {
+  display: flex;
+}
+
+li>button.lang ~ span>div {
+  width: 30px;
+}
+
+li>button.lang ~ span>div.inactive {
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+}
+
+li>button.lang ~ span>div.inactive:hover {
+  opacity: 1;
 }
 
 div.item>svg {
@@ -81,12 +123,12 @@ div.item>svg {
 
 li {
   position : relative;
+  cursor: pointer;
 }
 
 li>span {
   display: inline-block;
   opacity: 0;
-  font-family: 'Aquawax', Arial;
   color: white;
   position: absolute;
   width: max-content;
@@ -99,7 +141,11 @@ li.active>span {
   display: none;
 }
 
-li:hover span {
+li>div.item:hover ~ span {
+  opacity: 1;
+}
+
+li>button.lang:focus ~ span {
   opacity: 1;
 }
 

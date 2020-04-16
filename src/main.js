@@ -21,12 +21,19 @@ const store = new Vuex.Store({
         this.getters.currentUrl + state.currentPath,
       );
     },
+    setLang(state, lang) {
+      state.language = lang;
+    },
   },
   getters: {
     lang: (state) => (state.language ? state.language : 'fr'),
     getSectionName: (state, getters) => (section) => section.name[getters.lang],
     isActive: (state, getters) => (section) => {
       if (section === getters.currentSection) return 'active';
+      return 'inactive';
+    },
+    isLang: (state, getters) => (lang) => {
+      if (lang === getters.lang) return 'active';
       return 'inactive';
     },
     currentUrl: (state) => state.appUrl,
