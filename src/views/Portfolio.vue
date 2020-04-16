@@ -1,6 +1,6 @@
 <template>
   <main>
-<Nav/>
+<Nav v-if="screenWidth > 1080"/>
 </main>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-
+      screenWidth: 0,
     };
   },
   computed: {
@@ -26,6 +26,13 @@ export default {
     getSectionName(el) {
       return el.name[this.$store.getters.lang];
     },
+    displayWindowSize() {
+      this.screenWidth = document.documentElement.clientWidth;
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.displayWindowSize);
+    this.displayWindowSize();
   },
 };
 </script>
