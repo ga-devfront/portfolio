@@ -198,7 +198,7 @@ li>button.lang ~ span>div.inactive:hover {
 /* class animation */
 
 .fade-enter-active, .fade-leave-active {
-  transition: all .2s;
+  transition: all .4s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
