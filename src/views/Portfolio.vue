@@ -1,20 +1,26 @@
 <template>
-  <main>
-<NavDesktop v-if="screenWidth > 1080"/>
+  <main :style="{ width: screenWidth, height: screenHeight }">
+<NavDesktop v-if="screenSize.screenWidth > 1080"/>
+<NavMobile v-if="screenSize.screenWidth <= 1080"/>
 </main>
 </template>
 
 <script>
 import NavDesktop from '../components/NavDesktop.vue';
+import NavMobile from '../components/NavMobile.vue';
 
 export default {
   name: 'Portfolio',
   components: {
     NavDesktop,
+    NavMobile,
   },
   data() {
     return {
-      screenWidth: 0,
+      screenSize: {
+        screenWidth: 0,
+        screenHeight: 0,
+      },
     };
   },
   computed: {
@@ -27,7 +33,8 @@ export default {
       return el.name[this.$store.getters.lang];
     },
     displayWindowSize() {
-      this.screenWidth = document.documentElement.clientWidth;
+      this.screenSize.screenHeight = document.documentElement.clientHeight;
+      this.screenSize.screenWidth = document.documentElement.clientWidth;
     },
   },
   created() {
@@ -41,6 +48,10 @@ export default {
 @font-face {
   font-family: "Aquawax";
   src: url('../../public/Aquawax-Pro-DemiBold.ttf')
+}
+
+main {
+  overflow: hidden;
 }
 
 body {
