@@ -28,6 +28,12 @@ const store = new Vuex.Store({
   getters: {
     lang: (state) => (state.language ? state.language : 'fr'),
     getSectionName: (state, getters) => (section) => section.name[getters.lang],
+    sectionCount(state) {
+      return Object.keys(state.Router.sections).length;
+    },
+    currentPosition(state, getters) {
+      return Object.keys(state.Router.sections).indexOf(getters.currentSectionKey);
+    },
     isActive: (state, getters) => (section) => {
       if (section === getters.currentSection) return 'active';
       return 'inactive';

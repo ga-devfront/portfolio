@@ -26,6 +26,18 @@ export default {
   computed: {
   },
   methods: {
+    prevSection() {
+      const prevPos = this.$store.getters.currentPosition - 1;
+      if (prevPos < 0) return;
+      const futureSection = Object.values(this.$store.state.Router.sections)[prevPos];
+      this.$store.commit('setSection', futureSection);
+    },
+    nextSection() {
+      const nextPos = this.$store.getters.currentPosition + 1;
+      if (nextPos >= this.$store.getters.sectionCount) return;
+      const futureSection = Object.values(this.$store.state.Router.sections)[nextPos];
+      this.$store.commit('setSection', futureSection);
+    },
     initializeLang() {
       this.$store.state.language = 'fr';
     },
