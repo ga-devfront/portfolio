@@ -1,5 +1,5 @@
 <template>
-  <main :style="{ width: screenWidth, height: screenHeight }">
+  <main>
 <NavDesktop v-if="screenSize.screenWidth > 1080"/>
 <NavMobile v-if="screenSize.screenWidth <= 1080"/>
 </main>
@@ -21,6 +21,7 @@ export default {
         screenWidth: 0,
         screenHeight: 0,
       },
+      scroll: 0,
     };
   },
   computed: {
@@ -48,10 +49,26 @@ export default {
       this.screenSize.screenHeight = document.documentElement.clientHeight;
       this.screenSize.screenWidth = document.documentElement.clientWidth;
     },
+    testWheel(event) {
+      const { deltaY } = event;
+      this.scroll += deltaY;
+      if (this.scroll === 300) {
+        this.nextSection();
+        this.scroll = 0;
+      }
+      if (this.scroll === -300) {
+        this.prevSection();
+        this.scroll = 0;
+      }
+    },
   },
   created() {
     window.addEventListener('resize', this.displayWindowSize);
     this.displayWindowSize();
+  },
+  mounted() {
+    const container = document.querySelector('body');
+    container.onwheel = this.testWheel;
   },
 };
 </script>
@@ -62,11 +79,22 @@ export default {
   src: url('../../public/Aquawax-Pro-DemiBold.ttf')
 }
 
+html {
+  padding: 0px;
+  margin: 0px;
+}
+
 main {
+  padding: 0px;
+  margin: 0px;
   overflow: hidden;
+  height: 100vh;
 }
 
 body {
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
     background: red;
     font-family: Arial, 'Courier New', Courier, monospace;
 }
