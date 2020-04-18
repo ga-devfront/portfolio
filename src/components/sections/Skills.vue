@@ -1,13 +1,13 @@
 <template>
-  <main>
-<Nav/>
-</main>
+  <section>
+    <p>Skills</p>
+  </section>
 </template>
 
 <script>
 
 export default {
-  name: 'Nav',
+  name: 'Skills',
   data() {
     return {
 
@@ -23,4 +23,16 @@ export default {
 </script>
 
 <style scoped>
+section {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: orangered;
+}
+p {
+  text-align: center;
+  font-size: 200px;
+  color: #ffffff;
+}
 </style>
