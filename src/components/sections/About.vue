@@ -1,6 +1,8 @@
 <template>
   <section>
     <p>About</p>
+    <p>About</p>
+    <p>About</p>
   </section>
 </template>
 
@@ -24,11 +26,8 @@ export default {
 
 <style scoped>
 section {
-  position: absolute;
-  top: 0px;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background: black;
 }
 p {
   text-align: center;

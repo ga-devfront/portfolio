@@ -24,11 +24,8 @@ export default {
 
 <style scoped>
 section {
-  position: absolute;
-  top: 0px;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background: green;
 }
 p {
   text-align: center;
@@ -36,4 +33,3 @@ p {
   color: #ffffff;
 }
 </style>
-
