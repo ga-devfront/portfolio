@@ -1,11 +1,24 @@
 <template>
-  <main>
-<NavDesktop v-if="screenSize.screenWidth > 1080"/>
-<NavMobile v-if="screenSize.screenWidth <= 1080"/>
+  <main id="scrollSections">
+      <transition-group
+      name="fadeSection"
+      mode="in-out"
+    >
+      <section
+        :is="section.component"
+        v-for="section in $store.state.Router.sections"
+        v-if="isCurrentSection(section)"
+        :key="section.name.en"
+      />
+    </transition-group>
+<NavDesktop v-if="screenSize.screenWidth > 1080 && mobile === false"/>
+<NavMobile v-if="screenSize.screenWidth <= 1080 || mobile === true"/>
 </main>
 </template>
 
 <script>
+import ScrollListener from 'scroll-event-handler';
+import { isMobile } from 'mobile-device-detect';
 import NavDesktop from '../components/NavDesktop.vue';
 import NavMobile from '../components/NavMobile.vue';
 
@@ -22,11 +35,14 @@ export default {
         screenHeight: 0,
       },
       scroll: 0,
+      mobile: isMobile,
+      background: this.$store.state.Router,
     };
   },
-  computed: {
-  },
   methods: {
+    isCurrentSection(section) {
+      return this.$store.getters.getSectionName(section) === this.$store.getters.currentSectionName;
+    },
     prevSection() {
       const prevPos = this.$store.getters.currentPosition - 1;
       if (prevPos < 0) return;
@@ -49,26 +65,34 @@ export default {
       this.screenSize.screenHeight = document.documentElement.clientHeight;
       this.screenSize.screenWidth = document.documentElement.clientWidth;
     },
-    testWheel(event) {
-      const { deltaY } = event;
-      this.scroll += deltaY;
-      if (this.scroll === 300) {
-        this.nextSection();
-        this.scroll = 0;
-      }
-      if (this.scroll === -300) {
-        this.prevSection();
-        this.scroll = 0;
-      }
-    },
   },
   created() {
     window.addEventListener('resize', this.displayWindowSize);
     this.displayWindowSize();
   },
   mounted() {
-    const container = document.querySelector('body');
-    container.onwheel = this.testWheel;
+    const scrollListener = new ScrollListener({
+      scroll: {
+        y: {
+          next: {
+            callback: this.nextSection,
+          },
+          prev: {
+            callback: this.prevSection,
+          },
+        },
+      },
+      touch: {
+        y: {
+          next: {
+            callback: this.nextSection,
+          },
+          prev: {
+            callback: this.prevSection,
+          },
+        },
+      },
+    });
   },
 };
 </script>
@@ -98,4 +122,31 @@ body {
     background: red;
     font-family: Arial, 'Courier New', Courier, monospace;
 }
+
+section {
+  opacity: 1;
+  transform: scale(1);
+}
+
+  .fadeSection-enter-active,
+  .fadeSection-leave-active {
+    transition: all .4s linear;
+  }
+
+  .fadeSection-enter  {
+    transform-origin: center;
+    transform: scale(2);
+    opacity: 0;
+  }
+
+    .fadeSection-enter-active
+  {
+    transition-delay: .2s;
+  }
+
+  .fadeSection-leave-to {
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+  }
 </style>
