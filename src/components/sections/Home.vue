@@ -115,13 +115,24 @@ h2 {
   transform: translateY(100px);
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 820px) {
   .title {
     margin: 0px 0px -30px 0px;
     font-size: 3.2em;
   }
   h2 {
     font-size: 1.2em;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .title {
+    margin: 0px 0px -30px 0px;
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1em;
     letter-spacing: 1px;
   }
 }
