@@ -1,5 +1,5 @@
 <template>
-  <main id="scrollSections">
+  <main id="scrollSections" :style="$store.getters.currentSection.background">
       <transition-group
       name="fadeSection"
       mode="in-out"
@@ -119,7 +119,6 @@ body {
     overflow: hidden;
     padding: 0px;
     margin: 0px;
-    background: red;
     font-family: Arial, 'Courier New', Courier, monospace;
 }
 
