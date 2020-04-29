@@ -2,12 +2,10 @@
   <section>
     <div id="titleContainer">
     <h1>
-      <p class="title" id="secondName">Guyomar</p>
-      <p class="title" id="firstName">Alexis</p>
+      <span class="title" id="secondName">Guyomar</span>
+      <span class="title" id="firstName">Alexis</span>
     </h1>
-    <transition
-      name="fadeTxt"
-    >
+    <transition name="fadeTxt">
     <h2 v-bind:key="$store.state.Txt.home.title[$store.getters.lang]">{{$store.state.Txt.home.title[$store.getters.lang]}}</h2>
     </transition>
     </div>
@@ -38,34 +36,48 @@ section {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 h1 {
   color: #ffffff;
+  margin: 0px;
+}
+
+h1 span{
+  display: block;
 }
 
 h2 {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
   text-align: center;
   font-weight: normal;
-  margin: 0px 40px;
+  margin: 0px;
   font-family: Arial, 'Courier New', Courier, monospace;
   color: #ffffff;
   letter-spacing: 10px;
-  animation: enterFade 0.8s;
+  animation: enterFade 1s;
 }
 
 .title {
-  margin: 0px 0px -60px 0px;
+  height: 140px;
+  line-height: 125px;
+  margin: 0px 0px -20px 0px;
   font-family: 'Aquawax', Arial;
   font-size: 6.375em;
 }
 
 #titleContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   vertical-align: middle;
-  max-width: 100%;
+  width: 800px;
 }
 
 #secondName {
@@ -98,40 +110,59 @@ h2 {
 }
 
 @keyframes enterFade {
-  from {
+  0% {
     opacity: 0;
   }
 
-  top {
+  40% {
+    opacity: 0;
+  }
+
+  100% {
     opacity: 1;
   }
 }
 
-.fadeTxt-enter-active, .fadeTxt-leave-active {
-  transition: all .4s;
-}
-.fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(100px);
-}
-
 @media screen and (max-width: 820px) {
+  #titleContainer {
+    width: 550px;
+  }
   .title {
-    margin: 0px 0px -30px 0px;
-    font-size: 3.2em;
+    margin: 0px 0px -50px 0px;
+    font-size: 3.8em;
   }
   h2 {
+    bottom: -50px;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    #titleContainer {
+    width: 400px;
+  }
+  .title {
+    margin: 0px 0px -70px 0px;
+    font-size: 3em;
+  }
+  h2 {
+    bottom: -70px;
     font-size: 1.2em;
     letter-spacing: 1px;
   }
 }
 
 @media screen and (max-width: 330px) {
+    #titleContainer {
+    width: 310px;
+  }
   .title {
-    margin: 0px 0px -30px 0px;
-    font-size: 3em;
+    margin: 0px 0px -70px 0px;
+    font-size: 2.5em;
   }
   h2 {
+    bottom: -70px;
     font-size: 1em;
     letter-spacing: 1px;
   }

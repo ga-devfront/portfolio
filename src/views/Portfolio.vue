@@ -116,10 +116,10 @@ main {
 }
 
 body {
-    overflow: hidden;
-    padding: 0px;
-    margin: 0px;
-    font-family: Arial, 'Courier New', Courier, monospace;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, 'Courier New', Courier, monospace;
 }
 
 section {
@@ -127,25 +127,34 @@ section {
   transform: scale(1);
 }
 
-  .fadeSection-enter-active,
-  .fadeSection-leave-active {
-    transition: all .4s linear;
-  }
+.fadeSection-enter-active,
+.fadeSection-leave-active {
+  transition: all .4s linear;
+}
 
-  .fadeSection-enter  {
-    transform-origin: center;
-    transform: scale(2);
-    opacity: 0;
-  }
+.fadeSection-enter  {
+  transform-origin: center;
+  transform: scale(2);
+  opacity: 0;
+}
 
-    .fadeSection-enter-active
-  {
-    transition-delay: .2s;
-  }
+  .fadeSection-enter-active
+{
+  transition-delay: .2s;
+}
 
-  .fadeSection-leave-to {
-    transform-origin: center;
-    transform: scale(0);
-    opacity: 0;
-  }
+.fadeSection-leave-to {
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.fadeTxt-enter-active, .fadeTxt-leave-active {
+  transition: all .4s;
+}
+
+.fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(-50%, 100px);
+}
 </style>
