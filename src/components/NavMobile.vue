@@ -239,4 +239,26 @@ path, line {
   opacity: 0;
   padding-left: 10px;
 }
+
+@media screen and (orientation: landscape) {
+  ul.menu {
+    font-size: 15px;
+  }
+  h3 {
+    padding-top: 5px;
+    font-size: 30px;
+  }
+  div.topNav {
+    height: 50px;
+  }
+  #hamburger {
+    transform: scale(0.5);
+  }
+  li {
+    margin: 20px 0px 20px 30px;
+  }
+  hr {
+  margin: 15px 0px;
+}
+}
 </style>
