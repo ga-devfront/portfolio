@@ -148,13 +148,4 @@ section {
   transform: scale(0);
   opacity: 0;
 }
-
-.fadeTxt-enter-active, .fadeTxt-leave-active {
-  transition: all .4s;
-}
-
-.fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translate(-50%, 100px);
-}
 </style>
