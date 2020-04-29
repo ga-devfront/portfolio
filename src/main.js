@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Router from './Router.vue';
+import Txt from './Txt.vue';
 
 Vue.use(Vuex);
 
@@ -10,6 +11,7 @@ const store = new Vuex.Store({
     appUrl: window.location.origin,
     currentPath: window.location.pathname,
     Router,
+    Txt,
   },
   mutations: {
     setSection(state, section) {
