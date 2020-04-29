@@ -114,4 +114,15 @@ h2 {
   opacity: 0;
   transform: translateY(100px);
 }
+
+@media screen and (max-width: 660px) {
+  .title {
+    margin: 0px 0px -30px 0px;
+    font-size: 3.2em;
+  }
+  h2 {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+  }
+}
 </style>
