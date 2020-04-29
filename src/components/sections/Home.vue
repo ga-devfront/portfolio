@@ -1,6 +1,16 @@
 <template>
   <section>
-    <p>Home</p>
+    <div id="titleContainer">
+    <h1>
+      <p class="title" id="secondName">Guyomar</p>
+      <p class="title" id="firstName">Alexis</p>
+    </h1>
+    <transition
+      name="fadeTxt"
+    >
+    <h2 v-bind:key="$store.state.Txt.home.title[$store.getters.lang]">{{$store.state.Txt.home.title[$store.getters.lang]}}</h2>
+    </transition>
+    </div>
   </section>
 </template>
 
@@ -23,13 +33,4 @@ export default {
 </script>
 
 <style scoped>
-section {
-  height: 100vh;
-  width: 100%;
-}
-p {
-  text-align: center;
-  font-size: 200px;
-  color: #ffffff;
-}
 </style>
