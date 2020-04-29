@@ -33,4 +33,85 @@ export default {
 </script>
 
 <style scoped>
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  margin: 0px 40px;
+  font-family: Arial, 'Courier New', Courier, monospace;
+  color: #ffffff;
+  letter-spacing: 10px;
+  animation: enterFade 0.8s;
+}
+
+.title {
+  margin: 0px 0px -60px 0px;
+  font-family: 'Aquawax', Arial;
+  font-size: 6.375em;
+}
+
+#titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+#secondName {
+  animation: enterLeft 0.8s;
+}
+
+#firstName {
+  animation: enterRight 0.8s;
+  text-align: end;
+}
+
+@keyframes enterLeft {
+  from {
+    margin-left: -80%;
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+@keyframes enterRight {
+  from {
+    margin-right: -80%;
+  }
+
+  to {
+    margin-right: 0px;
+  }
+}
+
+@keyframes enterFade {
+  from {
+    opacity: 0;
+  }
+
+  top {
+    opacity: 1;
+  }
+}
+
+.fadeTxt-enter-active, .fadeTxt-leave-active {
+  transition: all .4s;
+}
+.fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(100px);
+}
 </style>
