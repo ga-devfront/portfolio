@@ -1,5 +1,6 @@
 <template>
-  <main id="scrollSections" :style="$store.getters.currentSection.background">
+  <main id="scrollSections">
+    <div id="background" :style="$store.getters.currentSection.background"></div>
       <transition-group
       name="fadeSection"
       mode="in-out"
@@ -109,6 +110,7 @@ html {
 }
 
 main {
+  position: relative;
   padding: 0px;
   margin: 0px;
   overflow: hidden;
@@ -125,6 +127,14 @@ body {
 section {
   opacity: 1;
   transform: scale(1);
+}
+
+#background {
+  height: 100vh;
+  width: 500%;
+  position: absolute;
+  background: center / contain linear-gradient(to right, #240b36, #c31432, #c39e14, #14c357, #149cc3, #c3145b);
+  transition: all ease 0.5s;
 }
 
 .fadeSection-enter-active,
