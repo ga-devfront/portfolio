@@ -86,7 +86,8 @@ nav {
 }
 
 nav.is-open {
-  background: #000000;
+  backdrop-filter: blur(5px);
+  background: rgb(0 0 0 /70%);
 }
 
 ul.menu {
@@ -112,7 +113,7 @@ hr {
 }
 
 li {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(150 150 150);
   margin: 30px 0px 30px 40px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -131,7 +132,7 @@ span.lang {
 
 span.lang>div {
   cursor: pointer;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgb(150 150 150);
     transition: all 0.2s ease-in-out;
 }
 
