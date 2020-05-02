@@ -150,7 +150,7 @@ section {
 
   .fadeSection-enter-active
 {
-  transition-delay: .2s;
+  transition-delay: .4s;
 }
 
 .fadeSection-leave-to {
