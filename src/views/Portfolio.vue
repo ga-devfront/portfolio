@@ -139,7 +139,7 @@ section {
 
 .fadeSection-enter-active,
 .fadeSection-leave-active {
-  transition: all .4s linear;
+  transition: all .4s ease-in-out;
 }
 
 .fadeSection-enter  {
