@@ -145,21 +145,29 @@ h2 {
 }
 
 @keyframes enterLeft {
-  from {
+  0% {
     margin-left: -80%;
   }
 
-  to {
+  50% {
+    margin-left: -80%;
+  }
+
+  100% {
     margin-left: 0px;
   }
 }
 
 @keyframes enterRight {
-  from {
+  0% {
     margin-right: -80%;
   }
 
-  to {
+  50% {
+    margin-right: -80%;
+  }
+
+  100% {
     margin-right: 0px;
   }
 }
