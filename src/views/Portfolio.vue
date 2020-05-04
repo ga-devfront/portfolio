@@ -73,6 +73,7 @@ export default {
   },
   mounted() {
     const scrollListener = new ScrollListener({
+      callback: () => { console.log('scroll'); },
       scroll: {
         y: {
           next: {
@@ -98,29 +99,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@mixin noPad-noMarg() {
+  padding: 0px;
+  margin: 0px;
+}
+
 @font-face {
   font-family: "Aquawax";
   src: url('../../public/Aquawax-Pro-DemiBold.ttf')
 }
 
 html {
-  padding: 0px;
-  margin: 0px;
+  @include noPad-noMarg();
 }
 
 main {
+  @include noPad-noMarg();
   position: relative;
-  padding: 0px;
-  margin: 0px;
   overflow: hidden;
   height: 100vh;
 }
 
 body {
+  @include noPad-noMarg();
   overflow: hidden;
-  padding: 0px;
-  margin: 0px;
+  color: #ffffff;
   font-family: Arial, 'Courier New', Courier, monospace;
 }
 
