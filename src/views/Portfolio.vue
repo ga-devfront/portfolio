@@ -1,20 +1,20 @@
 <template>
   <main id="scrollSections">
     <div id="background" :style="$store.getters.currentSection.background"></div>
-      <transition-group
-      name="fadeSection"
-      mode="in-out"
+    <transition-group
+    name="fadeSection"
+    mode="in-out"
     >
       <section
-        :is="section.component"
-        v-for="section in $store.state.Router.sections"
-        v-if="isCurrentSection(section)"
-        :key="section.name.en"
+      :is="section.component"
+      v-for="section in $store.state.Router.sections"
+      v-if="isCurrentSection(section)"
+      :key="section.name.en"
       />
     </transition-group>
-<NavDesktop v-if="screenSize.screenWidth > 1080 && mobile === false"/>
-<NavMobile v-if="screenSize.screenWidth <= 1080 || mobile === true"/>
-</main>
+    <NavDesktop v-if="screenSize.screenWidth > 1080 && mobile === false"/>
+    <NavMobile v-if="screenSize.screenWidth <= 1080 || mobile === true"/>
+  </main>
 </template>
 
 <script>

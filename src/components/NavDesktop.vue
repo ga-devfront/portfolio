@@ -7,36 +7,36 @@
       {{$store.getters.currentSectionName}}
       </span>
     </transition>
-    <ul class="menu">
-        <li
-        v-for="section in $store.state.Router.sections"
-        :id="section.name.en"
-        :class="$store.getters.isActive(section)"
-        v-bind:key="section.name.en"
-        v-on:click.prevent.stop="$store.commit('setSection', section)"
-        >
-            <div class="item">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
-            </div>
-            <span>{{section.name[$store.getters.lang]}}</span>
-        </li>
-        <li>
-          <button class="lang">{{$store.getters.lang}}</button>
-          <span>
-            <div
-            :class="$store.getters.isLang('fr')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+    <ul>
+      <li
+      v-for="section in $store.state.Router.sections"
+      :id="section.name.en"
+      :class="$store.getters.isActive(section)"
+      v-bind:key="section.name.en"
+      v-on:click.prevent.stop="$store.commit('setSection', section)"
+      >
+        <div class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
+        </div>
+        <span>{{section.name[$store.getters.lang]}}</span>
+      </li>
+      <li>
+        <button class="lang">{{$store.getters.lang}}</button>
+        <span>
+          <div
+          :class="$store.getters.isLang('fr')"
+          v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
             fr
-            </div>
-            <div
-            :class="$store.getters.isLang('en')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+          </div>
+          <div
+          :class="$store.getters.isLang('en')"
+          v-on:click.prevent.stop="$store.commit('setLang', 'en')">
             en
-            </div>
-          </span>
-        </li>
-</ul>
-</nav>
+          </div>
+        </span>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* global */
 * {
   box-sizing: border-box;
@@ -60,7 +60,7 @@ export default {
   font-weight: bold;
   color: #ffffff;
 }
-ul.menu {
+ul {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -79,6 +79,17 @@ li {
   margin: 4px 5px;
   position : relative;
   cursor: pointer;
+  span {
+    display: inline-block;
+    opacity: 0;
+    color: #ffffff;
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 65px;
+    transition: all 0.2s ease-in-out;
+  };
 }
 
 li span {

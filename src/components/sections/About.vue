@@ -1,12 +1,12 @@
 <template>
   <section>
     <transition name="fadeTxt">
-    <article id="description" :key="$store.getters.lang">
-    <h1>
-    {{$store.state.Txt.about.title[$store.getters.lang]}}
-    </h1>
-    <p v-html="$store.state.Txt.about.paragraph[$store.getters.lang]"></p>
-    </article>
+      <article id="description" :key="$store.getters.lang">
+        <h1>
+          {{$store.state.Txt.about.title[$store.getters.lang]}}
+        </h1>
+        <p v-html="$store.state.Txt.about.paragraph[$store.getters.lang]"></p>
+      </article>
     </transition>
     <img src="../../../public/img/about-picture.png">
   </section>

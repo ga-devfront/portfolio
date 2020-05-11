@@ -1,17 +1,19 @@
 <template>
   <section>
     <div id="titleContainer">
-    <h1>
-      <span class="title" id="secondName">Guyomar</span>
-      <span class="title" id="firstName">Alexis</span>
-    </h1>
-    <transition name="fadeTxt">
-    <h2 v-bind:key="$store.state.Txt.home.title[$store.getters.lang]">
-      {{$store.state.Txt.home.title[$store.getters.lang]}}
-    </h2>
-    </transition>
+      <h1>
+        <span class="title" id="secondName">Guyomar</span>
+        <span class="title" id="firstName">Alexis</span>
+      </h1>
+      <transition name="fadeTxt">
+        <h2 v-bind:key="$store.state.Txt.home.title[$store.getters.lang]">
+          {{$store.state.Txt.home.title[$store.getters.lang]}}
+        </h2>
+      </transition>
     </div>
-    <div id="swip"><div id="circle"></div></div>
+    <div id="swip">
+      <div id="circle"></div>
+    </div>
   </section>
 </template>
 
