@@ -53,12 +53,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin center() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$white: #ffffff;
 /* global */
 * {
   box-sizing: border-box;
   font-family: 'Aquawax', Arial;
   font-weight: bold;
-  color: #ffffff;
+  color: $white;
 }
 ul {
   display: flex;
@@ -66,7 +73,7 @@ ul {
   align-items: center;
   list-style: none;
   border-radius: 30px;
-  border: 4px solid #fff;
+  border: 4px solid $white;
   width: max-content;
   padding: 0;
   position: relative;
@@ -82,7 +89,7 @@ li {
   span {
     display: inline-block;
     opacity: 0;
-    color: #ffffff;
+    color: $white;
     position: absolute;
     width: max-content;
     top: 50%;
@@ -90,18 +97,76 @@ li {
     left: 65px;
     transition: all 0.2s ease-in-out;
   };
-}
-
-li span {
-  display: inline-block;
-  opacity: 0;
-  color: white;
-  position: absolute;
-  width: max-content;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 65px;
-  transition: all 0.2s ease-in-out;
+  &.active, &:not(.active):hover {
+    >div.item {
+      height: 30px;
+      width: 30px;
+      background: rgb(0 0 0 / 0%);
+      border: 2px solid $white;
+    };
+  };
+  &.active {
+    >span {
+      display: none;
+    };
+  };
+  >div.item {
+    display: block;
+    background-color: rgb(255 255 255 / 100%);
+    border: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    @include center;
+    transition: all 0.2s ease-in-out;
+    >svg {
+      position: absolute;
+      @include center;
+      height: 20px;
+      width: 20px;
+    };
+    &~ span {
+      pointer-events: none;
+    };
+  };
+  &:hover {
+    >div.item ~ span {
+      left: 50px;
+      opacity: 1;
+    };
+  };
+  >button.lang {
+    position: absolute;
+    @include center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: 0;
+    transition: all 0.2s ease-in-out;
+    &~ span {
+      display: flex;
+      visibility: hidden;
+      transition: all 0.2s ease-in-out;
+      >div {
+        padding-left: 15px;
+        &.inactive {
+          opacity: 0.5;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            opacity: 1;
+          }
+        };
+      };
+    };
+    &:focus ~ span {
+      visibility: visible;
+      opacity: 1;
+      left: 40px;
+    };
+  };
 }
 
 nav {
@@ -109,101 +174,14 @@ nav {
   top: 50%;
   left: 25px;
   transform: translateY(-50%);
-}
-
-nav>span.actual {
-  white-space:nowrap;
-  color: white;
-  position: absolute;
-  right: 50%;
-  left: 50%;
-  transform: rotate(-90deg) translate(50%);
-}
-
-/* nav buttons */
-div.item {
-  display: block;
-  background-color: rgba(255, 255, 255, 1);
-  border: none;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-in-out;
-}
-
-li.active>div.item,
-li:not(.active):hover div.item {
-  height: 30px;
-  width: 30px;
-  background: rgba(0, 0, 0, 0);
-  border: 2px solid #fff;
-}
-
-div.item>svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 20px;
-  width: 20px;
-}
-
-li>div.item ~ span {
-  pointer-events: none;
-}
-
-li.active>span {
-  display: none;
-}
-
-
-li:hover>div.item ~ span {
-  left: 50px;
-  opacity: 1;
-}
-
-/* lang button */
-li>button.lang {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  background: none;
-  outline: 0;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang ~ span {
-  display: flex;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang:focus ~ span {
-  visibility: visible;
-  opacity: 1;
-  left: 40px;
-}
-
-li>button.lang ~ span>div {
-  padding-left: 15px;
-}
-
-li>button.lang ~ span>div.inactive {
-  opacity: 0.5;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang ~ span>div.inactive:hover {
-  opacity: 1;
+  >span.actual{
+    white-space:nowrap;
+    color: $white;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    transform: rotate(-90deg) translate(50%);
+  };
 }
 
 /* class animation */
