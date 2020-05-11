@@ -69,19 +69,6 @@ export default {
       background: 'left: -100%',
       component: About,
     },
-    skills: {
-      name: {
-        fr: 'Compétences',
-        en: 'Skills',
-      },
-      url: {
-        fr: '/competences',
-        en: '/skills',
-      },
-      svg: '<path fill="#fff" d="M22,11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3H22z M7,9H4V5h3V9z M17,15h3v4h-3V15z M17,5h3v4h-3V5z"/>',
-      background: 'left: -200%',
-      component: Skills,
-    },
     projects: {
       name: {
         fr: 'Projets',
@@ -92,8 +79,21 @@ export default {
         en: '/projects',
       },
       svg: '<path fill="#fff" d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2l.01-11c0-1.11.88-2 1.99-2h4V4c0-1.11.89-2 2-2h4c1.11 0 2 .89 2 2v2h4z"/>',
-      background: 'left: -300%',
+      background: 'left: -200%',
       component: Projects,
+    },
+    skills: {
+      name: {
+        fr: 'Compétences',
+        en: 'Skills',
+      },
+      url: {
+        fr: '/competences',
+        en: '/skills',
+      },
+      svg: '<path fill="#fff" d="M22,11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3H22z M7,9H4V5h3V9z M17,15h3v4h-3V15z M17,5h3v4h-3V5z"/>',
+      background: 'left: -300%',
+      component: Skills,
     },
     contact: {
       name: {
