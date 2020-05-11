@@ -32,23 +32,23 @@
     v-on:click="open = false"
     v-on:click.prevent.stop="$store.commit('setSection', section)"
     >
-     <transition name="fadeText">
-       <span :key="section.name + $store.getters.lang">{{section.name[$store.getters.lang]}}</span>
-      </transition>
+    <transition name="fadeText">
+      <span :key="section.name + $store.getters.lang">{{section.name[$store.getters.lang]}}</span>
+    </transition>
     </li>
     <hr>
     <span class="lang">
-            <div
-            :class="$store.getters.isLang('fr')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
-            fr
-            </div>
-            <div
-            :class="$store.getters.isLang('en')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'en')">
-            en
-            </div>
-          </span>
+      <div
+      :class="$store.getters.isLang('fr')"
+      v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+        fr
+      </div>
+      <div
+      :class="$store.getters.isLang('en')"
+      v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+        en
+      </div>
+    </span>
   </ul>
   </transition>
   </nav>
@@ -71,12 +71,42 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
+h3 {
+  margin: {
+    right: 30px;
+    top: 10px;
+  }
+  font-family: 'Aquawax', Arial;
+  color: #ffffff;
+  font-size: 40px;
+  @media screen and (orientation: landscape) {
+    padding-top: 5px;
+    font-size: 30px;
+  };
+}
+
+path, line {
+  stroke: #ffffff;
+  stroke-linecap: round;
+}
+
+hr {
+  margin: 30px 0px;
+  @media screen and (orientation: landscape) {
+    margin: 15px 0px;
+  };
+}
+
 nav {
+  &.is-open {
+    backdrop-filter: blur(5px);
+    background: rgb(0 0 0 /70%);
+  }
   position: absolute;
   top: 0px;
   right: 0px;
@@ -85,12 +115,7 @@ nav {
   transition: all 0.2s ease-in-out;
 }
 
-nav.is-open {
-  backdrop-filter: blur(5px);
-  background: rgb(0 0 0 /70%);
-}
-
-ul.menu {
+ul {
   padding: 0px;
   margin: 0px;
   z-index: 1;
@@ -98,47 +123,45 @@ ul.menu {
   font-family: 'Aquawax', Arial;
   color: #ffffff;
   font-size: 20px;
-}
-
-h3 {
-  margin-right: 30px;
-  font-family: 'Aquawax', Arial;
-  color: #ffffff;
-  font-size: 40px;
-  margin-top: 10px;
-}
-
-hr {
-  margin: 30px 0px;
+  @media screen and (orientation: landscape) {
+    font-size: 15px;
+  };
 }
 
 li {
   color: rgb(150 150 150);
-  margin: 30px 0px 30px 40px;
+  margin: {
+    top: 30px;
+    right: 0px;
+    bottom: 30px;
+    left: 40px;
+    };
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-}
-
-li.active,
-li:not(.active):hover {
-  margin-left: 50px;
-  color: #ffffff;
+  @media screen and (orientation: landscape) {
+    margin: {
+      top: 20px;
+      bottom: 20px;
+      left: 30px;
+      };
+  };
+  &.active, &:not(.active):hover {
+    margin-left: 50px;
+    color: #ffffff;
+  }
 }
 
 span.lang {
   display: flex;
   justify-content: space-evenly;
-}
-
-span.lang>div {
-  cursor: pointer;
+  div {
+    cursor: pointer;
     color: rgb(150 150 150);
     transition: all 0.2s ease-in-out;
-}
-
-span.lang>div.active,
-span.lang>div:not(.active):hover {
-  color: #ffffff;
+    &.active, &:not(.active):hover {
+      color: #ffffff;
+    }
+  };
 }
 
 .topNav {
@@ -146,9 +169,13 @@ span.lang>div:not(.active):hover {
   display: flex;
   justify-content: flex-end;
   top: 5px;
-  right: 10px;
+  right: 0px;
+  margin-right: 10px;
   position: relative;
   z-index: 2;
+  @media screen and (orientation: landscape) {
+    height: 50px;
+  };
 }
 
 .hamburger {
@@ -165,9 +192,27 @@ span.lang>div:not(.active):hover {
   height: 64px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
+      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  @media screen and (orientation: landscape) {
+    transform: scale(0.5);
+  };
+  &.is-open {
+    border-radius: 32px;
+    #circle {
+      stroke-dasharray: 1 100 190 300;
+      stroke-dashoffset: 1;
+    };
+    #hamburgerTop {
+      -webkit-transform: translateX(-4.5px) rotate(-45deg);
+      transform: translateX(-4.5px) rotate(-45deg);
+    };
+    #hamburgerBottom {
+      -webkit-transform: translateX(-4.5px) rotate(45deg);
+      transform: translateX(-4.5px) rotate(45deg);
+    };
+  };
 }
 
 #hamburgerTop {
@@ -180,22 +225,17 @@ span.lang>div:not(.active):hover {
   left: 14px;
 }
 
-path, line {
-  stroke: #ffffff;
-  stroke-linecap: round;
-}
-
 #hamburgerTop, #hamburgerBottom {
-    position: absolute;
+  position: absolute;
   display: block;
   height: 4px;
   width: 36px;
   border-radius: 2px;
   background: #ffffff;
   -webkit-transform-origin: 34px 2px;
-          transform-origin: 34px 2px;
+  transform-origin: 34px 2px;
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
   -webkit-transition: all 500ms cubic-bezier(0.8, -1.1, 0.5, 1.9);
   transition: all 500ms cubic-bezier(0.8, -1.1, 0.5, 1.9);
 }
@@ -205,22 +245,6 @@ path, line {
   stroke-dashoffset: 101;
   -webkit-transition: all 750ms ease;
   transition: all 750ms ease;
-}
-
-.hamburger.is-open {
-  border-radius: 32px;
-}
-.hamburger.is-open #circle {
-  stroke-dasharray: 1 100 190 300;
-  stroke-dashoffset: 1;
-}
-.hamburger.is-open #hamburgerTop {
-  -webkit-transform: translateX(-4.5px) rotate(-45deg);
-          transform: translateX(-4.5px) rotate(-45deg);
-}
-.hamburger.is-open #hamburgerBottom {
-  -webkit-transform: translateX(-4.5px) rotate(45deg);
-          transform: translateX(-4.5px) rotate(45deg);
 }
 
 /* class animation */
@@ -239,27 +263,5 @@ path, line {
 .fadeText-enter, .fade-text-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
   padding-left: 10px;
-}
-
-@media screen and (orientation: landscape) {
-  ul.menu {
-    font-size: 15px;
-  }
-  h3 {
-    padding-top: 5px;
-    font-size: 30px;
-  }
-  div.topNav {
-    height: 50px;
-  }
-  #hamburger {
-    transform: scale(0.5);
-  }
-  li {
-    margin: 20px 0px 20px 30px;
-  }
-  hr {
-  margin: 15px 0px;
-}
 }
 </style>
