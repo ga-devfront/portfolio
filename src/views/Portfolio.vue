@@ -73,7 +73,6 @@ export default {
   },
   mounted() {
     const scrollListener = new ScrollListener({
-      callback: () => { console.log('scroll'); },
       scroll: {
         y: {
           next: {
