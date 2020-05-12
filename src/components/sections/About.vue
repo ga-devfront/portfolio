@@ -62,10 +62,11 @@ h1 {
   font-family: $title-font;
   font-size: 4em;
   @media screen and (max-width: $mobile) {
+    font-size: 3em;
     width: 100%;
   }
   @media screen and (max-width: $small-mobile) {
-    font-size: 2.5em;
+    font-size: 2.2em;
   }
   @media screen and (max-height: 500px) {
     font-size: 1.5em;
