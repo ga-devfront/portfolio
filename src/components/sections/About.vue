@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 $txt-width: 450px;
 $title-font: 'Aquawax', Arial;
-$tablet: 820px;
+$tablet: 1024px;
 $mobile: 500px;
 $small-mobile: 380px;
 
@@ -61,20 +61,43 @@ h1 {
   margin: 0px;
   font-family: $title-font;
   font-size: 4em;
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+  }
+  @media screen and (max-width: $small-mobile) {
+    font-size: 2.5em;
+  }
+  @media screen and (max-height: 500px) {
+    font-size: 1.5em;
+  }
 }
 
 p {
   font-size: 0.9em;
   letter-spacing: 0.05em;
+  @media screen and (max-width: $tablet) {
+    font-size: 1em;
+  }
+  @media screen and (max-width: $small-mobile) {
+    font-size: 0.8em;
+  }
+  @media screen and (max-height: 700px) {
+    font-size: 0.8em;
+  }
     span {
       display: block;
       width: $txt-width;
+      @media screen and (max-width: $mobile) {
+      width: 100%;
+      }
     }
 }
 
 #description {
   width: $txt-width;
-  height: 470px;
+  @media screen and (max-width: $mobile) {
+    width: 80%;
+  }
 }
 
 @for $i from 0 through 6 {
@@ -97,7 +120,25 @@ p {
 
 img {
   margin-left: 20px;
-  animation: enterRight 0.8s;
+  @media screen and (min-width: $tablet) {
+    animation: enterRight 0.8s;
+  }
+  @media screen and (max-width: $tablet) {
+    animation: enterRightMobile 0.8s;
+    position: absolute;
+    left: 40%;
+    z-index: -1;
+    opacity: .3;
+  }
+  @media screen and (max-width: $mobile) {
+    left: 100px;
+  }
+  @media screen and (max-width: $small-mobile) {
+    left: 10%;
+  }
+  @media screen and (max-height: 500px) {
+    top: 5%;
+  }
 }
 
 div {
@@ -151,6 +192,23 @@ div {
 
   100% {
     opacity: 1;
+    margin-left: 20px;
+  }
+}
+
+@keyframes enterRightMobile {
+  0% {
+    opacity: 0;
+    margin-left: 50%;
+  }
+
+  50% {
+    opacity: 0;
+    margin-left: 50%;
+  }
+
+  100% {
+    opacity: .3;
     margin-left: 20px;
   }
 }
