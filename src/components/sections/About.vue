@@ -82,18 +82,21 @@ p {
     animation: {
       name: enterLeft;
       duration: ($i * .2s) + .8s;
+      timing-function: ease-in-out;
     };
   }
   .fadeTxt#{$i}-leave-active {
     animation: {
       name: LeftTransition;
       duration: ($i * .2s) + .8s;
+      timing-function: ease-in-out;
       direction: reverse;
     };
   }
 }
 
 img {
+  margin-left: 20px;
   animation: enterRight 0.8s;
 }
 
@@ -148,7 +151,7 @@ div {
 
   100% {
     opacity: 1;
-    margin-right: 0px;
+    margin-left: 20px;
   }
 }
 </style>
