@@ -1,13 +1,26 @@
 <template>
   <section>
-    <transition name="fadeTxt">
-      <article id="description" :key="$store.getters.lang">
-        <h1>
+      <article id="description">
+        <transition name="fadeTxt0" mode="out-in">
+        <h1 class="txt0" :key="'title-' + $store.getters.lang">
           {{$store.state.Txt.about.title[$store.getters.lang]}}
         </h1>
-        <p v-html="$store.state.Txt.about.paragraph[$store.getters.lang]"></p>
+        </transition>
+        <p>
+          <template
+          v-for="(paragraph, index) in $store.state.Txt.about.paragraph[$store.getters.lang]"
+          >
+            <transition v-bind:name="'fadeTxt' + index" mode="out-in">
+              <span
+              :key="index + $store.getters.lang"
+              v-bind:class="'txt' + index"
+              >
+              {{paragraph}}<br>
+              </span>
+            </transition>
+          </template>
+        </p>
       </article>
-    </transition>
     <img src="../../../public/img/about-picture.png">
   </section>
 </template>
@@ -30,6 +43,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$txt-width: 450px;
+$title-font: 'Aquawax', Arial;
+$tablet: 820px;
+$mobile: 500px;
+$small-mobile: 380px;
+
 section {
   height: 100%;
   width: 100%;
@@ -38,75 +57,93 @@ section {
   align-items: center;
 }
 h1 {
+  width: $txt-width;
   margin: 0px;
-  color: #ffffff;
-  font-family: 'Aquawax', Arial;
+  font-family: $title-font;
   font-size: 4em;
-}
-h2 {
-  margin-bottom: 0px;
-  color: #ffffff;
-  font-family: 'Aquawax', Arial;
-  font-size: 2em;
 }
 
 p {
-    color: #ffffff;
+    span {
+      display: block;
+      width: $txt-width;
+    }
 }
 
 #description {
-  left: calc(50% - 250px);
-  transform: translate(-50%);
-  position: absolute;
-  width: 450px;
-  animation: enterTop 0.8s ease-in-out;
+  width: $txt-width;
+  height: 470px;
+}
 
+@for $i from 0 through 6 {
+  .txt#{$i}{
+    animation: {
+      name: enterLeft;
+      duration: ($i * .2s) + .8s;
+    };
+  }
+  .fadeTxt#{$i}-leave-active {
+    animation: {
+      name: LeftTransition;
+      duration: ($i * .2s) + .8s;
+      direction: reverse;
+    };
+  }
 }
 
 img {
-  left: calc(50% + 250px);
-  transform: translate(-50%);
-  position: absolute;
-  animation: enterBottom 0.8s ease-in-out;
+  animation: enterRight 0.8s;
 }
 
 div {
   display: inline;
 }
 
-@keyframes enterTop {
+@keyframes enterLeft {
   0% {
-    margin-top: -80%;
     opacity: 0;
+    margin-left: -80%;
   }
 
   50% {
-    margin-top: -40%;
     opacity: 0;
+    margin-left: -80%;
   }
 
   100% {
-    margin-top: 0px;
     opacity: 1;
+    margin-left: 0px;
   }
 }
 
-@keyframes enterBottom {
-  from {
-    margin-top: 80%;
+@keyframes LeftTransition {
+  0% {
+    opacity: 0;
+    margin-left: -80%;
   }
 
-  to {
-    margin-top: 0px;
+  50% {
+    opacity: 0;
+    margin-left: -80%;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
   }
 }
 
-.fadeTxt-enter-active, .fadeTxt-leave-active {
-  transition: all 0.8s ease-out;
-}
+@keyframes enterRight {
+  0% {
+    margin-left: 80%;
+  }
 
-.fadeTxt-enter, .fadeTxt-leave-to {
-  opacity: 0;
-  margin-top: -40%;
+  50% {
+    margin-left: 80%;
+  }
+
+  100% {
+    margin-right: 0px;
+  }
 }
 </style>
