@@ -64,6 +64,7 @@ h1 {
 }
 
 p {
+  font-size: 0.9em;
     span {
       display: block;
       width: $txt-width;
@@ -102,12 +103,12 @@ div {
 @keyframes enterLeft {
   0% {
     opacity: 0;
-    margin-left: -80%;
+    margin-left: -50%;
   }
 
-  50% {
+  20% {
     opacity: 0;
-    margin-left: -80%;
+    margin-left: -50%
   }
 
   100% {
@@ -119,12 +120,12 @@ div {
 @keyframes LeftTransition {
   0% {
     opacity: 0;
-    margin-left: -80%;
+    margin-left: -50%;
   }
 
   50% {
     opacity: 0;
-    margin-left: -80%;
+    margin-left: -50%;
   }
 
   100% {
@@ -135,14 +136,17 @@ div {
 
 @keyframes enterRight {
   0% {
-    margin-left: 80%;
+    opacity: 0;
+    margin-left: 50%;
   }
 
   50% {
-    margin-left: 80%;
+    opacity: 0;
+    margin-left: 50%;
   }
 
   100% {
+    opacity: 1;
     margin-right: 0px;
   }
 }
