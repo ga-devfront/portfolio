@@ -65,6 +65,7 @@ h1 {
 
 p {
   font-size: 0.9em;
+  letter-spacing: 0.05em;
     span {
       display: block;
       width: $txt-width;
