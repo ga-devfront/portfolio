@@ -15,7 +15,7 @@
               :key="index + $store.getters.lang"
               v-bind:class="'txt' + index"
               >
-              {{paragraph}}<br>
+                {{paragraph}}<br>
               </span>
             </transition>
           </template>
@@ -89,11 +89,11 @@ p {
       display: block;
       width: $txt-width;
       @media screen and (max-width: $mobile) {
-      width: 100%;
+        width: 100%;
       }
       @media screen and (max-height: 700px) {
-      width: 100%;
-  }
+        width: 100%;
+      }
     }
 }
 
