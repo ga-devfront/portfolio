@@ -91,6 +91,9 @@ p {
       @media screen and (max-width: $mobile) {
       width: 100%;
       }
+      @media screen and (max-height: 700px) {
+      width: 100%;
+  }
     }
 }
 
@@ -98,6 +101,9 @@ p {
   width: $txt-width;
   @media screen and (max-width: $mobile) {
     width: 80%;
+  }
+  @media screen and (max-height: 700px) {
+    width: 95%;
   }
 }
 
