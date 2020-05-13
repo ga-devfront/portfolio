@@ -15,7 +15,7 @@ export default {
       fr: {
         1: 'Votre entreprise de développement web évolue et vous cherchez un nouveau codeur pour rejoindre votre équipe ?',
         2: 'Vous avez des idées, et des profils bien précis de qui occupera se nouveau post, c\'est normal !',
-        3: 'Ce site est là pour toutes les entreprises qui souhaitaient recruter un candidat pour sa motivation, sa soif d’apprendre continuellement et son amour pour le web.',
+        3: 'Ce site est là pour toutes les entreprises qui souhaitent recruter un candidat pour sa motivation, sa soif d’apprendre continuellement et son amour pour le web.',
         4: 'Je suis passionnée par le webdesign depuis des années, commençant à faire des designs web en autodidacte sur Photoshop je me suis lancé par la suite dans la formation de développeur frontend chez OpenClassrooms.',
         5: 'Tout au long de celle-ci, j\'ai eu à cœur de pousser toujours plus loin les projets que j’entreprends, afin, non pas de remplir les objectifs, mais de les dépasser.',
         6: 'Vous avez envie d’en apprendre plus sur ce que j\'ai à vous offrir ? Alors n’hésitez pas à parcourir mon portfolio et à me contacter.',
