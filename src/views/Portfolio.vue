@@ -140,9 +140,11 @@ export default {
       scroll: {
         y: {
           next: {
+            value: 5,
             callback: this.nextSection,
           },
           prev: {
+            value: 5,
             callback: this.prevSection,
           },
         },
