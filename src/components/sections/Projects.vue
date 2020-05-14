@@ -84,7 +84,7 @@ export default {
     },
     prevProjectName() {
       if (Object.keys(Listing.project)[this.currentProjectKey - 1] === undefined) {
-        return Object.keys(Listing.project)[Object.keys(Listing.project).length - 2];
+        return Object.keys(Listing.project)[Object.keys(Listing.project).length - 1];
       }
       return Object.keys(Listing.project)[this.currentProjectKey - 1];
     },
