@@ -1,10 +1,17 @@
 <template>
   <article>
     <div id="mokups">
-    <img id="desktop" :src="project.preview.desktop">
-    <img id="mobile" v-if="project.preview.mobile" :src="project.preview.mobile">
+      <img id="desktop" :src="project.preview.desktop" alt="desktop project mokup">
+      <img
+      id="mobile"
+      v-if="project.preview.mobile"
+      :src="project.preview.mobile"
+      alt="mobile project mokup"
+      >
     </div>
-    <div>
+    <div id="description">
+      <img id="logo" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
+      <p>{{project[$store.getters.lang].type}}</p>
     </div>
   </article>
 </template>
@@ -35,25 +42,36 @@ export default {
 
 <style lang="scss" scoped>
 article {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
   width: 900px;
   height: 500px;
-  background: aqua;
 }
 
 #mokups {
   position: relative;
-  width: max-content;
   top: 50%;
-  left: 0px;
-  transform: translate(0px, -50%);
+  width: max-content;
   #desktop {
     position: relative;
-    left: 20px;
-  };
+    transform: translate(0, -50%);
+  }
   #mobile {
     position: relative;
-    left: -50px;
+    transform: translate(0, -50%);
+    left: -70px;
     bottom: -10px;
+  }
+}
+
+#description {
+  position: relative;
+  top: 50%;
+  #logo {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>
