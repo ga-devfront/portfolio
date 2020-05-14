@@ -1,192 +1,248 @@
 <script>
 export default {
+  project: {
+    scrollEventHandler: {
+      path: 'scrollEventHandler',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Scroll event handler',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Scroll event handler',
+        type: '',
+        languages: '',
+        description: '',
+      },
+    },
 
-  scrollEventHandler: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    portfolio: {
+      path: 'portfolio',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Portfolio',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Portfolio',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'scroll event handler',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  portfolio: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    chaletsEtCaviar: {
+      path: 'chaletsEtCaviar',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Chalets et Caviar',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Chalets et Caviar',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'portfolio',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  chaletsEtCaviar: {
-    preview: {
-      desktop: '',
-      mobile: '',
-    },
-    name: 'chalets et caviar',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  ffpa: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    ffpa: {
+      path: 'ffpa',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Festival des films de plein air',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Festival des films de plein air',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'festival des films de plein air',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  expressFood: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    expressFood: {
+      path: 'expressFood',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Express Food',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Express Food',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'express food',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  botGenerator: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    botGenerator: {
+      path: 'botGenerator',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Super phrase generator',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Super phrase generator',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'super phrase generator',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  spaceShipArena: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    spaceShipArena: {
+      path: 'spaceShipArena',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Spaceship Arena',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Spaceship Arena',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'spaceship arena',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  foodaily: {
-    preview: {
-      desktop: '',
-      mobile: '',
+    foodaily: {
+      path: 'foodaily',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Foodaily',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Foodaily',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
-    name: 'foodaily',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
-    },
-  },
 
-  todo: {
-    preview: {
-      desktop: '',
-      mobile: '',
-    },
-    name: 'todolist',
-    logo: '',
-    type: '',
-    languages: '',
-    description: {
-      fr: '',
-      en: '',
-    },
-    links: {
-      github: '',
-      project: '',
-      doc: '',
-      npm: '',
+    todo: {
+      path: 'todo',
+      preview: {
+        desktop: '',
+        mobile: '',
+      },
+      logo: '',
+      links: {
+        github: '',
+        project: '',
+        doc: '',
+        npm: '',
+      },
+      fr: {
+        name: 'Todo list',
+        type: '',
+        languages: '',
+        description: '',
+      },
+      en: {
+        name: 'Todo list',
+        type: '',
+        languages: '',
+        description: '',
+      },
     },
   },
 };

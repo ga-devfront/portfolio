@@ -5,7 +5,13 @@
 
 <script>
 export default {
-  name: 'Project Container',
+  name: 'ProjectContainer',
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+  },
   components: {
   },
   data() {
@@ -22,4 +28,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+article {
+  width: 900px;
+  height: 500px;
+  background: aqua;
+}
 </style>
