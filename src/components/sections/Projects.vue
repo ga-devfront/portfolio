@@ -128,9 +128,15 @@ svg {
   z-index: 1;
   &#leftArrow {
     left: 12%;
+    &:hover {
+      left: calc(12% - 10px);
+    }
   };
-    &#rightArrow {
+  &#rightArrow {
     right: 12%;
+    &:hover {
+      right: calc(12% - 10px);
+    }
   };
   fill: $white;
   fill-opacity: 0.7;
