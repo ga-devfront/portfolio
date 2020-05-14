@@ -1,5 +1,11 @@
 <template>
   <article>
+    <div>
+    <img :src="project.preview.desktop">
+    <img v-if="project.preview.mobile" :src="project.preview.mobile">
+    </div>
+    <div>
+    </div>
   </article>
 </template>
 
