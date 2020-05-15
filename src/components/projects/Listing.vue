@@ -122,7 +122,7 @@ export default {
       logo: chaletsEtCaviarLogo,
       links: {
         project: 'https://ag-dev.fr/openclassrooms/wordpress/',
-        doc: '../../../public/documentation/chalet_et_caviar.pdf',
+        doc: 'https://ag-dev.fr/documentation/chalet_et_caviar.pdf',
       },
       languages: ['Html', 'Css', 'Wordpress'],
       fr: {
@@ -147,7 +147,7 @@ export default {
       logo: ffpaLogo,
       links: {
         project: 'https://ag-dev.fr/openclassrooms/festival/',
-        doc: '../../../public/documentation/ffpa.docx',
+        doc: 'https://ag-dev.fr/documentation/ffpa.docx',
       },
       languages: ['Html', 'Css', 'Bootstrap'],
       fr: {
@@ -169,7 +169,7 @@ export default {
       },
       logo: expressFoodLogo,
       links: {
-        doc: '../../../public/documentation/expressfood.zip',
+        doc: 'https://ag-dev.fr/documentation/expressfood.zip',
       },
       languages: ['UML'],
       fr: {
