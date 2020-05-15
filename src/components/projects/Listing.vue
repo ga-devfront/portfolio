@@ -1,4 +1,9 @@
 <script>
+import gitHubIcon from '../../../public/img/projects/icon/github.svg';
+import npmIcon from '../../../public/img/projects/icon/npm.svg';
+import docIcon from '../../../public/img/projects/icon/doc.svg';
+import webIcon from '../../../public/img/projects/icon/web.svg';
+
 import scrollEventHandlerDesktop from '../../../public/img/projects/scroll_event_handler/macbook mockup.png';
 import scrollEventHandlerMobile from '../../../public/img/projects/scroll_event_handler/s10 mockup.png';
 import scrollEventHandlerLogo from '../../../public/img/projects/scroll_event_handler/logo.png';
@@ -34,6 +39,12 @@ import todoMobile from '../../../public/img/projects/todolist/s10 mockup.png';
 import todoLogo from '../../../public/img/projects/todolist/logo.png';
 
 export default {
+  iconsLink: {
+    github: gitHubIcon,
+    npm: npmIcon,
+    doc: docIcon,
+    project: webIcon,
+  },
   partsTranslate: {
     name: {
       fr: 'Nom',
@@ -46,6 +57,10 @@ export default {
     description: {
       fr: 'Description',
       en: 'Description',
+    },
+    languages: {
+      fr: 'Langages',
+      en: 'Languages',
     },
   },
   project: {
@@ -62,7 +77,7 @@ export default {
         doc: '',
         npm: '',
       },
-      languages: 'JavaScript Html Css',
+      languages: ['JavaScript', 'Html', 'Css'],
       fr: {
         name: 'Scroll event handler',
         type: 'Projet personnel',
