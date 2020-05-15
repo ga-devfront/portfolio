@@ -36,7 +36,6 @@
 
 <script>
 import ProjectContainer from '../projects/ProjectContainer.vue';
-import Listing from '../projects/Listing.vue';
 
 export default {
 
@@ -71,36 +70,39 @@ export default {
   data() {
     return {
       transition: '',
-      currentProject: Listing.project.scrollEventHandler,
+      currentProject: this.$store.state.Listing.project.scrollEventHandler,
     };
   },
   computed: {
+    listing() {
+      return this.$store.state.Listing.project;
+    },
     currentProjectKey() {
-      return Object.keys(Listing.project).indexOf(this.currentProject.path);
+      return Object.keys(this.listing).indexOf(this.currentProject.path);
     },
     currentProjectName() {
-      return Object.keys(Listing.project)[this.currentProjectKey];
+      return Object.keys(this.listing)[this.currentProjectKey];
     },
     nextProjectName() {
-      if (Object.keys(Listing.project)[this.currentProjectKey + 1] === undefined) {
-        return Object.keys(Listing.project)[0];
+      if (Object.keys(this.listing)[this.currentProjectKey + 1] === undefined) {
+        return Object.keys(this.listing)[0];
       }
-      return Object.keys(Listing.project)[this.currentProjectKey + 1];
+      return Object.keys(this.listing)[this.currentProjectKey + 1];
     },
     prevProjectName() {
-      if (Object.keys(Listing.project)[this.currentProjectKey - 1] === undefined) {
-        return Object.keys(Listing.project)[Object.keys(Listing.project).length - 1];
+      if (Object.keys(this.listing)[this.currentProjectKey - 1] === undefined) {
+        return Object.keys(this.listing)[Object.keys(this.listing).length - 1];
       }
-      return Object.keys(Listing.project)[this.currentProjectKey - 1];
+      return Object.keys(this.listing)[this.currentProjectKey - 1];
     },
   },
   methods: {
     nextProject() {
-      this.currentProject = Listing.project[this.nextProjectName];
+      this.currentProject = this.listing[this.nextProjectName];
       this.transition = 'nextTransition';
     },
     prevProject() {
-      this.currentProject = Listing.project[this.prevProjectName];
+      this.currentProject = this.listing[this.prevProjectName];
       this.transition = 'prevTransition';
     },
   },
