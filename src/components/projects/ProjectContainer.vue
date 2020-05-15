@@ -9,9 +9,45 @@
       alt="mobile project mokup"
       >
     </div>
-    <div id="description">
+    <div id="details">
       <img id="logo" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
-      <p>{{project[$store.getters.lang].type}}</p>
+      <p>
+        <span class="titlePart">
+          {{$store.state.Listing.partsTranslate.type[$store.getters.lang]}}:
+        </span>
+        {{project[$store.getters.lang].type}}
+      </p>
+      <p>
+        <span class="titlePart">
+          {{$store.state.Listing.partsTranslate.technologies[$store.getters.lang]}}:
+        </span>
+        <span
+        v-for="technologie in project.technologies"
+        v-bind:key="technologie"
+        :class="technologie.toLowerCase() + ' language'">
+          {{technologie}}
+        </span>
+      </p>
+      <p>
+        <span class="titlePart">
+          {{$store.state.Listing.partsTranslate.description[$store.getters.lang]}}:
+        </span>
+        <span v-html="project[$store.getters.lang].description"></span>
+      </p>
+      <div id="links">
+        <a v-if="project.links.github" :href="project.links.github" target="_blank">
+          <img :src="$store.state.Listing.iconsLink.github" alt="GitHub">
+        </a>
+        <a v-if="project.links.npm" :href="project.links.npm" target="_blank">
+          <img :src="$store.state.Listing.iconsLink.npm" alt="npm">
+        </a>
+        <a v-if="project.links.doc" :href="project.links.doc" download>
+          <img :src="$store.state.Listing.iconsLink.doc" alt="documentation">
+        </a>
+        <a v-if="project.links.project" :href="project.links.project" target="_blank">
+          <img :src="$store.state.Listing.iconsLink.project" alt="online project">
+        </a>
+      </div>
     </div>
   </article>
 </template>
@@ -52,7 +88,7 @@ article {
 #mokups {
   position: relative;
   top: 50%;
-  width: max-content;
+  width: 50%;
   #desktop {
     position: relative;
     transform: translate(0, -50%);
@@ -65,13 +101,79 @@ article {
   }
 }
 
-#description {
-  position: relative;
-  top: 50%;
-  #logo {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, -50%);
+p {
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+#links {
+  display: flex;
+  img {
+    margin: 0px 10px;
+    height: 35px;
+    width: 35px;
+    opacity: .8;
+    transition: all .2s;
+    &:hover {
+      opacity: 1;
+      transform: scale(.9);
   }
+  }
+}
+
+#details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: center;
+  top: 50%;
+  width: 50%;
+  transform: translate(0px, -50%);
+  #logo {
+    align-self: center;
+    position: relative;
+  }
+  .titlePart {
+    font-family: 'Aquawax', Arial;
+  }
+}
+
+.language {
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 0px 5px;
+  padding: 1px 5px;
+  &.html {
+    background: #e45126;
+  };
+  &.css {
+    background: #0c73b8;
+  };
+  &.javascript {
+    background: #e4a228;
+  };
+  &.sass {
+    background: #cc659a;
+  };
+  &.vuejs {
+    background: #34495e;
+  };
+  &.wordpress {
+    background: #32373c;
+  };
+  &.bootstrap {
+    background: #563d7c;
+  };
+  &.uml {
+    background: #1d4515;
+  };
+  &.api {
+    background: #1a8c70;
+  };
+  &.jasmine {
+    background: #8a4182;
+  };
 }
 </style>
