@@ -58,9 +58,9 @@ export default {
       fr: 'Description',
       en: 'Description',
     },
-    languages: {
-      fr: 'Langages',
-      en: 'Languages',
+    technologies: {
+      fr: 'Technologies',
+      en: 'Technologies',
     },
   },
   project: {
@@ -76,7 +76,7 @@ export default {
         project: 'https://ag-dev.fr/private/scroll-event-handler/demo/',
         npm: 'https://www.npmjs.com/package/scroll-event-handler',
       },
-      languages: ['JavaScript', 'Html', 'Css'],
+      technologies: ['JavaScript', 'Html', 'Css'],
       fr: {
         name: 'Scroll event handler',
         type: 'Projet personnel',
@@ -100,7 +100,7 @@ export default {
         github: 'https://github.com/ga-devfront/portfolio',
         project: 'https://ag-dev.fr/',
       },
-      languages: ['JavaScript', 'Html', 'Css', 'Sass', 'VueJS'],
+      technologies: ['JavaScript', 'Html', 'Css', 'Sass', 'VueJS'],
       fr: {
         name: 'Portfolio',
         type: '',
@@ -124,7 +124,7 @@ export default {
         project: 'https://ag-dev.fr/openclassrooms/wordpress/',
         doc: 'https://ag-dev.fr/documentation/chalet_et_caviar.pdf',
       },
-      languages: ['Html', 'Css', 'Wordpress'],
+      technologies: ['Html', 'Css', 'Wordpress'],
       fr: {
         name: 'Chalets et Caviar',
         type: '',
@@ -149,7 +149,7 @@ export default {
         project: 'https://ag-dev.fr/openclassrooms/festival/',
         doc: 'https://ag-dev.fr/documentation/ffpa.docx',
       },
-      languages: ['Html', 'Css', 'Bootstrap'],
+      technologies: ['Html', 'Css', 'Bootstrap'],
       fr: {
         name: 'Festival des films de plein air',
         type: '',
@@ -171,7 +171,7 @@ export default {
       links: {
         doc: 'https://ag-dev.fr/documentation/expressfood.zip',
       },
-      languages: ['UML'],
+      technologies: ['UML'],
       fr: {
         name: 'Express Food',
         type: '',
@@ -194,7 +194,7 @@ export default {
       links: {
         project: 'https://ag-dev.fr/openclassrooms/generator/',
       },
-      languages: ['JavaScript', 'Html', 'Css'],
+      technologies: ['JavaScript', 'Html', 'Css'],
       fr: {
         name: 'Super phrase generator',
         type: '',
@@ -217,7 +217,7 @@ export default {
         github: 'https://github.com/ga-devfront/spaceship-arenaV2',
         project: 'https://ag-dev.fr/openclassrooms/spaceship-arena/',
       },
-      languages: ['JavaScript', 'Html', 'Css'],
+      technologies: ['JavaScript', 'Html', 'Css'],
       fr: {
         name: 'Spaceship Arena',
         type: '',
@@ -241,7 +241,7 @@ export default {
         github: 'https://github.com/ga-devfront/foodaily-v2',
         project: 'https://ag-dev.fr/openclassrooms/foodaily/',
       },
-      languages: ['JavaScript', 'Html', 'Css', 'VueJS', 'API'],
+      technologies: ['JavaScript', 'Html', 'Css', 'VueJS', 'API'],
       fr: {
         name: 'Foodaily',
         type: '',
@@ -265,7 +265,7 @@ export default {
         github: 'https://github.com/ga-devfront/To-Do-List',
         project: 'https://ag-dev.fr/openclassrooms/todolist/',
       },
-      languages: ['JavaScript', 'Html', 'Css', 'Jasmine'],
+      technologies: ['JavaScript', 'Html', 'Css', 'Jasmine'],
       fr: {
         name: 'Todo list',
         type: '',
