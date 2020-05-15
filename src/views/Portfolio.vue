@@ -97,10 +97,10 @@ export default {
           touch: {
             x: {
               next: {
-                callback: () => {},
+                callback: () => { this.nextP = true; },
               },
               prev: {
-                callback: () => {},
+                callback: () => { this.prevP = true; },
               },
             },
           },
