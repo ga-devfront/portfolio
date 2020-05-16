@@ -130,12 +130,24 @@ svg {
   z-index: 1;
   &#leftArrow {
     left: 12%;
+    @media screen and (max-width:730px) {
+    left: 2%;
+    &:hover {
+      left: calc(2% - 10px);
+    }
+    };
     &:hover {
       left: calc(12% - 10px);
     }
   };
   &#rightArrow {
     right: 12%;
+    @media screen and (max-width:730px) {
+    right: 2%;
+    &:hover {
+      right: calc(2% - 10px);
+    }
+    };
     &:hover {
       right: calc(12% - 10px);
     }

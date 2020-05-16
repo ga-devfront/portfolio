@@ -1,5 +1,6 @@
 <template>
   <article>
+    <img id="logoMobile" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
     <div id="mokups">
       <picture id="desktop">
         <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
@@ -92,6 +93,24 @@ article {
   vertical-align: middle;
   width: 65%;
   height: 500px;
+  @media screen and (max-width:730px) {
+    justify-content: start;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+  };
+}
+
+#logoMobile {
+  display: none;
+  margin: {
+    left: auto;
+    right: auto;
+    top: 40px;
+  }
+  @media screen and (max-width:730px) {
+  display: inline;
+  };
 }
 
 #mokups {
@@ -99,16 +118,28 @@ article {
   top: 50%;
   width: 50%;
   transform: translate(0px, -50%);
+  @media screen and (max-width:730px) {
+    margin-bottom: 20px;
+    top: 20px;
+    transform: translate(0px, 0px);
+    text-align: center;
+    width: 100%;
+  };
   #desktop {
     position: absolute;
     top: 50%;
     transform: translate(0px, -50%);
+    @media screen and (max-width:730px) {
+      top: 0px;
+      position: relative;
+      transform: translate(0px, 0px);
+    };
   }
   #mobile {
     position: absolute;
     top: 50%;
-    right: 100px;
     transform: translate(0px, -50%);
+    right: 100px;
     @media screen and (max-width:1540px) {
       right: 100px;
       bottom: 70px;
@@ -116,7 +147,13 @@ article {
     @media screen and (max-width: 1100px) {
       right: 50px;
       bottom: 140px;
-    }
+    };
+    @media screen and (max-width:730px) {
+      top: 0px;
+      position: relative;
+      transform: translate(0px, 0px);
+      bottom: -5px;
+    };
   }
 }
 
@@ -151,9 +188,19 @@ p {
   top: 50%;
   width: 50%;
   transform: translate(0px, -50%);
+  @media screen and (max-width:730px) {
+    top: 0px;
+    transform: translate(0px, 0px);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  };
   #logo {
     align-self: center;
     position: relative;
+    @media screen and (max-width:730px) {
+    display:none;
+    };
   }
   .titlePart {
     font-family: 'Aquawax', Arial;
