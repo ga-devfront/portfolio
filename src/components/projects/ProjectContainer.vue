@@ -1,13 +1,16 @@
 <template>
   <article>
     <div id="mokups">
-      <img id="desktop" :src="project.preview.desktop" alt="desktop project mokup">
-      <img
-      id="mobile"
-      v-if="project.preview.mobile"
-      :src="project.preview.mobile"
-      alt="mobile project mokup"
-      >
+      <picture id="desktop">
+        <source media="(min-width: 1410px)" :srcset="project.preview.desktop.big">
+        <source media="(min-width: 700px)" :srcset="project.preview.desktop.medium">
+        <img :src="project.preview.desktop.small" alt="desktop project mokup">
+      </picture>
+      <picture id="mobile" v-if="project.preview.mobile">
+        <source media="(min-width: 1410px)" :srcset="project.preview.mobile.big">
+        <source media="(min-width: 700px)" :srcset="project.preview.mobile.medium">
+        <img :src="project.preview.mobile.small" alt="mobile project mokup">
+      </picture>
     </div>
     <div id="details">
       <img id="logo" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
