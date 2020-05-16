@@ -11,13 +11,16 @@
     </div>
     <div id="details">
       <img id="logo" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
-      <p>
+      <transition name="fadeTxt0" mode="out-in">
+      <p :key="'type' + $store.getters.lang">
         <span class="titlePart">
           {{$store.state.Listing.partsTranslate.type[$store.getters.lang]}}:
         </span>
         {{project[$store.getters.lang].type}}
       </p>
-      <p>
+      </transition>
+      <transition name="fadeTxt1" mode="out-in">
+      <p :key="'technos' + $store.getters.lang">
         <span class="titlePart">
           {{$store.state.Listing.partsTranslate.technologies[$store.getters.lang]}}:
         </span>
@@ -28,12 +31,15 @@
           {{technologie}}
         </span>
       </p>
-      <p>
+      </transition>
+      <transition name="fadeTxt2" mode="out-in">
+      <p :key="'description' + $store.getters.lang">
         <span class="titlePart">
-          {{$store.state.Listing.partsTranslate.description[$store.getters.lang]}}:
+          {{$store.state.Listing.partsTranslate.description[$store.getters.lang]}}: <br>
         </span>
         <span v-html="project[$store.getters.lang].description"></span>
       </p>
+      </transition>
       <div id="links">
         <a v-if="project.links.github" :href="project.links.github" target="_blank">
           <img :src="$store.state.Listing.iconsLink.github" alt="GitHub">
@@ -102,6 +108,8 @@ article {
 }
 
 p {
+  position: relative;
+  display: block;
   font-size: 0.9em;
   letter-spacing: 0.05em;
 }
@@ -139,12 +147,29 @@ p {
   }
 }
 
+@for $i from 0 through 2 {
+  .fadeTxt#{$i}-enter-active,
+  .fadeTxt#{$i}-leave-active {
+    transition: {
+    property: all;
+    duration: ($i * .2s) + .8s;
+    timing-function: ease-in-out;
+    };
+  };
+  .fadeTxt#{$i}-enter,
+  .fadeTxt#{$i}-leave-to {
+    opacity: 0;
+    transform: translate(50%);
+  };
+}
+
 .language {
+  letter-spacing: 0px;
   font-size: 0.8em;
   font-weight: bold;
   border-radius: 5px;
   margin: 0px 5px;
-  padding: 1px 5px;
+  padding: 2px 5px;
   &.html {
     background: #e45126;
   };
