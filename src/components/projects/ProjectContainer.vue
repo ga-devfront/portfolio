@@ -2,13 +2,13 @@
   <article>
     <div id="mokups">
       <picture id="desktop">
-        <source media="(min-width: 1410px)" :srcset="project.preview.desktop.big">
-        <source media="(min-width: 700px)" :srcset="project.preview.desktop.medium">
+        <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
+        <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium">
         <img :src="project.preview.desktop.small" alt="desktop project mokup">
       </picture>
       <picture id="mobile" v-if="project.preview.mobile">
-        <source media="(min-width: 1410px)" :srcset="project.preview.mobile.big">
-        <source media="(min-width: 700px)" :srcset="project.preview.mobile.medium">
+        <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big">
+        <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium">
         <img :src="project.preview.mobile.small" alt="mobile project mokup">
       </picture>
     </div>
@@ -90,7 +90,7 @@ article {
   display: flex;
   justify-content: space-around;
   vertical-align: middle;
-  width: 900px;
+  width: 65%;
   height: 500px;
 }
 
@@ -98,15 +98,25 @@ article {
   position: relative;
   top: 50%;
   width: 50%;
+  transform: translate(0px, -50%);
   #desktop {
-    position: relative;
-    transform: translate(0, -50%);
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
   }
   #mobile {
-    position: relative;
-    transform: translate(0, -50%);
-    left: -70px;
-    bottom: -10px;
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translate(0px, -50%);
+    @media screen and (max-width:1540px) {
+      right: 100px;
+      bottom: 70px;
+    };
+    @media screen and (max-width: 1100px) {
+      right: 50px;
+      bottom: 140px;
+    }
   }
 }
 
