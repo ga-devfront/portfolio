@@ -4,38 +4,71 @@ import npmIcon from '../../../public/img/projects/icon/npm.svg';
 import docIcon from '../../../public/img/projects/icon/doc.svg';
 import webIcon from '../../../public/img/projects/icon/web.svg';
 
-import scrollEventHandlerDesktop from '../../../public/img/projects/scroll_event_handler/macbook mockup.png';
-import scrollEventHandlerMobile from '../../../public/img/projects/scroll_event_handler/s10 mockup.png';
+
+import scrollEventHandlerDesktopBig from '../../../public/img/projects/scroll_event_handler/desktop-mockup/big.png';
+import scrollEventHandlerDesktopMedium from '../../../public/img/projects/scroll_event_handler/desktop-mockup/medium.png';
+import scrollEventHandlerDesktopSmall from '../../../public/img/projects/scroll_event_handler/desktop-mockup/small.png';
+import scrollEventHandlerMobileBig from '../../../public/img/projects/scroll_event_handler/mobile-mockup/big.png';
+import scrollEventHandlerMobileMedium from '../../../public/img/projects/scroll_event_handler/mobile-mockup/medium.png';
+import scrollEventHandlerMobileSmall from '../../../public/img/projects/scroll_event_handler/mobile-mockup/small.png';
 import scrollEventHandlerLogo from '../../../public/img/projects/scroll_event_handler/logo.png';
 
-import portfolioDesktop from '../../../public/img/projects/portfolio/macbook mockup.png';
-import portfolioMobile from '../../../public/img/projects/portfolio/s10 mockup.png';
+import portfolioDesktopBig from '../../../public/img/projects/portfolio/desktop-mockup/big.png';
+import portfolioDesktopMedium from '../../../public/img/projects/portfolio/desktop-mockup/medium.png';
+import portfolioDesktopSmall from '../../../public/img/projects/portfolio/desktop-mockup/small.png';
+import portfolioMobileBig from '../../../public/img/projects/portfolio/mobile-mockup/big.png';
+import portfolioMobileMedium from '../../../public/img/projects/portfolio/mobile-mockup/medium.png';
+import portfolioMobileSmall from '../../../public/img/projects/portfolio/mobile-mockup/small.png';
 import portfolioLogo from '../../../public/img/projects/portfolio/logo.png';
 
-import chaletsEtCaviarDesktop from '../../../public/img/projects/chalet_et_caviar/macbook mockup.png';
-import chaletsEtCaviarMobile from '../../../public/img/projects/chalet_et_caviar/s10 mockup.png';
+import chaletsEtCaviarDesktopBig from '../../../public/img/projects/chalet_et_caviar/desktop-mockup/big.png';
+import chaletsEtCaviarDesktopMedium from '../../../public/img/projects/chalet_et_caviar/desktop-mockup/medium.png';
+import chaletsEtCaviarDesktopSmall from '../../../public/img/projects/chalet_et_caviar/desktop-mockup/small.png';
+import chaletsEtCaviarMobileBig from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/big.png';
+import chaletsEtCaviarMobileMedium from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/medium.png';
+import chaletsEtCaviarMobileSmall from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/small.png';
 import chaletsEtCaviarLogo from '../../../public/img/projects/chalet_et_caviar/logo.png';
 
-import ffpaDesktop from '../../../public/img/projects/ffpa/macbook mockup.png';
-import ffpaMobile from '../../../public/img/projects/ffpa/s10 mockup.png';
+import ffpaDesktopBig from '../../../public/img/projects/ffpa/desktop-mockup/big.png';
+import ffpaDesktopMedium from '../../../public/img/projects/ffpa/desktop-mockup/medium.png';
+import ffpaDesktopSmall from '../../../public/img/projects/ffpa/desktop-mockup/small.png';
+import ffpaMobileBig from '../../../public/img/projects/ffpa/mobile-mockup/big.png';
+import ffpaMobileMedium from '../../../public/img/projects/ffpa/mobile-mockup/medium.png';
+import ffpaMobileSmall from '../../../public/img/projects/ffpa/mobile-mockup/small.png';
 import ffpaLogo from '../../../public/img/projects/ffpa/logo.png';
 
-import expressFoodDesktop from '../../../public/img/projects/expressfood/macbook mockup.png';
+import expressFoodDesktopBig from '../../../public/img/projects/expressfood/desktop-mockup/big.png';
+import expressFoodDesktopMedium from '../../../public/img/projects/expressfood/desktop-mockup/medium.png';
+import expressFoodDesktopSmall from '../../../public/img/projects/expressfood/desktop-mockup/small.png';
 import expressFoodLogo from '../../../public/img/projects/expressfood/logo.png';
 
-import botGeneratorDesktop from '../../../public/img/projects/citation/macbook mockup.png';
-import botGeneratorMobile from '../../../public/img/projects/citation/s10 mockup.png';
+import botGeneratorDesktopBig from '../../../public/img/projects/citation/desktop-mockup/big.png';
+import botGeneratorDesktopMedium from '../../../public/img/projects/citation/desktop-mockup/medium.png';
+import botGeneratorDesktopSmall from '../../../public/img/projects/citation/desktop-mockup/small.png';
+import botGeneratorMobileBig from '../../../public/img/projects/citation/mobile-mockup/big.png';
+import botGeneratorMobileMedium from '../../../public/img/projects/citation/mobile-mockup/medium.png';
+import botGeneratorMobileSmall from '../../../public/img/projects/citation/mobile-mockup/small.png';
 import botGeneratorLogo from '../../../public/img/projects/citation/logo.png';
 
-import spaceShipArenaDesktop from '../../../public/img/projects/spaceship_arena/macbook mockup.png';
+import spaceShipArenaDesktopBig from '../../../public/img/projects/spaceship_arena/desktop-mockup/big.png';
+import spaceShipArenaDesktopMedium from '../../../public/img/projects/spaceship_arena/desktop-mockup/medium.png';
+import spaceShipArenaDesktopSmall from '../../../public/img/projects/spaceship_arena/desktop-mockup/small.png';
 import spaceShipArenaLogo from '../../../public/img/projects/spaceship_arena/logo.png';
 
-import foodailyDesktop from '../../../public/img/projects/foodaily/macbook mockup.png';
-import foodailyMobile from '../../../public/img/projects/foodaily/s10 mockup.png';
+import foodailyDesktopBig from '../../../public/img/projects/foodaily/desktop-mockup/big.png';
+import foodailyDesktopMedium from '../../../public/img/projects/foodaily/desktop-mockup/medium.png';
+import foodailyDesktopSmall from '../../../public/img/projects/foodaily/desktop-mockup/small.png';
+import foodailyMobileBig from '../../../public/img/projects/foodaily/mobile-mockup/big.png';
+import foodailyMobileMedium from '../../../public/img/projects/foodaily/mobile-mockup/medium.png';
+import foodailyMobileSmall from '../../../public/img/projects/foodaily/mobile-mockup/small.png';
 import foodailyLogo from '../../../public/img/projects/foodaily/logo.png';
 
-import todoDesktop from '../../../public/img/projects/todolist/macbook mockup.png';
-import todoMobile from '../../../public/img/projects/todolist/s10 mockup.png';
+import todoDesktopBig from '../../../public/img/projects/todolist/desktop-mockup/big.png';
+import todoDesktopMedium from '../../../public/img/projects/todolist/desktop-mockup/medium.png';
+import todoDesktopSmall from '../../../public/img/projects/todolist/desktop-mockup/small.png';
+import todoMobileBig from '../../../public/img/projects/todolist/mobile-mockup/big.png';
+import todoMobileMedium from '../../../public/img/projects/todolist/mobile-mockup/medium.png';
+import todoMobileSmall from '../../../public/img/projects/todolist/mobile-mockup/small.png';
 import todoLogo from '../../../public/img/projects/todolist/logo.png';
 
 export default {
@@ -67,8 +100,16 @@ export default {
     scrollEventHandler: {
       path: 'scrollEventHandler',
       preview: {
-        desktop: scrollEventHandlerDesktop,
-        mobile: scrollEventHandlerMobile,
+        desktop: {
+          big: scrollEventHandlerDesktopBig,
+          medium: scrollEventHandlerDesktopMedium,
+          small: scrollEventHandlerDesktopSmall,
+        },
+        mobile: {
+          big: scrollEventHandlerMobileBig,
+          medium: scrollEventHandlerMobileMedium,
+          small: scrollEventHandlerMobileSmall,
+        },
       },
       logo: scrollEventHandlerLogo,
       links: {
@@ -98,8 +139,16 @@ export default {
     portfolio: {
       path: 'portfolio',
       preview: {
-        desktop: portfolioDesktop,
-        mobile: portfolioMobile,
+        desktop: {
+          big: portfolioDesktopBig,
+          medium: portfolioDesktopMedium,
+          small: portfolioDesktopSmall,
+        },
+        mobile: {
+          big: portfolioMobileBig,
+          medium: portfolioMobileMedium,
+          small: portfolioMobileSmall,
+        },
       },
       logo: portfolioLogo,
       links: {
@@ -126,8 +175,16 @@ export default {
     chaletsEtCaviar: {
       path: 'chaletsEtCaviar',
       preview: {
-        desktop: chaletsEtCaviarDesktop,
-        mobile: chaletsEtCaviarMobile,
+        desktop: {
+          big: chaletsEtCaviarDesktopBig,
+          medium: chaletsEtCaviarDesktopMedium,
+          small: chaletsEtCaviarDesktopSmall,
+        },
+        mobile: {
+          big: chaletsEtCaviarMobileBig,
+          medium: chaletsEtCaviarMobileMedium,
+          small: chaletsEtCaviarMobileSmall,
+        },
       },
       logo: chaletsEtCaviarLogo,
       links: {
@@ -155,8 +212,16 @@ export default {
     ffpa: {
       path: 'ffpa',
       preview: {
-        desktop: ffpaDesktop,
-        mobile: ffpaMobile,
+        desktop: {
+          big: ffpaDesktopBig,
+          medium: ffpaDesktopMedium,
+          small: ffpaDesktopSmall,
+        },
+        mobile: {
+          big: ffpaMobileBig,
+          medium: ffpaMobileMedium,
+          small: ffpaMobileSmall,
+        },
       },
       logo: ffpaLogo,
       links: {
@@ -183,7 +248,11 @@ export default {
     expressFood: {
       path: 'expressFood',
       preview: {
-        desktop: expressFoodDesktop,
+        desktop: {
+          big: expressFoodDesktopBig,
+          medium: expressFoodDesktopMedium,
+          small: expressFoodDesktopSmall,
+        },
       },
       logo: expressFoodLogo,
       links: {
@@ -209,8 +278,16 @@ export default {
     botGenerator: {
       path: 'botGenerator',
       preview: {
-        desktop: botGeneratorDesktop,
-        mobile: botGeneratorMobile,
+        desktop: {
+          big: botGeneratorDesktopBig,
+          medium: botGeneratorDesktopMedium,
+          small: botGeneratorDesktopSmall,
+        },
+        mobile: {
+          big: botGeneratorMobileBig,
+          medium: botGeneratorMobileMedium,
+          small: botGeneratorMobileSmall,
+        },
       },
       logo: botGeneratorLogo,
       links: {
@@ -234,7 +311,11 @@ export default {
     spaceShipArena: {
       path: 'spaceShipArena',
       preview: {
-        desktop: spaceShipArenaDesktop,
+        desktop: {
+          big: spaceShipArenaDesktopBig,
+          medium: spaceShipArenaDesktopMedium,
+          small: spaceShipArenaDesktopSmall,
+        },
       },
       logo: spaceShipArenaLogo,
       links: {
@@ -263,8 +344,16 @@ export default {
     foodaily: {
       path: 'foodaily',
       preview: {
-        desktop: foodailyDesktop,
-        mobile: foodailyMobile,
+        desktop: {
+          big: foodailyDesktopBig,
+          medium: foodailyDesktopMedium,
+          small: foodailyDesktopSmall,
+        },
+        mobile: {
+          big: foodailyMobileBig,
+          medium: foodailyMobileMedium,
+          small: foodailyMobileSmall,
+        },
       },
       logo: foodailyLogo,
       links: {
@@ -291,8 +380,16 @@ export default {
     todo: {
       path: 'todo',
       preview: {
-        desktop: todoDesktop,
-        mobile: todoMobile,
+        desktop: {
+          big: todoDesktopBig,
+          medium: todoDesktopMedium,
+          small: todoDesktopSmall,
+        },
+        mobile: {
+          big: todoMobileBig,
+          medium: todoMobileMedium,
+          small: todoMobileSmall,
+        },
       },
       logo: todoLogo,
       links: {
