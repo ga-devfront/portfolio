@@ -108,7 +108,11 @@ hr {
 }
 
 nav {
+  z-index: 0;
+  width: 10px;
   &.is-open {
+    width: 250px;
+    z-index: 1;
     backdrop-filter: blur(5px);
     background: rgb(0 0 0 /70%);
   }
@@ -116,7 +120,6 @@ nav {
   top: 0px;
   right: 0px;
   height: 100%;
-  width: 250px;
   transition: all 0.2s ease-in-out;
 }
 
