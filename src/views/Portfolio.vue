@@ -9,6 +9,10 @@
       :is="section.component"
       v-for="section in $store.state.Router.sections"
       v-if="isCurrentSection(section)"
+      :next="nextP"
+      :prev="prevP"
+      v-on:stopNext="stopNextP()"
+      v-on:stopPrev="stopPrevP()"
       :key="section.name.en"
       />
     </transition-group>
@@ -38,9 +42,18 @@ export default {
       scroll: 0,
       mobile: isMobile,
       background: this.$store.state.Router,
+      scrollListener: null,
+      nextP: false,
+      prevP: false,
     };
   },
   methods: {
+    stopNextP() {
+      this.nextP = false;
+    },
+    stopPrevP() {
+      this.prevP = false;
+    },
     isCurrentSection(section) {
       return this.$store.getters.getSectionName(section) === this.$store.getters.currentSectionName;
     },
@@ -49,12 +62,14 @@ export default {
       if (prevPos < 0) return;
       const futureSection = Object.values(this.$store.state.Router.sections)[prevPos];
       this.$store.commit('setSection', futureSection);
+      this.ProjectsChangeListener();
     },
     nextSection() {
       const nextPos = this.$store.getters.currentPosition + 1;
       if (nextPos >= this.$store.getters.sectionCount) return;
       const futureSection = Object.values(this.$store.state.Router.sections)[nextPos];
       this.$store.commit('setSection', futureSection);
+      this.ProjectsChangeListener();
     },
     initializeLang() {
       this.$store.state.language = 'fr';
@@ -66,19 +81,70 @@ export default {
       this.screenSize.screenHeight = document.documentElement.clientHeight;
       this.screenSize.screenWidth = document.documentElement.clientWidth;
     },
+    ProjectsChangeListener() {
+      if (this.$store.getters.currentSection === this.$store.state.Router.sections.projects) {
+        this.scrollListener.changeSettings({
+          scroll: {
+            x: {
+              next: {
+                callback: () => { this.nextP = true; },
+              },
+              prev: {
+                callback: () => { this.prevP = true; },
+              },
+            },
+          },
+          touch: {
+            x: {
+              next: {
+                callback: () => { this.nextP = true; },
+              },
+              prev: {
+                callback: () => { this.prevP = true; },
+              },
+            },
+          },
+        });
+      } else {
+        this.scrollListener.changeSettings({
+          scroll: {
+            x: {
+              next: {
+                callback: () => {},
+              },
+              prev: {
+                callback: () => {},
+              },
+            },
+          },
+          touch: {
+            x: {
+              next: {
+                callback: () => {},
+              },
+              prev: {
+                callback: () => {},
+              },
+            },
+          },
+        });
+      }
+    },
   },
   created() {
     window.addEventListener('resize', this.displayWindowSize);
     this.displayWindowSize();
   },
   mounted() {
-    const scrollListener = new ScrollListener({
+    this.scrollListener = new ScrollListener({
       scroll: {
         y: {
           next: {
+            value: 5,
             callback: this.nextSection,
           },
           prev: {
+            value: 5,
             callback: this.prevSection,
           },
         },
@@ -94,6 +160,7 @@ export default {
         },
       },
     });
+    this.ProjectsChangeListener();
   },
 };
 </script>

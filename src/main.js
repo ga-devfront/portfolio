@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Router from './Router.vue';
 import Txt from './Txt.vue';
+import Listing from './components/projects/Listing.vue';
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ const store = new Vuex.Store({
     currentPath: window.location.pathname,
     Router,
     Txt,
+    Listing,
   },
   mutations: {
     setSection(state, section) {
