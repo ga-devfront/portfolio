@@ -21,7 +21,10 @@
           </template>
         </p>
       </article>
-    <img src="../../../public/img/about-picture.png">
+    <figure>
+      <img src="../../../public/img/about-picture.png" alt="picture">
+      <figcaption><a href="https://www.instagram.com/non_creation/?hl=fr" target="_blank">@non_creation</a></figcaption>
+    </figure>
   </section>
 </template>
 
@@ -125,9 +128,8 @@ p {
   }
 }
 
-img {
-  margin-left: 40px;
-  filter: drop-shadow(30px -10px 20px rgb(0 0 0 / 30%));
+figure {
+  position: relative;
   @media screen and (min-width: $tablet) {
     animation: enterRight 0.8s;
   }
@@ -146,6 +148,29 @@ img {
   }
   @media screen and (max-height: 500px) {
     top: 5%;
+  }
+  img {
+    margin-left: 40px;
+  filter: drop-shadow(30px -10px 20px rgb(0 0 0 / 30%));
+  }
+  figcaption {
+    position: absolute;
+    bottom: 22%;
+    right: -60px;
+    transform: rotate(-90deg);
+    @media screen and (max-width: $tablet) {
+      display: none;
+    }
+    font-size: 0.7em;
+    opacity: 0.7;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
   }
 }
 
