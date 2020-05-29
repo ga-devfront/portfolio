@@ -11,7 +11,8 @@ import scrollEventHandlerDesktopSmall from '../../../public/img/projects/scroll_
 import scrollEventHandlerMobileBig from '../../../public/img/projects/scroll_event_handler/mobile-mockup/big.png';
 import scrollEventHandlerMobileMedium from '../../../public/img/projects/scroll_event_handler/mobile-mockup/medium.png';
 import scrollEventHandlerMobileSmall from '../../../public/img/projects/scroll_event_handler/mobile-mockup/small.png';
-import scrollEventHandlerLogo from '../../../public/img/projects/scroll_event_handler/logo.png';
+import scrollEventHandlerLogoBig from '../../../public/img/projects/scroll_event_handler/logo-big.png';
+import scrollEventHandlerLogoSmall from '../../../public/img/projects/scroll_event_handler/logo-small.png';
 
 import portfolioDesktopBig from '../../../public/img/projects/portfolio/desktop-mockup/big.png';
 import portfolioDesktopMedium from '../../../public/img/projects/portfolio/desktop-mockup/medium.png';
@@ -19,7 +20,8 @@ import portfolioDesktopSmall from '../../../public/img/projects/portfolio/deskto
 import portfolioMobileBig from '../../../public/img/projects/portfolio/mobile-mockup/big.png';
 import portfolioMobileMedium from '../../../public/img/projects/portfolio/mobile-mockup/medium.png';
 import portfolioMobileSmall from '../../../public/img/projects/portfolio/mobile-mockup/small.png';
-import portfolioLogo from '../../../public/img/projects/portfolio/logo.png';
+import portfolioLogoBig from '../../../public/img/projects/portfolio/logo-big.png';
+import portfolioLogoSmall from '../../../public/img/projects/portfolio/logo-small.png';
 
 import chaletsEtCaviarDesktopBig from '../../../public/img/projects/chalet_et_caviar/desktop-mockup/big.png';
 import chaletsEtCaviarDesktopMedium from '../../../public/img/projects/chalet_et_caviar/desktop-mockup/medium.png';
@@ -27,7 +29,8 @@ import chaletsEtCaviarDesktopSmall from '../../../public/img/projects/chalet_et_
 import chaletsEtCaviarMobileBig from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/big.png';
 import chaletsEtCaviarMobileMedium from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/medium.png';
 import chaletsEtCaviarMobileSmall from '../../../public/img/projects/chalet_et_caviar/mobile-mockup/small.png';
-import chaletsEtCaviarLogo from '../../../public/img/projects/chalet_et_caviar/logo.png';
+import chaletsEtCaviarLogoBig from '../../../public/img/projects/chalet_et_caviar/logo-big.png';
+import chaletsEtCaviarLogoSmall from '../../../public/img/projects/chalet_et_caviar/logo-small.png';
 
 import ffpaDesktopBig from '../../../public/img/projects/ffpa/desktop-mockup/big.png';
 import ffpaDesktopMedium from '../../../public/img/projects/ffpa/desktop-mockup/medium.png';
@@ -35,12 +38,14 @@ import ffpaDesktopSmall from '../../../public/img/projects/ffpa/desktop-mockup/s
 import ffpaMobileBig from '../../../public/img/projects/ffpa/mobile-mockup/big.png';
 import ffpaMobileMedium from '../../../public/img/projects/ffpa/mobile-mockup/medium.png';
 import ffpaMobileSmall from '../../../public/img/projects/ffpa/mobile-mockup/small.png';
-import ffpaLogo from '../../../public/img/projects/ffpa/logo.png';
+import ffpaLogoBig from '../../../public/img/projects/ffpa/logo-big.png';
+import ffpaLogoSmall from '../../../public/img/projects/ffpa/logo-small.png';
 
 import expressFoodDesktopBig from '../../../public/img/projects/expressfood/desktop-mockup/big.png';
 import expressFoodDesktopMedium from '../../../public/img/projects/expressfood/desktop-mockup/medium.png';
 import expressFoodDesktopSmall from '../../../public/img/projects/expressfood/desktop-mockup/small.png';
-import expressFoodLogo from '../../../public/img/projects/expressfood/logo.png';
+import expressFoodLogoBig from '../../../public/img/projects/expressfood/logo-big.png';
+import expressFoodLogoSmall from '../../../public/img/projects/expressfood/logo-small.png';
 
 import botGeneratorDesktopBig from '../../../public/img/projects/citation/desktop-mockup/big.png';
 import botGeneratorDesktopMedium from '../../../public/img/projects/citation/desktop-mockup/medium.png';
@@ -48,12 +53,14 @@ import botGeneratorDesktopSmall from '../../../public/img/projects/citation/desk
 import botGeneratorMobileBig from '../../../public/img/projects/citation/mobile-mockup/big.png';
 import botGeneratorMobileMedium from '../../../public/img/projects/citation/mobile-mockup/medium.png';
 import botGeneratorMobileSmall from '../../../public/img/projects/citation/mobile-mockup/small.png';
-import botGeneratorLogo from '../../../public/img/projects/citation/logo.png';
+import botGeneratorLogoBig from '../../../public/img/projects/citation/logo-big.png';
+import botGeneratorLogoSmall from '../../../public/img/projects/citation/logo-small.png';
 
 import spaceShipArenaDesktopBig from '../../../public/img/projects/spaceship_arena/desktop-mockup/big.png';
 import spaceShipArenaDesktopMedium from '../../../public/img/projects/spaceship_arena/desktop-mockup/medium.png';
 import spaceShipArenaDesktopSmall from '../../../public/img/projects/spaceship_arena/desktop-mockup/small.png';
-import spaceShipArenaLogo from '../../../public/img/projects/spaceship_arena/logo.png';
+import spaceShipArenaLogoBig from '../../../public/img/projects/spaceship_arena/logo-big.png';
+import spaceShipArenaLogoSmall from '../../../public/img/projects/spaceship_arena/logo-small.png';
 
 import foodailyDesktopBig from '../../../public/img/projects/foodaily/desktop-mockup/big.png';
 import foodailyDesktopMedium from '../../../public/img/projects/foodaily/desktop-mockup/medium.png';
@@ -61,7 +68,8 @@ import foodailyDesktopSmall from '../../../public/img/projects/foodaily/desktop-
 import foodailyMobileBig from '../../../public/img/projects/foodaily/mobile-mockup/big.png';
 import foodailyMobileMedium from '../../../public/img/projects/foodaily/mobile-mockup/medium.png';
 import foodailyMobileSmall from '../../../public/img/projects/foodaily/mobile-mockup/small.png';
-import foodailyLogo from '../../../public/img/projects/foodaily/logo.png';
+import foodailyLogoBig from '../../../public/img/projects/foodaily/logo-big.png';
+import foodailyLogoSmall from '../../../public/img/projects/foodaily/logo-small.png';
 
 import todoDesktopBig from '../../../public/img/projects/todolist/desktop-mockup/big.png';
 import todoDesktopMedium from '../../../public/img/projects/todolist/desktop-mockup/medium.png';
@@ -69,7 +77,8 @@ import todoDesktopSmall from '../../../public/img/projects/todolist/desktop-mock
 import todoMobileBig from '../../../public/img/projects/todolist/mobile-mockup/big.png';
 import todoMobileMedium from '../../../public/img/projects/todolist/mobile-mockup/medium.png';
 import todoMobileSmall from '../../../public/img/projects/todolist/mobile-mockup/small.png';
-import todoLogo from '../../../public/img/projects/todolist/logo.png';
+import todoLogoBig from '../../../public/img/projects/todolist/logo-big.png';
+import todoLogoSmall from '../../../public/img/projects/todolist/logo-small.png';
 
 export default {
   iconsLink: {
@@ -111,7 +120,10 @@ export default {
           small: scrollEventHandlerMobileSmall,
         },
       },
-      logo: scrollEventHandlerLogo,
+      logo: {
+        big: scrollEventHandlerLogoBig,
+        small: scrollEventHandlerLogoSmall,
+      },
       links: {
         github: 'https://github.com/ga-devfront/scroll-event-handler',
         project: 'https://ag-dev.fr/private/scroll-event-handler/demo/',
@@ -150,7 +162,10 @@ export default {
           small: portfolioMobileSmall,
         },
       },
-      logo: portfolioLogo,
+      logo: {
+        big: portfolioLogoBig,
+        small: portfolioLogoSmall,
+      },
       links: {
         github: 'https://github.com/ga-devfront/portfolio',
         project: 'https://ag-dev.fr/',
@@ -186,7 +201,10 @@ export default {
           small: chaletsEtCaviarMobileSmall,
         },
       },
-      logo: chaletsEtCaviarLogo,
+      logo: {
+        big: chaletsEtCaviarLogoBig,
+        small: chaletsEtCaviarLogoSmall,
+      },
       links: {
         project: 'https://ag-dev.fr/openclassrooms/wordpress/',
         doc: 'https://ag-dev.fr/documentation/chalet_et_caviar.pdf',
@@ -223,7 +241,10 @@ export default {
           small: ffpaMobileSmall,
         },
       },
-      logo: ffpaLogo,
+      logo: {
+        big: ffpaLogoBig,
+        small: ffpaLogoSmall,
+      },
       links: {
         project: 'https://ag-dev.fr/openclassrooms/festival/',
         doc: 'https://ag-dev.fr/documentation/ffpa.docx',
@@ -254,7 +275,10 @@ export default {
           small: expressFoodDesktopSmall,
         },
       },
-      logo: expressFoodLogo,
+      logo: {
+        big: expressFoodLogoBig,
+        small: expressFoodLogoSmall,
+      },
       links: {
         doc: 'https://ag-dev.fr/documentation/expressfood.zip',
       },
@@ -289,7 +313,10 @@ export default {
           small: botGeneratorMobileSmall,
         },
       },
-      logo: botGeneratorLogo,
+      logo: {
+        big: botGeneratorLogoBig,
+        small: botGeneratorLogoSmall,
+      },
       links: {
         project: 'https://ag-dev.fr/openclassrooms/generator/',
       },
@@ -317,7 +344,10 @@ export default {
           small: spaceShipArenaDesktopSmall,
         },
       },
-      logo: spaceShipArenaLogo,
+      logo: {
+        big: spaceShipArenaLogoBig,
+        small: spaceShipArenaLogoSmall,
+      },
       links: {
         github: 'https://github.com/ga-devfront/spaceship-arenaV2',
         project: 'https://ag-dev.fr/openclassrooms/spaceship-arena/',
@@ -355,7 +385,10 @@ export default {
           small: foodailyMobileSmall,
         },
       },
-      logo: foodailyLogo,
+      logo: {
+        big: foodailyLogoBig,
+        small: foodailyLogoSmall,
+      },
       links: {
         github: 'https://github.com/ga-devfront/foodaily-v2',
         project: 'https://ag-dev.fr/openclassrooms/foodaily/',
@@ -391,7 +424,10 @@ export default {
           small: todoMobileSmall,
         },
       },
-      logo: todoLogo,
+      logo: {
+        big: todoLogoBig,
+        small: todoLogoSmall,
+      },
       links: {
         github: 'https://github.com/ga-devfront/To-Do-List',
         project: 'https://ag-dev.fr/openclassrooms/todolist/',
