@@ -1,20 +1,26 @@
 <template>
   <article>
-    <img id="logoMobile" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
-    <div id="mokups">
-      <picture id="desktop">
-        <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
-        <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium">
-        <img :src="project.preview.desktop.small" alt="desktop project mokup">
-      </picture>
-      <picture id="mobile" v-if="project.preview.mobile">
-        <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big">
-        <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium">
-        <img :src="project.preview.mobile.small" alt="mobile project mokup">
-      </picture>
+    <div id="leftPart">
+      <img
+      id="logoMobile"
+      :src="project.logo.small"
+      :alt="project[$store.getters.lang].name + ' logo'"
+      >
+      <div id="mokups">
+        <picture id="desktop">
+          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
+          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium">
+          <img :src="project.preview.desktop.small" alt="desktop project mokup">
+        </picture>
+        <picture id="mobile" v-if="project.preview.mobile">
+          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big">
+          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium">
+          <img :src="project.preview.mobile.small" alt="mobile project mokup">
+        </picture>
+      </div>
     </div>
     <div id="details">
-      <img id="logo" :src="project.logo" :alt="project[$store.getters.lang].name + ' logo'">
+      <img id="logo" :src="project.logo.big" :alt="project[$store.getters.lang].name + ' logo'">
       <transition name="fadeTxt0" mode="out-in">
       <p :key="'type' + $store.getters.lang">
         <span class="titlePart">
@@ -88,72 +94,63 @@ export default {
 
 <style lang="scss" scoped>
 article {
+  margin: {
+    top: auto;
+    bottom: auto;
+  }
   display: flex;
+  position: relative;
+  z-index: 0;
   justify-content: space-around;
   vertical-align: middle;
   width: 65%;
-  height: 500px;
-  @media screen and (max-width:730px) {
+  @media screen and (max-width:760px) {
     justify-content: start;
     flex-direction: column;
-    height: 100%;
     width: 80%;
   };
+  @media screen and (max-width:850px) and (orientation: landscape) {
+    flex-direction: initial;
+    width: 90%;
+  }
+}
+
+#leftPart {
+  margin: auto;
+  @media screen and (max-width:760px) {
+    margin: {
+      bottom: 10px;
+    }
+  };
+  @media screen and (max-width: 850px) and (orientation: landscape) {
+    margin: auto;
+  }
 }
 
 #logoMobile {
-  display: none;
   margin: {
     left: auto;
     right: auto;
-    top: 40px;
+    bottom: 10px;
   }
-  @media screen and (max-width:730px) {
-  display: inline;
+  display: none;
+  @media screen and (max-width:760px) {
+  display: block;
   };
 }
 
 #mokups {
   position: relative;
-  top: 50%;
-  width: 50%;
-  transform: translate(0px, -50%);
-  @media screen and (max-width:730px) {
-    margin-bottom: 20px;
-    top: 20px;
-    transform: translate(0px, 0px);
-    text-align: center;
-    width: 100%;
-  };
+  max-width: 550px;
+  max-height: 285px;
   #desktop {
-    position: absolute;
-    top: 50%;
-    transform: translate(0px, -50%);
-    @media screen and (max-width:730px) {
-      top: 0px;
-      position: relative;
-      transform: translate(0px, 0px);
-    };
+    margin-left: auto;
+    margin-right: auto;
   }
   #mobile {
     position: absolute;
-    top: 50%;
-    transform: translate(0px, -50%);
-    right: 100px;
-    @media screen and (max-width:1540px) {
-      right: 100px;
-      bottom: 70px;
-    };
-    @media screen and (max-width: 1100px) {
-      right: 50px;
-      bottom: 140px;
-    };
-    @media screen and (max-width:730px) {
-      top: 0px;
-      position: relative;
-      transform: translate(0px, 0px);
-      bottom: -5px;
-    };
+    bottom: 0px;
+    right: 0px;
   }
 }
 
@@ -162,6 +159,10 @@ p {
   display: block;
   font-size: 0.9em;
   letter-spacing: 0.05em;
+  @media screen and (max-width:850px) {
+    font-size: .8em;
+    margin: .3em;
+  }
 }
 
 #links {
@@ -180,30 +181,30 @@ p {
 }
 
 #details {
-  position: relative;
+  margin: {
+    left: 50px;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
   vertical-align: center;
-  top: 50%;
-  width: 50%;
-  transform: translate(0px, -50%);
-  @media screen and (max-width:730px) {
-    top: 0px;
-    transform: translate(0px, 0px);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  };
-  #logo {
-    align-self: center;
-    position: relative;
-    @media screen and (max-width:730px) {
-    display:none;
-    };
+  @media screen and (max-width: 760px) {
+    margin: auto;
   }
   .titlePart {
     font-family: 'Aquawax', Arial;
+  }
+  #logo {
+    margin: {
+      left: auto;
+      right: auto;
+    };
+    @media screen and (max-width: 760px) {
+      display: none;
+    }
   }
 }
 

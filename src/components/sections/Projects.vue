@@ -24,8 +24,8 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px"
     y="0px"
-    viewBox="0 0 492.004 492.004"
-    style="enable-background:new 0 0 492.004 492.004;"
+    viewBox="0 0 492 492"
+    style="enable-background:new 0 0 492 492;"
     xml:space="preserve"
     v-on:click="nextProject()">
       <!--eslint-disable-next-line-->
@@ -130,27 +130,29 @@ svg {
   z-index: 1;
   &#leftArrow {
     left: 12%;
-    @media screen and (max-width:730px) {
-    left: 2%;
-    &:hover {
-      left: calc(2% - 10px);
-    }
-    };
     &:hover {
       left: calc(12% - 10px);
     }
+    @media screen and (max-width:850px) {
+      height: 30px;
+      left: 2%;
+      &:hover {
+        left: calc(2% - 10px);
+      }
+    };
   };
   &#rightArrow {
     right: 12%;
-    @media screen and (max-width:730px) {
-    right: 2%;
-    &:hover {
-      right: calc(2% - 10px);
-    }
-    };
     &:hover {
       right: calc(12% - 10px);
     }
+    @media screen and (max-width:850px) {
+      height: 30px;
+      right: 2%;
+      &:hover {
+        right: calc(2% - 10px);
+      }
+    };
   };
   fill: $white;
   fill-opacity: 0.7;
