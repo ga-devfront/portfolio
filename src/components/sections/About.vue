@@ -126,7 +126,8 @@ p {
 }
 
 img {
-  margin-left: 20px;
+  margin-left: 40px;
+  filter: drop-shadow(30px -10px 20px rgb(0 0 0 / 30%));
   @media screen and (min-width: $tablet) {
     animation: enterRight 0.8s;
   }
