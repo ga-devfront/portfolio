@@ -30,5 +30,53 @@ export default {
       },
     },
   },
+  contact: {
+    button: {
+      send: {
+        fr: 'Envoyer',
+        en: 'Send',
+      },
+    },
+    input: {
+      valid: {
+        fr: 'Valide',
+        en: 'Valid',
+      },
+      required: {
+        fr: '*Requis',
+        en: '*Required',
+      },
+      subject: {
+        title: {
+          fr: 'Sujet',
+          en: 'Subject',
+        },
+        error: {
+          fr: 'Erreur : Votre sujet doit faire plus de 3 caractères.',
+          en: 'Error: Your subject must be longer than 3 characters.',
+        },
+      },
+      mail: {
+        title: {
+          fr: 'Email',
+          en: 'Email',
+        },
+        error: {
+          fr: 'Erreur : Votre adresse e-mail n\'est pas valide.',
+          en: 'Error : Your email address is not valid.',
+        },
+      },
+      text: {
+        title: {
+          fr: 'Message',
+          en: 'Message',
+        },
+        error: {
+          fr: 'Erreur : Votre message doit faire plus de 10 caractères.',
+          en: 'Error: Your message must be longer than 10 characters.',
+        },
+      },
+    },
+  },
 };
 </script>
