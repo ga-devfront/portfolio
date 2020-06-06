@@ -86,7 +86,7 @@
           <svg id="socialSVG" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"/><path d="M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5h-4z"/></svg>
           {{$store.state.Txt.contact.social[$store.getters.lang]}}
         </h2>
-        <div class="sectionGroup" id="socials">
+        <div class="sectionGroup closed" id="socials">
           <a class="social" id="linkedin" href="https://www.linkedin.com/in/alexis-guyomar/" target="_blank">
             <div class="hover">
               <div class="socialIcon">
@@ -451,17 +451,23 @@ $facebook-color: #1877F2;
 }
 
 .sectionGroup {
-  float: top;
   height: auto;
   position: relative;
   overflow: hidden;
   border-top: 2px solid #ffffff;
   padding-top: 10px;
   transition: all .4s;
-  &.closed {
-    margin-top: -200%;
-    opacity: 0;
-    pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 800px) {
+    &.closed {
+      height: 0px;
+      display: hidden;
+      padding-bottom: 40px;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 
@@ -476,6 +482,17 @@ section {
     display: flex;
     justify-content: space-between;
     vertical-align: top;
+    @media screen and (max-width: 1200px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 980px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      justify-content: start;
+      max-height: 100%;
+    }
   }
 }
 
