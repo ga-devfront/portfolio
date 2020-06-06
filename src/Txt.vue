@@ -31,10 +31,22 @@ export default {
     },
   },
   contact: {
+    contact: {
+      fr: 'Formulaire de contact',
+      en: 'Contact form',
+    },
+    social: {
+      fr: 'Retrouvez moi aussi sur',
+      en: 'Also find me on',
+    },
     button: {
       send: {
         fr: 'Envoyer',
         en: 'Send',
+      },
+      sended: {
+        fr: 'Envoyé avec succès',
+        en: 'Successfully sent',
       },
     },
     input: {
