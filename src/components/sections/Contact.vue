@@ -473,25 +473,6 @@ $facebook-color: #1877F2;
   text-shadow: stroke($stroke, $color);
 }
 
-.sectionGroup {
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  border-top: 2px solid #ffffff;
-  padding-top: 10px;
-  transition: all .4s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media screen and (max-width: 760px) {
-  &.closed {
-    height: 0px;
-    opacity: 0;
-    pointer-events: none;
-  }
-  }
-}
-
 section {
   height: 100%;
   width: 100%;
@@ -546,6 +527,25 @@ h2 {
     fill: #ffffff;
     margin-bottom: -3px;
     width: 30px;
+  }
+}
+
+.sectionGroup {
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #ffffff;
+  padding-top: 10px;
+  transition: all .4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 760px) {
+    &.closed {
+      margin-bottom: -130%;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 
