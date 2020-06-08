@@ -490,10 +490,13 @@ section {
     @media screen and (max-width: 980px) {
       width: 90%;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 760px) {
       flex-direction: column;
       justify-content: start;
       max-height: 100%;
+    }
+    @media screen and (max-width: 360px) {
+    align-items: stretch;
     }
   }
 }
@@ -518,6 +521,9 @@ h2 {
   cursor: pointer;
   margin-bottom: 5px;
   font-family: $title-font;
+  @media screen and (max-width: 360px) {
+    font-size: 1.3em;
+  }
   #contactSVG {
     fill: #ffffff;
     margin-bottom: -5px;
