@@ -6,7 +6,7 @@
           Menu
         </h3>
       </transition>
-      <button id="hamburger" @click="open = !open" :class="isOpen" class="hamburger">
+      <button id="hamburger" @click="open = !open" :class="isOpen" class="hamburger" aria-label="display menu">
         <div id="hamburgerTop"></div>
         <svg
         version="1.1"

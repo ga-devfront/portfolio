@@ -180,7 +180,7 @@
               <span>Instagram</span>
             </div>
           </a>
-          <a class="social" id="facebook" href="https://www.facebook.com/agdevfront/" target="_blank">
+          <a class="social" id="facebook" href="https://www.facebook.com/agdevfront/" target="_blank" rel="noopener">
             <div class="hover">
               <div class="socialIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 24 24" width="30">
