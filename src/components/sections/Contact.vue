@@ -460,14 +460,12 @@ $facebook-color: #1877F2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (max-width: 800px) {
-    &.closed {
-      height: 0px;
-      display: hidden;
-      padding-bottom: 40px;
-      opacity: 0;
-      pointer-events: none;
-    }
+  @media screen and (max-width: 760px) {
+  &.closed {
+    height: 0px;
+    opacity: 0;
+    pointer-events: none;
+  }
   }
 }
 
@@ -504,6 +502,9 @@ textarea#text {
     top: 10px;
     bottom: 10px;
   };
+  @media screen and (max-width: 360px) {
+    height: 180px;
+  }
   & ~ .input-icon {
     bottom: 30px;
   }
@@ -543,6 +544,10 @@ h2 {
     border: 2px solid;
     font-size: 1em;
     font-weight: bold;
+    @media screen and (max-width: 360px) {
+      width: 280px;
+      margin: 10px 0px;
+    }
     &:focus {
       outline: none;
     }
@@ -699,6 +704,9 @@ h2 {
   color: #525252;
   font-weight: bold;
   transition: all .2s;
+  @media screen and (max-width: 360px) {
+      width: 280px;
+    }
   &.sended {
     animation: sendCompletButton 3s;
     #sendTxt {
@@ -800,6 +808,9 @@ h2 {
     }
     padding: 0px 20px;
     width: 300px;
+    @media screen and (max-width: 360px) {
+      width: 240px;
+    }
     height: 2rem;
     background: #c6c6c6;
     transition: all .2s;
