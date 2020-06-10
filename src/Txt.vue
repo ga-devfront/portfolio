@@ -1,5 +1,9 @@
 <script>
 export default {
+  progress: {
+    fr: 'Je suis actuellement entrain de coder cette page, revenez plus tard !',
+    en: 'I\'m currently coding this page, come back later!',
+  },
   home: {
     title: {
       fr: 'Développeur d\'application frontend',
