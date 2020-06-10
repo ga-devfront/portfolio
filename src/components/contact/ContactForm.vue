@@ -1,6 +1,7 @@
 <template>
+<!-- eslint-disable max-len -->
   <div>
-    <h2 v-on:click="displaySections()">
+    <h2 v-on:click="$emit('switchDisplay');">
       <svg id="contactSVG" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 24 24" width="28">
         <title>contact icon</title>
         <path d="M0 0h24v24H0V0z" fill="none"/>
@@ -8,7 +9,7 @@
       </svg>
       {{$store.state.Txt.contact.contact[$store.getters.lang]}}
     </h2>
-    <div class="sectionGroup" id="contactForm">
+    <div :class="'sectionGroup ' + display" id="contactForm">
       <form>
         <div class="input-group">
           <input id="subject" class="text-field" name="subject" type="text">
@@ -97,6 +98,12 @@
 
 export default {
   name: 'ContactForm',
+  props: {
+    display: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       subjectInput: false,
@@ -292,6 +299,7 @@ export default {
     });
 
     mailInput.addEventListener('input', () => {
+      // eslint-disable-next-line
       const testMail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/8=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
       if (!testMail.test(mailInput.value)) {
         this.mailInput = false;
@@ -357,6 +365,23 @@ $valid-color: #17b6e3;
   text-shadow: stroke($stroke, $color);
 }
 
+.sectionGroup {
+  transition: all .2s ease-in-out;
+  transform-origin: top;
+    @media screen and (max-width: 760px) {
+      &.open {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+      &.closed {
+        margin-top: -100%;
+        opacity: 0;
+        transform: scaleY(0);
+        pointer-events: none;
+      }
+    }
+}
+
 textarea#text {
   height: 300px;
   font-family: Arial;
@@ -377,6 +402,7 @@ h2 {
   cursor: pointer;
   margin-bottom: 5px;
   font-family: $title-font;
+  border-bottom: 2px solid #ffffff;
   @media screen and (max-width: 360px) {
     font-size: 1.3em;
   }

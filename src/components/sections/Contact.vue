@@ -1,10 +1,18 @@
 <template>
   <section>
       <transition name="contact" mode="out-in">
-        <ContactForm :key="'contact' + $store.getters.lang" class="contactAnimation"/>
+        <ContactForm
+        :key="'contact' + $store.getters.lang"
+        class="contactAnimation"
+        :display="displayContact"
+        v-on:switchDisplay="displayComponents"/>
       </transition>
       <transition name="social" mode="out-in">
-        <SocialContact :key="'social' + $store.getters.lang" class="socialAnimation"/>
+        <SocialContact
+        :key="'social' + $store.getters.lang"
+        class="socialAnimation"
+        :display="displaySocial"
+        v-on:switchDisplay="displayComponents"/>
       </transition>
   </section>
 </template>
@@ -21,11 +29,25 @@ export default {
   },
   data() {
     return {
+      displayContact: 'open',
+      displaySocial: 'closed',
     };
   },
   computed: {
   },
   methods: {
+    displayComponents() {
+      if (this.displayContact === 'open') {
+        this.displayContact = 'closed';
+      } else {
+        this.displayContact = 'open';
+      }
+      if (this.displaySocial === 'closed') {
+        this.displaySocial = 'open';
+      } else {
+        this.displaySocial = 'closed';
+      }
+    },
   },
 };
 </script>
@@ -37,19 +59,13 @@ section {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  @media screen and (max-width: 1200px) {
-    width: 70%;
-  }
-  @media screen and (max-width: 980px) {
-    width: 90%;
-  }
   @media screen and (max-width: 760px) {
     flex-direction: column;
     justify-content: start;
     max-height: 100%;
   }
   @media screen and (max-width: 360px) {
-  align-items: stretch;
+  align-items: center;
   }
 }
 
