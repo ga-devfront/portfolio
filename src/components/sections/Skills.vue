@@ -1,19 +1,25 @@
 <template>
 <!-- eslint-disable max-len -->
   <section>
-    <table v-for="(section, sectionName) in Tree.skillTree" :key="Listing[sectionName].name[$store.getters.lang]">
+    <table v-for="(section, sectionName, sectionKey) in Tree.skillTree" :key="sectionKey">
       <tr class="firstTr">
         <td>
-        <th>
-          {{Listing[sectionName].name[$store.getters.lang]}}
-        </th>
+          <th>
+            <transition name="fadeTxt" mode="out-in">
+              <span :key="Listing[sectionName].name[$store.getters.lang]">
+              {{Listing[sectionName].name[$store.getters.lang]}}
+              </span>
+            </transition>
+          </th>
           <tr class="child">
-            <td v-for="(child, childName) in section" :key="Listing[childName].name[$store.getters.lang]">
+            <td v-for="(child, childName, childKey) in section" :key="childKey">
               <div v-html="Listing[childName].svg">
               </div>
-              <th>
-              {{Listing[childName].name[$store.getters.lang]}}
-              </th>
+              <transition name="fadeTxt" mode="out-in">
+                <th :key="$store.getters.lang">
+                {{Listing[childName].name[$store.getters.lang]}}
+                </th>
+              </transition>
               <tr class="grandchild">
                 <td v-for="grandchild in child" :key="Listing[grandchild].name[$store.getters.lang]" class="techno" :id="Listing[grandchild].name.en">
                   <div class="icon" v-html="Listing[grandchild].svg">
@@ -87,14 +93,18 @@ $icon-size: 40px;
 .techno {
   position: relative;
   .icon {
-  width: $icon-size;
-  height: $icon-size;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.2s ease-in-out;
-  pointer-events: none;
+    @media screen and (max-width: 360px) {
+      width: 31px;
+      height: 31px;
+    }
+    width: $icon-size;
+    height: $icon-size;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
   }
   .skillCard {
     top: 20px;
@@ -126,7 +136,7 @@ section {
   flex-direction: column;
   @media screen and (max-width: 760px) {
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     max-height: 100%;
   }
   @media screen and (max-width: 360px) {
@@ -175,5 +185,13 @@ th {
   font-family: $title-font;
   max-width: 100%;
   text-align: center;
+}
+
+.fadeTxt-enter-active, .fadeTxt-leave-active {
+  transition: all .4s;
+}
+
+.fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

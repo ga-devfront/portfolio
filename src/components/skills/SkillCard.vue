@@ -47,7 +47,7 @@ article {
   box-shadow: 0 19px 50px rgb(0 0 0 / 40%);
   border: 2px solid rgb(255 255 255 / 80%);
   border-radius: 20px;
-  background: linear-gradient(rgb(0 0 0 / 70%), rgb(51 51 51 / 70%));
+  background: linear-gradient(rgb(0 0 0 / 80%), rgb(51 51 51 / 80%));
   width: 240px;
   min-height: 100px;
 }
