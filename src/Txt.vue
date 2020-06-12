@@ -6,8 +6,28 @@ export default {
   },
   home: {
     title: {
-      fr: 'Développeur d\'application frontend',
+      fr: 'Développeur d\'applications frontend',
       en: 'Frontend application developer',
+    },
+  },
+  skills: {
+    details: {
+      fr: 'Détails',
+      en: 'Details',
+    },
+    level: {
+      1: {
+        fr: 'bases',
+        en: 'basics',
+      },
+      2: {
+        fr: 'aisance',
+        en: 'fluency',
+      },
+      3: {
+        fr: 'maîtrise',
+        en: 'proficiency',
+      },
     },
   },
   about: {

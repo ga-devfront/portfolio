@@ -30,8 +30,8 @@ export default {
     level: 3,
     svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><title>Javascript icon</title><path d="M0,80V0H80V80Z" fill="#ffd600"/><path d="M52.31,59.88c1.53,2.5,3.21,4.89,6.75,4.89,3,0,4.53-1.47,4.53-3.52,0-2.45-1.61-3.31-4.89-4.74l-1.79-.76c-5.17-2.2-8.62-5-8.62-10.76,0-5.36,4.1-9.43,10.51-9.43,4.56,0,7.84,1.58,10.2,5.72l-5.58,3.57c-1.23-2.2-2.56-3.06-4.62-3.06a3.11,3.11,0,0,0-3.43,3.06c0,2.14,1.33,3,4.41,4.33l1.79.77c6.1,2.59,9.54,5.25,9.54,11.21,0,6.43-5.07,10-11.89,10-6.66,0-10.45-3.34-12.55-7.48Zm-25.75.18c1.12,2,2.83,3.57,5.29,3.57s3.71-.93,3.71-4.54V35.56H43V60.22c0,7.49-4.34,10.89-10.68,10.89a13,13,0,0,1-11.54-7.48Z" fill="#000001"/></svg>',
     description: {
-      fr: '',
-      en: '',
+      fr: 'Ayant travaillé sur de nombreux projets en Vanilla JavaScript lors de ma formation, je maîtrise la manipulation de DOM en passant par les API ou même les algorithmes.',
+      en: 'Having worked on many projects in Vanilla JavaScript during my training, I master the manipulation of DOM through APIs or even algorithms.',
     },
   },
   jquery: {
@@ -247,8 +247,8 @@ export default {
   },
   vscode: {
     name: {
-      fr: 'Virtual Studio Code',
-      en: 'Virtual Studio Code',
+      fr: 'Visual Studio Code',
+      en: 'Visual Studio Code',
     },
     level: 3,
     svg: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 79.54"><title>Virtual Studio Code icon</title><defs><mask id="mask" x="0" y="0" width="80" height="79.54" maskUnits="userSpaceOnUse"><g transform="translate(0 -0.23)"><g id="mask0"><path d="M56.74,79.43a5,5,0,0,0,4-.15l16.46-7.92A5,5,0,0,0,80,66.85V13.15a5,5,0,0,0-2.83-4.51L60.71.72a5,5,0,0,0-5.08.46,4.77,4.77,0,0,0-.6.51L23.52,30.44,9.79,20a3.32,3.32,0,0,0-4.25.19l-4.4,4a3.35,3.35,0,0,0,0,4.93L13,40,1.13,50.86a3.35,3.35,0,0,0,0,4.93l4.4,4A3.32,3.32,0,0,0,9.79,60L23.52,49.56,55,78.31A5,5,0,0,0,56.74,79.43ZM60,21.85,36.11,40,60,58.15Z" fill="#fff" fill-rule="evenodd"/></g></g></mask><linearGradient id="Dégradé_sans_nom_2" x1="39.98" y1="81.77" x2="39.98" y2="2.23" gradientTransform="matrix(1, 0, 0, -1, 0, 82)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><title>vscode</title><g mask="url(#mask)"><path d="M77.17,8.66,60.7.72a5,5,0,0,0-5.69,1L1.09,50.86a3.34,3.34,0,0,0,0,4.93l4.41,4A3.32,3.32,0,0,0,9.75,60L74.69,10.71A3.31,3.31,0,0,1,80,13.35v-.19A5,5,0,0,0,77.17,8.66Z" transform="translate(0 -0.23)" fill="#0065a9"/><path d="M77.17,71.34,60.7,79.28a5,5,0,0,1-5.69-1L1.09,29.14a3.34,3.34,0,0,1,0-4.93l4.41-4A3.32,3.32,0,0,1,9.75,20L74.69,69.29A3.31,3.31,0,0,0,80,66.65v.19A5,5,0,0,1,77.17,71.34Z" transform="translate(0 -0.23)" fill="#007acc"/><path d="M60.7,79.28a5,5,0,0,1-5.68-1,2.92,2.92,0,0,0,5-2.07V3.76a2.92,2.92,0,0,0-5-2.07,5,5,0,0,1,5.68-1L77.17,8.64A5,5,0,0,1,80,13.15v53.7a5,5,0,0,1-2.83,4.51Z" transform="translate(0 -0.23)" fill="#1f9cf0"/><g opacity="0.25"><path d="M56.69,79.43a5,5,0,0,0,4-.15l16.46-7.92A5,5,0,0,0,80,66.85V13.15a5,5,0,0,0-2.83-4.51L60.66.72a5,5,0,0,0-5.08.46,4.77,4.77,0,0,0-.6.51L23.47,30.44,9.74,20a3.33,3.33,0,0,0-4.25.19l-4.4,4a3.34,3.34,0,0,0,0,4.93L13,40,1.09,50.86a3.34,3.34,0,0,0,0,4.93l4.4,4A3.33,3.33,0,0,0,9.74,60L23.47,49.56,55,78.31A5.12,5.12,0,0,0,56.69,79.43ZM60,21.85,36.07,40,60,58.15Z" transform="translate(0 -0.23)" fill-rule="evenodd" fill="url(#Dégradé_sans_nom_2)"/></g></g></svg>',
