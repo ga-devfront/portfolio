@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
   <section>
-    <table v-for="(section, sectionName, sectionKey) in Tree.skillTree" :key="sectionKey">
+    <table v-for="(section, sectionName, sectionKey) in Tree.skillTree" :key="sectionKey" :id="'array' + sectionKey">
       <tr class="firstTr">
         <td>
           <th>
@@ -49,21 +49,26 @@ export default {
     return {
       Tree,
       Listing,
+      windowH: 0,
+      windowW: 0,
     };
   },
   computed: {
   },
   methods: {
     positionSkillCard(idGrandChild) {
-      const windowHeigth = window.innerHeight;
-      const windowWidth = window.innerWidth;
+      const windowHeigth = this.windowH;
+      const windowWidth = this.windowW;
       const grandChild = document.getElementById(idGrandChild);
       let transformX = 0;
       let transformY = 0;
       if (grandChild !== null) {
         const leftGrandChild = grandChild.offsetLeft;
         const topGrandChild = grandChild.offsetTop;
-        const sizeGrandChild = 40;
+        let sizeGrandChild;
+        if (windowWidth <= 360) {
+          sizeGrandChild = 31;
+        } else { sizeGrandChild = 40; }
         const widthSkillCard = 240;
         const skillCard = document.getElementById(`card${idGrandChild}`);
         const heigthSkillCard = skillCard.offsetHeight;
@@ -82,6 +87,14 @@ export default {
       }
       return `transform: translate(${transformX}px, ${transformY}px)`;
     },
+  },
+  created() {
+    this.windowH = window.innerHeight;
+    this.windowW = window.innerWidth;
+    window.addEventListener('resize', () => {
+      this.windowH = window.innerHeight;
+      this.windowW = window.innerWidth;
+    });
   },
 };
 </script>
@@ -131,16 +144,15 @@ section {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+table {
+  margin: 50px;
   @media screen and (max-width: 760px) {
-    flex-direction: column;
-    justify-content: center;
-    max-height: 100%;
-  }
-  @media screen and (max-width: 360px) {
-  align-items: center;
+    margin: 0px;
   }
 }
 
@@ -187,11 +199,41 @@ th {
   text-align: center;
 }
 
+#array0 {
+  animation: leftEnter 0.8s ease-in;
+}
+
+#array1 {
+  animation: rightEnter 0.8s ease-in;
+}
+
 .fadeTxt-enter-active, .fadeTxt-leave-active {
   transition: all .4s;
 }
 
 .fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+@keyframes leftEnter {
+  from {
+    opacity: 0;
+    margin-left: -100%;
+  }
+  to {
+    opacity: 1;
+    margin-left: 0%;
+  }
+}
+
+@keyframes rightEnter {
+  from {
+    opacity: 0;
+    margin-right: -100%;
+  }
+  to {
+    opacity: 1;
+    margin-right: 0%;
+  }
 }
 </style>
