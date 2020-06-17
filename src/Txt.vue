@@ -1,9 +1,33 @@
 <script>
 export default {
+  progress: {
+    fr: 'Je suis actuellement entrain de coder cette page, revenez plus tard !',
+    en: 'I\'m currently coding this page, come back later!',
+  },
   home: {
     title: {
-      fr: 'Développeur d\'application frontend',
+      fr: 'Développeur d\'applications frontend',
       en: 'Frontend application developer',
+    },
+  },
+  skills: {
+    details: {
+      fr: 'Détails',
+      en: 'Details',
+    },
+    level: {
+      1: {
+        fr: 'bases',
+        en: 'basics',
+      },
+      2: {
+        fr: 'aisance',
+        en: 'fluency',
+      },
+      3: {
+        fr: 'maîtrise',
+        en: 'proficiency',
+      },
     },
   },
   about: {
