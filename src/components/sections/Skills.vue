@@ -100,6 +100,10 @@ $icon-size: 40px;
       width: 31px;
       height: 31px;
     }
+    @media screen and (max-height: 420px) and (orientation: landscape) {
+      width: 31px;
+      height: 31px;
+    }
     width: $icon-size;
     height: $icon-size;
     align-items: center;
@@ -142,6 +146,9 @@ section {
 table {
   margin: 50px;
   @media screen and (max-width: 760px) {
+    margin: 0px;
+  }
+  @media screen and (max-height: 420px) and (orientation: landscape) {
     margin: 0px;
   }
 }
