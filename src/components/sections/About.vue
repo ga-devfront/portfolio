@@ -10,12 +10,12 @@
           <template
           v-for="(paragraph, index) in $store.state.Txt.about.paragraph[$store.getters.lang]"
           >
-            <transition v-bind:name="'fadeTxt' + index" mode="out-in">
+            <transition v-bind:name="'fadeTxt' + index" mode="out-in" :key="'fadeTxt' + index">
               <span
               :key="index + $store.getters.lang"
               v-bind:class="'txt' + index"
-              >
-                {{paragraph}}<br>
+              v-html="paragraph">
+              <br>
               </span>
             </transition>
           </template>
@@ -59,6 +59,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
 h1 {
   width: $txt-width;
   margin: 0px;
@@ -79,14 +80,17 @@ h1 {
 p {
   font-size: 0.9em;
   letter-spacing: 0.05em;
+  line-height: 1.5em;
   @media screen and (max-width: $tablet) {
     font-size: 1em;
   }
   @media screen and (max-width: $small-mobile) {
     font-size: 0.8em;
+    line-height: 1.2em;
   }
   @media screen and (max-height: 700px) {
     font-size: 0.8em;
+    line-height: 1.2em;
   }
     span {
       display: block;
@@ -110,7 +114,7 @@ p {
   }
 }
 
-@for $i from 0 through 6 {
+@for $i from 0 through 5 {
   .txt#{$i}{
     animation: {
       name: enterLeft;
