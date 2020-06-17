@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     positionSkillCard(idGrandChild) {
-      console.log('run');
       const windowHeigth = window.innerHeight;
       const windowWidth = window.innerWidth;
       const grandChild = document.getElementById(idGrandChild);
