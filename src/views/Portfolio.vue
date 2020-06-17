@@ -187,6 +187,19 @@ main {
   height: 100vh;
 }
 
+mark {
+  border-radius: 7px 0px 7px 0px;
+  padding: 1px;
+  margin: 2px;
+  background: rgb(250 250 250 / 90%);
+  color: #2e2e2e;
+  font-weight: bold;
+  transition: all 0.2s;
+  &:hover {
+    background: rgb(250 250 250 / 100%);
+  }
+}
+
 body {
   @include noPad-noMarg();
   overflow: hidden;
