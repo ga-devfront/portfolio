@@ -21,10 +21,10 @@
                 </th>
               </transition>
               <tr class="grandchild">
-                <td v-for="grandchild in child" :key="Listing[grandchild].name[$store.getters.lang]" class="techno" :id="Listing[grandchild].name.en">
+                <td v-for="grandchild in child" :key="Listing[grandchild].name[$store.getters.lang]" class="techno" :id="Listing[grandchild].name.en" @mouseover="positionSkillCard(Listing[grandchild].name.en)" @click="positionSkillCard(Listing[grandchild].name.en)">
                   <div class="icon" v-html="Listing[grandchild].svg">
                   </div>
-                  <SkillCard class="skillCard" :techno="Listing[grandchild]" :style="positionSkillCard(Listing[grandchild].name.en)"/>
+                  <SkillCard class="skillCard" :techno="Listing[grandchild]"/>
                 </td>
               </tr>
             </td>
@@ -49,52 +49,43 @@ export default {
     return {
       Tree,
       Listing,
-      windowH: 0,
-      windowW: 0,
     };
   },
   computed: {
   },
   methods: {
     positionSkillCard(idGrandChild) {
-      const windowHeigth = this.windowH;
-      const windowWidth = this.windowW;
+      console.log('run');
+      const windowHeigth = window.innerHeight;
+      const windowWidth = window.innerWidth;
       const grandChild = document.getElementById(idGrandChild);
       let transformX = 0;
       let transformY = 0;
-      if (grandChild !== null) {
-        const leftGrandChild = grandChild.offsetLeft;
-        const topGrandChild = grandChild.offsetTop;
-        let sizeGrandChild;
-        if (windowWidth <= 360) {
-          sizeGrandChild = 31;
-        } else { sizeGrandChild = 40; }
-        const widthSkillCard = 240;
-        const skillCard = document.getElementById(`card${idGrandChild}`);
-        const heigthSkillCard = skillCard.offsetHeight;
-        const calcLeft = leftGrandChild + (sizeGrandChild / 2) - (widthSkillCard / 2);
-        if (calcLeft < 0) {
-          transformX = Math.abs(calcLeft);
-        }
-        const calcRight = leftGrandChild + (sizeGrandChild / 2) + (widthSkillCard / 2) + 10;
-        if (calcRight > windowWidth) {
-          transformX = windowWidth - calcRight;
-        }
-        const calcTop = topGrandChild + (sizeGrandChild / 2) + (heigthSkillCard) + 5;
-        if (calcTop > windowHeigth) {
-          transformY = windowHeigth - calcTop;
-        }
+      const leftGrandChild = grandChild.offsetLeft;
+      const topGrandChild = grandChild.offsetTop;
+      let sizeGrandChild;
+      if (windowWidth <= 360) {
+        sizeGrandChild = 31;
+      } else { sizeGrandChild = 40; }
+      const widthSkillCard = 240;
+      const skillCard = document.getElementById(`card${idGrandChild}`);
+      const heigthSkillCard = skillCard.offsetHeight;
+      const calcLeft = leftGrandChild + (sizeGrandChild / 2) - (widthSkillCard / 2);
+      if (calcLeft < 0) {
+        transformX = Math.abs(calcLeft);
       }
-      return `transform: translate(${transformX}px, ${transformY}px)`;
+      const calcRight = leftGrandChild + (sizeGrandChild / 2) + (widthSkillCard / 2) + 10;
+      if (calcRight > windowWidth) {
+        transformX = windowWidth - calcRight;
+      }
+      const calcTop = topGrandChild + (sizeGrandChild / 2) + (heigthSkillCard) + 5;
+      if (calcTop > windowHeigth) {
+        transformY = windowHeigth - calcTop;
+      }
+      skillCard.style.transform = `translate(${transformX}px, ${transformY}px)`;
     },
   },
   created() {
-    this.windowH = window.innerHeight;
-    this.windowW = window.innerWidth;
-    window.addEventListener('resize', () => {
-      this.windowH = window.innerHeight;
-      this.windowW = window.innerWidth;
-    });
   },
 };
 </script>
