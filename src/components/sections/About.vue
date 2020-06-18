@@ -2,17 +2,17 @@
   <section>
       <article id="description">
         <transition name="fadeTxt0" mode="out-in">
-        <h1 class="txt0" :key="'title-' + $store.getters.lang">
-          {{$store.state.Txt.about.title[$store.getters.lang]}}
+        <h1 class="txt0" :key="$t('about.title')">
+          {{$t("about.title")}}
         </h1>
         </transition>
         <p>
           <template
-          v-for="(paragraph, index) in $store.state.Txt.about.paragraph[$store.getters.lang]"
+          v-for="(paragraph, index) in $t('about.paragraph')"
           >
             <transition v-bind:name="'fadeTxt' + index" mode="out-in" :key="'fadeTxt' + index">
               <span
-              :key="index + $store.getters.lang"
+              :key="index + $i18n.locale"
               v-bind:class="'txt' + index"
               v-html="paragraph">
               <br>
