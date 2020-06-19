@@ -2,14 +2,14 @@
   <section>
       <transition name="contact" mode="out-in">
         <ContactForm
-        :key="'contact' + $store.getters.lang"
+        :key="'contact' + $i18n.locale"
         class="contactAnimation"
         :display="displayContact"
         v-on:switchDisplay="displayComponents"/>
       </transition>
       <transition name="social" mode="out-in">
         <SocialContact
-        :key="'social' + $store.getters.lang"
+        :key="'social' + $i18n.locale"
         class="socialAnimation"
         :display="displaySocial"
         v-on:switchDisplay="displayComponents"/>

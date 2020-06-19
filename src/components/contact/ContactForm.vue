@@ -7,14 +7,14 @@
         <path d="M0 0h24v24H0V0z" fill="none"/>
         <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
       </svg>
-      {{$store.state.Txt.contact.contact[$store.getters.lang]}}
+      {{$t("contact.contact")}}
     </h2>
     <div :class="'sectionGroup ' + display" id="contactForm">
       <form>
         <div class="input-group">
           <input id="subject" class="text-field" name="subject" type="text">
           <label id="subject-label" class="input-label" for="subject">
-            {{$store.state.Txt.contact.input.subject.title[$store.getters.lang]}}
+            {{$t("contact.input.subject.title")}}
           </label>
           <svg class="input-icon error" v-if="subjectHelperState === 'error'" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
             <title>error icon</title>
@@ -35,7 +35,7 @@
         <div class="input-group">
           <input id="mail" class="text-field" name="mail" type="email">
           <label id="mail-label" class="input-label" for="mail">
-            {{$store.state.Txt.contact.input.mail.title[$store.getters.lang]}}
+            {{$t("contact.input.mail.title")}}
           </label>
           <svg class="input-icon error" v-if="mailHelperState === 'error'" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
             <title>error icon</title>
@@ -57,7 +57,7 @@
           <textarea id="text" name="text" class="text-field">
           </textarea>
           <label id="text-label" class="input-label" for="text">
-            {{$store.state.Txt.contact.input.text.title[$store.getters.lang]}}
+            {{$t("contact.input.text.title")}}
           </label>
           <svg class="input-icon textarea error" v-if="textHelperState === 'error'" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
             <title>error icon</title>
@@ -82,8 +82,8 @@
           <path class="cls-1" d="M40,17.22a3.66,3.66,0,0,1-1.53-.33L2.31.5H77.69L41.53,16.89A3.66,3.66,0,0,1,40,17.22Z" transform="translate(0 0.15)"/>
           <path class="cls-2" d="M49.65,1H75.38L41.32,16.44a3.25,3.25,0,0,1-2.64,0L4.63,1h45M79.93-.15a.49.49,0,0,0-.25.15H80c0-.11,0-.15-.07-.15ZM.07-.14S0-.1,0,0H.31A.51.51,0,0,0,.07-.14ZM49.65,0H.31A3,3,0,0,0,.82.37l37.44,17a4.28,4.28,0,0,0,3.48,0L79.15.39A3.28,3.28,0,0,0,79.68,0Z" transform="translate(0 0.15)"/>
         </svg>
-        <span id="sendTxt">{{$store.state.Txt.contact.button.send[$store.getters.lang]}}</span>
-        <span id="sendedTxt">{{$store.state.Txt.contact.button.sended[$store.getters.lang]}} ✔</span>
+        <span id="sendTxt">{{$t("contact.button.send")}}</span>
+        <span id="sendedTxt">{{$t("contact.button.sended")}} ✔</span>
         <svg id="bottomMail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 33.68">
           <title>bottom mail icon</title>
           <path class="cls-1" d="M4.2,33.5A3.7,3.7,0,0,1,.5,29.8V.9A.08.08,0,0,1,.58.82l37.48,17a4.69,4.69,0,0,0,3.88,0L79.35.84h0c.07,0,.12,0,.12.1V29.8a3.7,3.7,0,0,1-3.7,3.7Z" transform="translate(0 -0.32)"/>
@@ -117,41 +117,41 @@ export default {
   computed: {
     subjectHelper() {
       if (this.subjectHelperState === 'required') {
-        return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+        return this.$t('contact.input.required');
       }
       if (this.subjectHelperState === 'valid') {
-        return this.$store.state.Txt.contact.input.valid[this.$store.getters.lang];
+        return this.$t('contact.input.valid');
       }
       if (this.subjectHelperState === 'error') {
-        return this.$store.state.Txt.contact.input.subject.error[this.$store.getters.lang];
+        return this.$t('contact.input.subject.error');
       }
-      return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+      return this.$t('contact.input.required');
     },
 
     mailHelper() {
       if (this.mailHelperState === 'required') {
-        return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+        return this.$t('contact.input.required');
       }
       if (this.mailHelperState === 'valid') {
-        return this.$store.state.Txt.contact.input.valid[this.$store.getters.lang];
+        return this.$t('contact.input.valid');
       }
       if (this.mailHelperState === 'error') {
-        return this.$store.state.Txt.contact.input.mail.error[this.$store.getters.lang];
+        return this.$t('contact.input.mail.error');
       }
-      return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+      return this.$t('contact.input.required');
     },
 
     textHelper() {
       if (this.textHelperState === 'required') {
-        return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+        return this.$t('contact.input.required');
       }
       if (this.textHelperState === 'valid') {
-        return this.$store.state.Txt.contact.input.valid[this.$store.getters.lang];
+        return this.$t('contact.input.valid');
       }
       if (this.textHelperState === 'error') {
-        return this.$store.state.Txt.contact.input.text.error[this.$store.getters.lang];
+        return this.$t('contact.input.text.error');
       }
-      return this.$store.state.Txt.contact.input.required[this.$store.getters.lang];
+      return this.$t('contact.input.required');
     },
   },
   methods: {
