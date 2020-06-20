@@ -1,21 +1,15 @@
 <template>
   <main id="scrollSections">
-    <div id="background" :style="$store.getters.currentSection.background"></div>
-    <transition-group
+    <div id="background" :style="$route.meta.background"></div>
+    <transition
     name="fadeSection"
-    mode="in-out"
+    mode="out-in"
     >
-      <section
-      :is="section.component"
-      v-for="section in $store.state.Router.sections"
-      v-if="isCurrentSection(section)"
-      :next="nextP"
-      :prev="prevP"
-      v-on:stopNext="stopNextP()"
-      v-on:stopPrev="stopPrevP()"
-      :key="section.name.en"
-      />
-    </transition-group>
+      <router-view
+      :key="currentSectionName"
+      >
+      </router-view>
+    </transition>
     <NavDesktop v-if="screenSize.screenWidth > 1080 && mobile === false"/>
     <NavMobile v-if="screenSize.screenWidth <= 1080 || mobile === true"/>
   </main>
@@ -41,11 +35,21 @@ export default {
       },
       scroll: 0,
       mobile: isMobile,
-      background: this.$store.state.Router,
       scrollListener: null,
       nextP: false,
       prevP: false,
     };
+  },
+  computed: {
+    sections() {
+      return this.$router.options.routes[0].children;
+    },
+    currentSectionName() {
+      return this.$route.path.split('/')[2];
+    },
+    currentSectionIndex() {
+      return this.sections.map((element) => element.path).indexOf(this.currentSectionName);
+    },
   },
   methods: {
     stopNextP() {
@@ -54,81 +58,80 @@ export default {
     stopPrevP() {
       this.prevP = false;
     },
-    isCurrentSection(section) {
-      return this.$store.getters.getSectionName(section) === this.$store.getters.currentSectionName;
+    getSectionName(index) {
+      return this.sections[index].name;
     },
     prevSection() {
-      const prevPos = this.$store.getters.currentPosition - 1;
+      const prevPos = this.currentSectionIndex - 1;
       if (prevPos < 0) return;
-      const futureSection = Object.values(this.$store.state.Router.sections)[prevPos];
-      this.$store.commit('setSection', futureSection);
-      this.ProjectsChangeListener();
+      const prevSectionName = this.getSectionName(prevPos);
+      this.$router.push({ name: prevSectionName });
+      if (prevSectionName === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
     },
     nextSection() {
-      const nextPos = this.$store.getters.currentPosition + 1;
-      if (nextPos >= this.$store.getters.sectionCount) return;
-      const futureSection = Object.values(this.$store.state.Router.sections)[nextPos];
-      this.$store.commit('setSection', futureSection);
-      this.ProjectsChangeListener();
-    },
-    initializeLang() {
-      this.$store.state.language = 'fr';
-    },
-    getSectionName(el) {
-      return el.name[this.$store.getters.lang];
+      const nextPos = this.currentSectionIndex + 1;
+      if (nextPos >= this.sections.length) return;
+      const nextSectionName = this.getSectionName(nextPos);
+      this.$router.push({ name: nextSectionName });
+      if (nextSectionName === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
     },
     displayWindowSize() {
       this.screenSize.screenHeight = document.documentElement.clientHeight;
       this.screenSize.screenWidth = document.documentElement.clientWidth;
     },
-    ProjectsChangeListener() {
-      if (this.$store.getters.currentSection === this.$store.state.Router.sections.projects) {
-        this.scrollListener.changeSettings({
-          scroll: {
-            x: {
-              next: {
-                callback: () => { this.nextP = true; },
-              },
-              prev: {
-                callback: () => { this.prevP = true; },
-              },
+    enableXScroll() {
+      this.scrollListener.changeSettings({
+        scroll: {
+          x: {
+            next: {
+              callback: () => { this.$bus.emit('nextProject'); },
+            },
+            prev: {
+              callback: () => { this.$bus.emit('prevProject'); },
             },
           },
-          touch: {
-            x: {
-              next: {
-                callback: () => { this.nextP = true; },
-              },
-              prev: {
-                callback: () => { this.prevP = true; },
-              },
+        },
+        touch: {
+          x: {
+            next: {
+              callback: () => { this.$bus.emit('nextProject'); },
+            },
+            prev: {
+              callback: () => { this.$bus.emit('prevProject'); },
             },
           },
-        });
-      } else {
-        this.scrollListener.changeSettings({
-          scroll: {
-            x: {
-              next: {
-                callback: () => {},
-              },
-              prev: {
-                callback: () => {},
-              },
+        },
+      });
+    },
+    disableXScroll() {
+      this.scrollListener.changeSettings({
+        scroll: {
+          x: {
+            next: {
+              callback: () => { },
+            },
+            prev: {
+              callback: () => { },
             },
           },
-          touch: {
-            x: {
-              next: {
-                callback: () => {},
-              },
-              prev: {
-                callback: () => {},
-              },
+        },
+        touch: {
+          x: {
+            next: {
+              callback: () => { },
+            },
+            prev: {
+              callback: () => { },
             },
           },
-        });
-      }
+        },
+      });
     },
   },
   created() {
@@ -160,7 +163,8 @@ export default {
         },
       },
     });
-    this.ProjectsChangeListener();
+    this.$bus.on('enableXScroll', this.enableXScroll);
+    this.$bus.on('disableXScroll', this.disableXScroll);
   },
 };
 </script>
@@ -229,11 +233,6 @@ section {
   transform-origin: center;
   transform: scale(2);
   opacity: 0;
-}
-
-  .fadeSection-enter-active
-{
-  transition-delay: .4s;
 }
 
 .fadeSection-leave-to {

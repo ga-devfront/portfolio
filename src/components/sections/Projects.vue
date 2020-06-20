@@ -45,28 +45,6 @@ export default {
     ProjectContainer,
   },
   props: {
-    next: {
-      type: Boolean,
-      required: false,
-    },
-    prev: {
-      type: Boolean,
-      required: false,
-    },
-  },
-  watch: {
-    next(val) {
-      if (val === true) {
-        this.nextProject();
-        this.$emit('stopNext');
-      }
-    },
-    prev(val) {
-      if (val === true) {
-        this.prevProject();
-        this.$emit('stopPrev');
-      }
-    },
   },
   data() {
     return {
@@ -107,6 +85,18 @@ export default {
       this.transition = 'prevTransition';
       this.$router.push({ name: 'currentProject' });
     },
+  },
+  mounted() {
+    window.setTimeout(() => {
+      this.$bus.emit('enableXScroll');
+    }, 1);
+    this.$bus.on('nextProject', this.nextProject);
+    this.$bus.on('prevProject', this.prevProject);
+  },
+  beforeDestroy() {
+    this.$bus.emit('disableXScroll');
+    this.$bus.off('nextProject', this.nextProject);
+    this.$bus.off('prevProject', this.prevProject);
   },
 };
 </script>
