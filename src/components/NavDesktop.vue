@@ -11,9 +11,9 @@
       <li
       v-for="section in $router.options.routes[0].children"
       :id="section.name"
-      :class="isActive(section.name)"
+      :class="isActive(section)"
       :key="section.name + $i18n.locale"
-      v-on:click="$router.push({name: section.name })"
+      v-on:click="switchComponent(section)"
       >
         <div class="item">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.meta.svg"></svg>
@@ -44,7 +44,7 @@ export default {
   name: 'NavDesktop',
   methods: {
     isActive(section) {
-      if (section === this.$route.name) {
+      if (section.path === this.$route.path.split('/')[2]) {
         return 'active';
       }
       return 'inactive';
@@ -59,6 +59,13 @@ export default {
       this.$i18n.locale = lang;
       this.$route.params.lang = lang;
       this.$router.push({ name: this.$route.name });
+    },
+    switchComponent(section) {
+      this.$router.push({ name: section.name });
+      if (section.name === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
     },
   },
   data() {
