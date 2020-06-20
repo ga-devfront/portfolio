@@ -1,10 +1,10 @@
 <template>
-  <aside :class="$store.state.Txt.skills.level[level].en">
+  <aside :class="'level'+level">
     <div v-for="(element, elementName) in [1, 2, 3]" class="circle" :key="elementName">
       <div class="point" v-if="level > elementName">
       </div>
     </div>
-    <span>{{$store.state.Txt.skills.level[level][$store.getters.lang]}}</span>
+    <span>{{$t(`skills.level.${level}`)}}</span>
   </aside>
 </template>
 
@@ -65,7 +65,7 @@ span {
   background: #ffffff;
 }
 
-.basics {
+.level1 {
   color: $basics-color;
   .circle {
     border-color: $basics-color;
@@ -75,7 +75,7 @@ span {
   }
 }
 
-.fluency {
+.level2 {
   color: $fluency-color;
   .circle {
     border-color: $fluency-color;
@@ -85,7 +85,7 @@ span {
   }
 }
 
-.proficiency {
+.level3 {
   color: $proficiency-color;
   .circle {
     border-color: $proficiency-color;

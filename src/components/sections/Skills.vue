@@ -6,8 +6,8 @@
         <td>
           <th>
             <transition name="fadeTxt" mode="out-in">
-              <span :key="Listing[sectionName].name[$store.getters.lang]">
-              {{Listing[sectionName].name[$store.getters.lang]}}
+              <span :key="$t(`skills.${sectionName}.name`)">
+              {{$t(`skills.${sectionName}.name`)}}
               </span>
             </transition>
           </th>
@@ -16,12 +16,12 @@
               <div v-html="Listing[childName].svg">
               </div>
               <transition name="fadeTxt" mode="out-in">
-                <th :key="$store.getters.lang">
-                {{Listing[childName].name[$store.getters.lang]}}
+                <th :key="$t(`skills.${childName}.name`)">
+                {{$t(`skills.${childName}.name`)}}
                 </th>
               </transition>
               <tr class="grandchild">
-                <td v-for="grandchild in child" :key="Listing[grandchild].name[$store.getters.lang]" class="techno" :id="Listing[grandchild].name.en" @mouseover="positionSkillCard(Listing[grandchild].name.en)" @click="positionSkillCard(Listing[grandchild].name.en)">
+                <td v-for="grandchild in child" :key="grandchild" class="techno" :id="grandchild" @mouseover="positionSkillCard(grandchild)" @click="positionSkillCard(grandchild)">
                   <div class="icon" v-html="Listing[grandchild].svg">
                   </div>
                   <SkillCard class="skillCard" :techno="Listing[grandchild]"/>

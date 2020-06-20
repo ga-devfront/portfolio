@@ -1,7 +1,7 @@
 <script>
 export default {
   skillTree: {
-    developper: {
+    developer: {
       frontend: ['js', 'jquery', 'vuejs', 'jasmine'],
       integration: ['html', 'css', 'bootstrap', 'sass', 'wp'],
     },

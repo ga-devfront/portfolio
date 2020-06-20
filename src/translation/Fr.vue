@@ -11,6 +11,95 @@ export default {
       2: 'aisance',
       3: 'maîtrise',
     },
+    developer: {
+      name: 'Développement',
+    },
+    tools: {
+      name: 'Outils',
+    },
+    frontend: {
+      name: 'Frontend',
+    },
+    js: {
+      name: 'Javascript',
+      description: 'Ayant travaillé sur de nombreux projets en Vanilla JavaScript lors de ma formation, je maîtrise la manipulation de DOM, l\'utilisation d\'API, les appels AJAX ainsi que toutes les possibilités offertes par ce langage.',
+    },
+    jquery: {
+      name: 'jQuery',
+      description: 'J\'ai travaillé avec jQuery sur mon projet de jeux vidéo en ligne, tout au long de ce projet de long halaine j\'ai exploité au maximum tous les aspects de cette bibliothèque JavaScript.',
+    },
+    vuejs: {
+      name: 'Vue.js',
+      description: 'J\'ai développé ce portfolio sous Vue.JS ainsi que d\'autres projets. Ce Framework réactif est un outil indispensable que je maitrise sous tout les angles.',
+    },
+    jasmine: {
+      name: 'Jasmine',
+      description: 'Jasmine est le premier Framework de test JavaScript avec lequel j\'ai travaillé, j\'aime beaucoup ça syntaxe qui est simple à lire.',
+    },
+    integration: {
+      name: 'Intégration',
+    },
+    html: {
+      name: 'HTML5',
+      description: 'Le HTML est un langage incontournable pour un intégrateur frontend, j\'ai appris à travailler de façon optimale avec, que ce soit d\'un points de vue sémantique que SEO.',
+    },
+    css: {
+      name: 'CSS3',
+      description: 'Utilisant le langage CSS depuis le début de mes études je le maïtrise parfaitement, que ce soit pour les media queries comme pour ses selecteurs ou ses pseudo-classes.',
+    },
+    bootstrap: {
+      name: 'Bootstrap',
+      description: 'La fameuse librairie de Twitter n\'as plus beaucoup de secrets pour moi, bien que je ne l\'utilise plus sur mes récents projets je continue de m\'intéresser à ses prochaines features.',
+    },
+    sass: {
+      name: 'Sass',
+      description: 'L\'apprentissage de Sass m’as été très bénéfique pour créer se portfolio, je suis maintenant très alaise avec bien qu’il me reste des choses à apprendre de se préprocesseur.',
+    },
+    wp: {
+      name: 'Wordpress',
+      description: 'Etant déjà alaise avec les CMS j\'ai du, lors d\'un de mes projets scolaires, développé un site grâce à Wordpress. J\'en maitrîse les principals fonctionnalitées.',
+    },
+    vcs: {
+      name: 'VCS',
+    },
+    git: {
+      name: 'Git',
+      description: 'Développant chaque projet à l\'aide de Git j\'ai appris à utiliser ses principales commandes et fonctionnalités.',
+    },
+    github: {
+      name: 'GitHub',
+      description: 'Mes derniers projets scolaires et personnel sont disponible sur GitHub. C\'est donc naturellement que j\'ai appris à maitriser parfaitement cette plateforme.',
+    },
+    design: {
+      name: 'Conception',
+    },
+    photoshop: {
+      name: 'Photoshop',
+      description: 'Passionné de graphisme depuis toujours je maitrise parfaitement Photoshop que ce soit pour du webdesign comme de la retouche photo.',
+    },
+    xd: {
+      name: 'XD',
+      description: 'M\'étant intéressé lors de ma formation au maquettage de design web j\'ai commencé à apprendre comment s\'utilisais Adobe XD. ',
+    },
+    illustrator: {
+      name: 'Illustrator',
+      description: 'J\'ai appris depuis plusieurs années à créer mes icones ainsi que les identités graphiques qui devaient être vectorisé sous Illustrator.',
+    },
+    environment: {
+      name: 'Environnement',
+    },
+    vscode: {
+      name: 'Visual Studio Code',
+      description: 'VSCode est selon moi un des meilleurs éditeurs de code disponible sur le marché. Je l\'utilise quel que soit le langage que je programme.',
+    },
+    debian: {
+      name: 'Debian',
+      description: 'Mon serveur web ainsi que mon environnement de développement est sous basé sous Debian. Je sais donc utiliser ses commandes les plus courantes.',
+    },
+    npm: {
+      name: 'NPM',
+      description: 'Ayant déjà développé un package NPM je sais utiliser et publier des packages.',
+    },
   },
   about: {
     title: 'Bonjour, moi c\'est Alexis !',
