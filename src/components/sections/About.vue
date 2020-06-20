@@ -118,14 +118,14 @@ p {
   .txt#{$i}{
     animation: {
       name: enterLeft;
-      duration: ($i * .2s) + .8s;
+      duration: ($i * .2s) + .4s;
       timing-function: ease-in-out;
     };
   }
   .fadeTxt#{$i}-leave-active {
     animation: {
       name: LeftTransition;
-      duration: ($i * .2s) + .8s;
+      duration: ($i * .2s) + .4s;
       timing-function: ease-in-out;
       direction: reverse;
     };
@@ -135,10 +135,10 @@ p {
 figure {
   position: relative;
   @media screen and (min-width: $tablet) {
-    animation: enterRight 0.8s;
+    animation: enterRight 0.4s;
   }
   @media screen and (max-width: $tablet) {
-    animation: enterRightMobile 0.8s;
+    animation: enterRightMobile 0.4s;
     position: absolute;
     left: 40%;
     z-index: -1;

@@ -197,15 +197,15 @@ th {
 }
 
 #array0 {
-  animation: leftEnter 0.8s ease-in;
+  animation: leftEnter 0.4s ease-in;
 }
 
 #array1 {
-  animation: rightEnter 0.8s ease-in;
+  animation: rightEnter 0.4s ease-in;
 }
 
 .fadeTxt-enter-active, .fadeTxt-leave-active {
-  transition: all .4s;
+  transition: all .2s;
 }
 
 .fadeTxt-enter, .fadeTxt-leave-to /* .fade-leave-active below version 2.1.8 */ {

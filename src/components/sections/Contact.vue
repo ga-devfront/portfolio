@@ -70,7 +70,7 @@ section {
 }
 
 .socialAnimation {
-  animation: socialEnter .8s ease-out;
+  animation: socialEnter .4s ease-out;
 }
 
 .social-leave-active {
@@ -94,7 +94,7 @@ section {
 }
 
 .contactAnimation {
-  animation: contactEnter .8s ease-out;
+  animation: contactEnter .4s ease-out;
 }
 
 .contact-leave-active {
