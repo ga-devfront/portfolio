@@ -1,16 +1,15 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
 import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
+import VueBus from 'vue-bus';
 import Router from './Router.vue';
 import En from './translation/En.vue';
 import Fr from './translation/Fr.vue';
-import Listing from './components/projects/Listing.vue';
 import Portfolio from './views/Portfolio.vue';
 
-Vue.use(Vuex);
 Vue.use(VueI18n);
 Vue.use(VueRouter);
+Vue.use(VueBus);
 
 const messages = {
   en: En,
@@ -43,22 +42,10 @@ router.beforeEach((to, from, next) => {
   return next();
 });
 
-const store = new Vuex.Store({
-  state: {
-    Router,
-    Listing,
-  },
-  mutations: {
-  },
-  getters: {
-  },
-});
-
 // eslint-disable-next-line
 const vue = new Vue({
   i18n,
   el: '#app',
-  store,
   router,
   components: {
     Portfolio,
