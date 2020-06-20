@@ -9,7 +9,7 @@
     </transition>
     <ul>
       <li
-      v-for="section in $router.options.routes[0].children"
+      v-for="section in sections"
       :id="section.name"
       :class="isActive(section)"
       :key="section.name + $i18n.locale"
@@ -66,6 +66,15 @@ export default {
         this.$route.params.currentProject = 'scrolleventhandler';
         this.$router.push({ name: 'currentProject' });
       }
+    },
+  },
+  computed: {
+    sections() {
+      const sections = this.$router.options.routes[0].children;
+      for (let x = sections.length; x > 5; x -= 1) {
+        sections.pop();
+      }
+      return sections;
     },
   },
   data() {

@@ -5,6 +5,7 @@ import Skills from './components/sections/Skills.vue';
 import Projects from './components/sections/Projects.vue';
 import Projectcontainer from './components/projects/ProjectContainer.vue';
 import Contact from './components/sections/Contact.vue';
+import Error404 from './components/sections/Error404.vue';
 
 export default {
   routes: [
@@ -48,6 +49,11 @@ export default {
                 background: 'left: -200%',
               },
             },
+            {
+              path: '*',
+              redirect: { name: 'error404' },
+              name: 'error404project',
+            },
           ],
         },
         {
@@ -66,6 +72,18 @@ export default {
           meta: {
             background: 'left: -400%',
             svg: '<path fill="#fff" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>',
+          },
+        },
+        {
+          path: '*',
+          redirect: { name: 'error404' },
+        },
+        {
+          path: 'error404',
+          component: Error404,
+          name: 'error404',
+          meta: {
+            background: 'left: 0px',
           },
         },
       ],

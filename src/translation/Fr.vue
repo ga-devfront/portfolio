@@ -204,6 +204,10 @@ export default {
       },
     },
   },
+  error404: {
+    title: 'Erreur 404',
+    details: 'La page que vous cherchez n\'existe pas !',
+  },
   routes: {
     home: 'Accueil',
     about: 'À propos',
@@ -211,6 +215,8 @@ export default {
     currentProject: 'Projets',
     skills: 'Compétences',
     contact: 'Contact',
+    undefined: 'Erreur 404',
+    error404: 'Erreur 404',
   },
 };
 </script>
