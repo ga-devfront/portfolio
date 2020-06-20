@@ -46,5 +46,13 @@ export default {
       },
     },
   },
+  routes: {
+    home: 'Home',
+    about: 'About',
+    projects: 'Projects',
+    currentProject: 'Projects',
+    skills: 'Skills',
+    contact: 'Contact',
+  },
 };
 </script>
