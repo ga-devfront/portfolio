@@ -6,7 +6,13 @@
           Menu
         </h3>
       </transition>
-      <button id="hamburger" @click="open = !open" :class="isOpen" class="hamburger" aria-label="display menu">
+      <button
+      id="hamburger"
+      @click="open = !open"
+      :class="isOpen"
+      class="hamburger"
+      aria-label="display menu"
+      >
         <div id="hamburgerTop"></div>
         <svg
         version="1.1"
@@ -29,28 +35,27 @@
       <ul class="menu" :key="isOpen" v-if="open === true">
         <hr>
         <li
-        v-for="section in $store.state.Router.sections"
-        :id="section.name.en"
-        :class="$store.getters.isActive(section)"
-        v-bind:key="section.name.en"
-        v-on:click="open = false"
-        v-on:click.prevent.stop="$store.commit('setSection', section)"
+        v-for="section in sections"
+        :id="section.name"
+        :class="isActive(section)"
+        v-bind:key="section.name + $i18n.locale"
+        v-on:click="switchComponent(section)"
         >
           <transition name="fadeText">
             <!-- eslint-disable-next-line -->
-            <span :key="section.name + $store.getters.lang">{{section.name[$store.getters.lang]}}</span>
+            <span :key="section.name + $i18n.locale">{{$t(`routes.${section.name}`)}}</span>
           </transition>
         </li>
         <hr>
         <span class="lang">
           <div
-          :class="$store.getters.isLang('fr')"
-          v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+          :class="isLang('fr')"
+          v-on:click="switchLang('fr')">
             fr
           </div>
           <div
-          :class="$store.getters.isLang('en')"
-          v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+          :class="isLang('en')"
+          v-on:click="switchLang('en')">
             en
           </div>
         </span>
@@ -67,7 +72,41 @@ export default {
       open: false,
     };
   },
+  methods: {
+    isActive(section) {
+      if (section.path === this.$route.path.split('/')[2]) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    isLang(lang) {
+      if (lang === this.$i18n.locale) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    switchLang(lang) {
+      this.$i18n.locale = lang;
+      this.$route.params.lang = lang;
+      this.$router.push({ name: this.$route.name });
+    },
+    switchComponent(section) {
+      this.open = false;
+      this.$router.push({ name: section.name });
+      if (section.name === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
+    },
+  },
   computed: {
+    sections() {
+      const sections = this.$router.options.routes[0].children;
+      for (let x = sections.length; x > 5; x -= 1) {
+        sections.pop();
+      }
+      return sections;
+    },
     isOpen() {
       if (this.open === true) return 'is-open';
       return 'is-closed';
