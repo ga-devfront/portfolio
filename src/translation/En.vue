@@ -4,6 +4,85 @@ export default {
   home: {
     title: 'Frontend application developer',
   },
+  about: {
+    title: 'Hello, I am Alexis !',
+    paragraph: {
+      1: 'Your business is evolving and you <mark>are looking for a new coder</mark> to join your team?',
+      2: 'Do you want to recruit a candidate for <mark>his motivation</mark>, his thirst for <mark>continuous learning</mark> and his <mark>love for the web</mark>? Then you have come to the right place!',
+      3: 'I have been <mark>passionate</mark> about web design for years, starting to do self-taught web designs in Photoshop. I then started <mark>training as a frontend developer</mark> at OpenClassrooms.',
+      4: 'Throughout this, I was keen to push the projects I <mark>undertake ever further</mark>, so as not to meet the objectives, but to exceed them while <mark>respecting the deadlines</mark>.',
+      5: 'Do you want to learn more about what <mark>I have to offer you</mark>? So feel free to browse my portfolio and <mark>contact me</mark>.',
+    },
+  },
+  projects: {
+    name: 'Name',
+    type: 'Type',
+    description: 'Description',
+    technologies: 'Technologies',
+    scrolleventhandler: {
+      name: 'Scroll event handler',
+      type: 'Personnal project',
+      description: `This NPM package allows you to read scroll or touch events and assign a callback to it. <br>
+      The settings allow you to choose how much scroll or how many touch distances the callback is called, taking into account the direction on all axes. <br>
+      Several methods have also been implemented to allow modification of parameters or deletion of the listener. <br>
+      More information is available on the GitHub documentation.`,
+    },
+    portfolio: {
+      name: 'Portfolio',
+      type: 'Personnal project',
+      description: `My professional portfolio on which you are currently browsing! You will find all the information about me and my projects there. <br>
+      I worked on it, trying to make the most of what I learned during my training. <br>
+      This project also uses my NPM "Scroll event handler" package.`,
+    },
+    chaletsetcaviar: {
+      name: 'Chalets et Caviar',
+      type: 'School project',
+      description: `This school project asked us to create a site for a luxury chalet rental agency with Wordpress. <br>
+      So I also tried to work on the design, the content as well as with the Wordpress plugins. <br>
+      You will also find the site usage document made by me.`,
+    },
+    ffpa: {
+      name: 'Festival des films de plein air',
+      type: 'School project',
+      description: `For this school project we were asked to create a responsive site with Bootstrap for an outdoor film festival. <br>
+      My work was therefore focused on design as well as on using Bootstrap responsively. <br>
+      You will also find the specifications produced by me.`,
+    },
+    expressfood: {
+      name: 'Express Food',
+      type: 'School project',
+      description: `ExpressFood is a somewhat special project for me, we were asked not to code but to create UML schemas as well as a corresponding database. <br>
+      So I had to use different online tools for schemas before moving to MySQL Workbench for the creation of my database. <br>
+      You will find below all my work done for this project.`,
+    },
+    botgenerator: {
+      name: 'Super phrase generator',
+      type: 'School project',
+      description: `This mini school project aimed to create a random sentence generator only in JavaScript. <br>
+      I wanted to push the project a little further by making it accessible around a responsive design.`,
+    },
+    spaceshiparena: {
+      name: 'Spaceship Arena',
+      type: 'School project',
+      description: `This school project was one of my favorites, we were asked to make a turn-based board game. <br>
+      Being passionate about the world of video games since always, I pushed the project to the maximum by realizing a board game in isometric 3D in a space universe. <br>
+      You can choose your ship which will have a different size and statistics, which makes the game even more complete! <br>
+      All the sprites and the design were made by me.`,
+    },
+    foodaily: {
+      name: 'Foodaily',
+      type: 'School project',
+      description: `This project is one of the most complete that I had to carry out during my training. We were asked to build a restaurant review site using Google APIs. <br>
+      I also wanted to use VueJS to broaden my skills, which was perfectly suited to the project since VueJS is reactive. <br>
+      The design was made by me and is also responsive.`,
+    },
+    todo: {
+      name: 'Todo list',
+      type: 'School project',
+      description: `This rather special school project asked us to take over an already existing project in order to correct these errors, improve it in terms of performance, as well as write tests thanks to Jasmine. <br>
+      I also created detailed documentation on the project and an audit on its GitHub page.`,
+    },
+  },
   skills: {
     details: 'Details',
     level: {
@@ -99,16 +178,6 @@ export default {
     npm: {
       name: 'NPM',
       description: 'Having already developed an NPM package I know how to use and publish packages.',
-    },
-  },
-  about: {
-    title: 'Hello, I am Alexis !',
-    paragraph: {
-      1: 'Your business is evolving and you <mark>are looking for a new coder</mark> to join your team?',
-      2: 'Do you want to recruit a candidate for <mark>his motivation</mark>, his thirst for <mark>continuous learning</mark> and his <mark>love for the web</mark>? Then you have come to the right place!',
-      3: 'I have been <mark>passionate</mark> about web design for years, starting to do self-taught web designs in Photoshop. I then started <mark>training as a frontend developer</mark> at OpenClassrooms.',
-      4: 'Throughout this, I was keen to push the projects I <mark>undertake ever further</mark>, so as not to meet the objectives, but to exceed them while <mark>respecting the deadlines</mark>.',
-      5: 'Do you want to learn more about what <mark>I have to offer you</mark>? So feel free to browse my portfolio and <mark>contact me</mark>.',
     },
   },
   contact: {

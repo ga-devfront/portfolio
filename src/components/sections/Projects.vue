@@ -36,6 +36,7 @@
 
 <script>
 import ProjectContainer from '../projects/ProjectContainer.vue';
+import Listing from '../projects/Listing.vue';
 
 export default {
 
@@ -46,11 +47,11 @@ export default {
   props: {
     next: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     prev: {
       type: Boolean,
-      required: true,
+      required: false,
     },
   },
   watch: {
@@ -70,40 +71,41 @@ export default {
   data() {
     return {
       transition: '',
-      currentProject: this.$store.state.Listing.project.scrollEventHandler,
     };
   },
   computed: {
-    listing() {
-      return this.$store.state.Listing.project;
+    currentProject() {
+      return Listing.project[this.$route.params.currentProject];
     },
     currentProjectKey() {
-      return Object.keys(this.listing).indexOf(this.currentProject.path);
+      return Object.keys(Listing.project).indexOf(this.currentProject.path);
     },
     currentProjectName() {
-      return Object.keys(this.listing)[this.currentProjectKey];
+      return Object.keys(Listing.project)[this.currentProjectKey];
     },
     nextProjectName() {
-      if (Object.keys(this.listing)[this.currentProjectKey + 1] === undefined) {
-        return Object.keys(this.listing)[0];
+      if (Object.keys(Listing.project)[this.currentProjectKey + 1] === undefined) {
+        return Object.keys(Listing.project)[0];
       }
-      return Object.keys(this.listing)[this.currentProjectKey + 1];
+      return Object.keys(Listing.project)[this.currentProjectKey + 1];
     },
     prevProjectName() {
-      if (Object.keys(this.listing)[this.currentProjectKey - 1] === undefined) {
-        return Object.keys(this.listing)[Object.keys(this.listing).length - 1];
+      if (Object.keys(Listing.project)[this.currentProjectKey - 1] === undefined) {
+        return Object.keys(Listing.project)[Object.keys(Listing.project).length - 1];
       }
-      return Object.keys(this.listing)[this.currentProjectKey - 1];
+      return Object.keys(Listing.project)[this.currentProjectKey - 1];
     },
   },
   methods: {
     nextProject() {
-      this.currentProject = this.listing[this.nextProjectName];
+      this.$route.params.currentProject = this.nextProjectName;
       this.transition = 'nextTransition';
+      this.$router.push({ name: 'currentProject' });
     },
     prevProject() {
-      this.currentProject = this.listing[this.prevProjectName];
+      this.$route.params.currentProject = this.prevProjectName;
       this.transition = 'prevTransition';
+      this.$router.push({ name: 'currentProject' });
     },
   },
 };
