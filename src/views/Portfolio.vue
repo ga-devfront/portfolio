@@ -72,7 +72,11 @@ export default {
       }
     },
     nextSection() {
-      const nextPos = this.currentSectionIndex + 1;
+      let currentIndex = this.currentSectionIndex;
+      if (currentIndex < 0) {
+        currentIndex = 0;
+      }
+      const nextPos = currentIndex + 1;
       if (nextPos >= this.sections.length) return;
       const nextSectionName = this.getSectionName(nextPos);
       this.$router.push({ name: nextSectionName });
