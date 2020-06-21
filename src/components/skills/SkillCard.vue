@@ -1,15 +1,15 @@
 <template>
-    <article :id='"card"+techno.name.en'>
+    <article :id="'card'+techno.path">
       <header>
         <div class="icon" v-html="techno.svg">
         </div>
-        <h3>{{techno.name[$store.getters.lang]}}</h3>
+        <h3>{{$t(`skills.${techno.path}.name`)}}</h3>
       </header>
       <body>
         <SkillRate :level="techno.level"/>
         <p>
-          <span class="title">{{$store.state.Txt.skills.details[$store.getters.lang]}} :</span>
-          {{techno.description[$store.getters.lang]}}
+          <span class="title">{{$t('skills.details')}} :</span>
+          {{$t(`skills.${techno.path}.description`)}}
         </p>
       </body>
     </article>
@@ -36,6 +36,8 @@ export default {
   computed: {
   },
   methods: {
+  },
+  created() {
   },
 };
 </script>

@@ -6,12 +6,12 @@
         <span class="title" id="firstName">Alexis</span>
       </h1>
       <transition name="fadeTxt">
-        <h2 v-bind:key="$store.state.Txt.home.title[$store.getters.lang]">
-          {{$store.state.Txt.home.title[$store.getters.lang]}}
+        <h2 v-bind:key="$t('home.title')">
+          {{$t("home.title")}}
         </h2>
       </transition>
     </div>
-    <div id="swip">
+    <div id="swip" @click="$router.push({ name: 'about' })">
       <div id="circle"></div>
     </div>
   </section>
@@ -110,12 +110,12 @@ h2 {
 }
 
 #firstName {
-  animation: enterRight 0.8s;
+  animation: enterRight 0.5s;
   text-align: end;
 }
 
 #secondName {
-  animation: enterLeft 0.8s;
+  animation: enterLeft 0.5s;
 }
 
 #swip {
@@ -202,10 +202,6 @@ h2 {
     margin-left: -80%;
   }
 
-  50% {
-    margin-left: -80%;
-  }
-
   100% {
     margin-left: 0px;
   }
@@ -213,10 +209,6 @@ h2 {
 
 @keyframes enterRight {
   0% {
-    margin-right: -80%;
-  }
-
-  50% {
     margin-right: -80%;
   }
 

@@ -4,7 +4,7 @@
     <h2 v-on:click="$emit('switchDisplay');">
       <title>social icon</title>
       <svg id="socialSVG" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"/><path d="M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5h-4z"/></svg>
-      {{$store.state.Txt.contact.social[$store.getters.lang]}}
+      {{$t("contact.social")}}
     </h2>
     <div :class="'sectionGroup ' + display" id="socials">
       <a class="social" id="linkedin" href="https://www.linkedin.com/in/alexis-guyomar/" target="_blank" rel="noopener">

@@ -2,17 +2,17 @@
   <section>
       <article id="description">
         <transition name="fadeTxt0" mode="out-in">
-        <h1 class="txt0" :key="'title-' + $store.getters.lang">
-          {{$store.state.Txt.about.title[$store.getters.lang]}}
+        <h1 class="txt0" :key="$t('about.title')">
+          {{$t("about.title")}}
         </h1>
         </transition>
         <p>
           <template
-          v-for="(paragraph, index) in $store.state.Txt.about.paragraph[$store.getters.lang]"
+          v-for="(paragraph, index) in $t('about.paragraph')"
           >
             <transition v-bind:name="'fadeTxt' + index" mode="out-in" :key="'fadeTxt' + index">
               <span
-              :key="index + $store.getters.lang"
+              :key="index + $i18n.locale"
               v-bind:class="'txt' + index"
               v-html="paragraph">
               <br>
@@ -118,14 +118,14 @@ p {
   .txt#{$i}{
     animation: {
       name: enterLeft;
-      duration: ($i * .2s) + .8s;
+      duration: ($i * .2s) + .4s;
       timing-function: ease-in-out;
     };
   }
   .fadeTxt#{$i}-leave-active {
     animation: {
       name: LeftTransition;
-      duration: ($i * .2s) + .8s;
+      duration: ($i * .2s) + .4s;
       timing-function: ease-in-out;
       direction: reverse;
     };
@@ -135,10 +135,10 @@ p {
 figure {
   position: relative;
   @media screen and (min-width: $tablet) {
-    animation: enterRight 0.8s;
+    animation: enterRight 0.4s;
   }
   @media screen and (max-width: $tablet) {
-    animation: enterRightMobile 0.8s;
+    animation: enterRightMobile 0.4s;
     position: absolute;
     left: 40%;
     z-index: -1;

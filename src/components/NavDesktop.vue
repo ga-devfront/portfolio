@@ -2,35 +2,35 @@
   <nav>
     <transition name="fade">
       <span
-      :key="$store.getters.currentSectionName"
+      :key="$route.name + $i18n.locale"
       class="actual">
-      {{$store.getters.currentSectionName}}
+      {{$t(`routes.${$route.name}`)}}
       </span>
     </transition>
     <ul>
       <li
-      v-for="section in $store.state.Router.sections"
-      :id="section.name.en"
-      :class="$store.getters.isActive(section)"
-      v-bind:key="section.name.en"
-      v-on:click.prevent.stop="$store.commit('setSection', section)"
+      v-for="section in sections"
+      :id="section.name"
+      :class="isActive(section)"
+      :key="section.name + $i18n.locale"
+      v-on:click="switchComponent(section)"
       >
         <div class="item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.meta.svg"></svg>
         </div>
-        <span>{{section.name[$store.getters.lang]}}</span>
+        <span>{{$t(`routes.${section.name}`)}}</span>
       </li>
       <li>
-        <button class="lang">{{$store.getters.lang}}</button>
+        <button class="lang">{{$i18n.locale}}</button>
         <span>
           <div
-          :class="$store.getters.isLang('fr')"
-          v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+          :class="isLang('fr')"
+          v-on:click="switchLang('fr')">
             fr
           </div>
           <div
-          :class="$store.getters.isLang('en')"
-          v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+          :class="isLang('en')"
+          v-on:click="switchLang('en')">
             en
           </div>
         </span>
@@ -43,6 +43,43 @@
 export default {
   name: 'NavDesktop',
   methods: {
+    isActive(section) {
+      let currentPath = this.$route.path.split('/')[2];
+      if (typeof currentPath === 'undefined') {
+        currentPath = '';
+      }
+      if (section.path === currentPath) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    isLang(lang) {
+      if (lang === this.$i18n.locale) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    switchLang(lang) {
+      this.$i18n.locale = lang;
+      this.$route.params.lang = lang;
+      this.$router.push({ name: this.$route.name });
+    },
+    switchComponent(section) {
+      this.$router.push({ name: section.name });
+      if (section.name === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
+    },
+  },
+  computed: {
+    sections() {
+      const sections = this.$router.options.routes[0].children;
+      for (let x = sections.length; x > 5; x -= 1) {
+        sections.pop();
+      }
+      return sections;
+    },
   },
   data() {
     return {

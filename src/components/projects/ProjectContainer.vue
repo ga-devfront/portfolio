@@ -4,7 +4,7 @@
       <img
       id="logoMobile"
       :src="project.logo.small"
-      :alt="project[$store.getters.lang].name + ' logo'"
+      :alt="$t(`projects.${project.path}.name`) + ' logo'"
       >
       <div id="mokups">
         <picture id="desktop">
@@ -20,19 +20,19 @@
       </div>
     </div>
     <div id="details">
-      <img id="logo" :src="project.logo.big" :alt="project[$store.getters.lang].name + ' logo'">
+      <img id="logo" :src="project.logo.big" :alt="$t(`projects.${project.path}.name`) + ' logo'">
       <transition name="fadeTxt0" mode="out-in">
-      <p :key="'type' + $store.getters.lang">
+      <p :key="'type' + $i18n.locale">
         <span class="titlePart">
-          {{$store.state.Listing.partsTranslate.type[$store.getters.lang]}}:
+          {{$t('projects.type')}}:
         </span>
-        {{project[$store.getters.lang].type}}
+        {{$t(`projects.${project.path}.type`)}}
       </p>
       </transition>
       <transition name="fadeTxt1" mode="out-in">
-      <p :key="'technos' + $store.getters.lang">
+      <p :key="'technos' + $i18n.locale">
         <span class="titlePart">
-          {{$store.state.Listing.partsTranslate.technologies[$store.getters.lang]}}:
+          {{$t('projects.technologies')}}:
         </span>
         <span
         v-for="technologie in project.technologies"
@@ -43,25 +43,25 @@
       </p>
       </transition>
       <transition name="fadeTxt2" mode="out-in">
-      <p :key="'description' + $store.getters.lang">
+      <p :key="'description' + $i18n.locale">
         <span class="titlePart">
-          {{$store.state.Listing.partsTranslate.description[$store.getters.lang]}}: <br>
+          {{$t('projects.description')}}: <br>
         </span>
-        <span v-html="project[$store.getters.lang].description"></span>
+        <span v-html="$t(`projects.${project.path}.description`)"></span>
       </p>
       </transition>
       <div id="links">
         <a v-if="project.links.github" :href="project.links.github" target="_blank">
-          <img :src="$store.state.Listing.iconsLink.github" alt="GitHub">
+          <img :src="Listing.iconsLink.github" alt="GitHub">
         </a>
         <a v-if="project.links.npm" :href="project.links.npm" target="_blank">
-          <img :src="$store.state.Listing.iconsLink.npm" alt="npm">
+          <img :src="Listing.iconsLink.npm" alt="npm">
         </a>
         <a v-if="project.links.doc" :href="project.links.doc" download>
-          <img :src="$store.state.Listing.iconsLink.doc" alt="documentation">
+          <img :src="Listing.iconsLink.doc" alt="documentation">
         </a>
         <a v-if="project.links.project" :href="project.links.project" target="_blank">
-          <img :src="$store.state.Listing.iconsLink.project" alt="online project">
+          <img :src="Listing.iconsLink.project" alt="online project">
         </a>
       </div>
     </div>
@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import Listing from './Listing.vue';
+
 export default {
   name: 'ProjectContainer',
   props: {
@@ -81,7 +83,7 @@ export default {
   },
   data() {
     return {
-
+      Listing,
     };
   },
   computed: {
