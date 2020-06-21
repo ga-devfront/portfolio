@@ -74,7 +74,11 @@ export default {
   },
   methods: {
     isActive(section) {
-      if (section.path === this.$route.path.split('/')[2]) {
+      let currentPath = this.$route.path.split('/')[2];
+      if (typeof currentPath === 'undefined') {
+        currentPath = '';
+      }
+      if (section.path === currentPath) {
         return 'active';
       }
       return 'inactive';
