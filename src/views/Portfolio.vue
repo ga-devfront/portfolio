@@ -220,7 +220,7 @@ section {
   height: 100vh;
   width: 500%;
   position: absolute;
-  background: center / contain linear-gradient(to right, #240b36, #c31432, #c39e14, #d92100, #521d5b, #009189);
+  background: center / contain linear-gradient(to right, #240b36, #c31432, #c39e14, #27c2aa, #5E3D72, #D32C2C);
   transition: all ease 0.8s;
 }
 
