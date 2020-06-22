@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     sections() {
-      return this.$router.options.routes[0].children;
+      return this.$router.options.routes[1].children;
     },
     currentSectionName() {
       return this.$route.path.split('/')[2];

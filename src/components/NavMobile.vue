@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     sections() {
-      const sections = this.$router.options.routes[0].children;
+      const sections = this.$router.options.routes[1].children;
       for (let x = sections.length; x > 5; x -= 1) {
         sections.pop();
       }

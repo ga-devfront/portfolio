@@ -9,6 +9,11 @@ import Error404 from './components/sections/Error404.vue';
 export default {
   routes: [
     {
+      path: '/robots.txt',
+      name: 'robots.txt',
+      redirect: '/robots.txt',
+    },
+    {
       path: '/:lang',
       component: {
         render: (h) => h('router-view'),
