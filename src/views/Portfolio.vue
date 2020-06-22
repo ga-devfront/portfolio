@@ -181,7 +181,8 @@ export default {
 
 @font-face {
   font-family: "Aquawax";
-  src: url('../../public/Aquawax-Pro-DemiBold.ttf')
+  src: url('../../public/Aquawax-Pro-DemiBold.ttf');
+  font-display: swap;
 }
 
 html {
