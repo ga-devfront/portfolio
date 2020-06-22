@@ -3,7 +3,6 @@ import Home from './components/sections/Home.vue';
 import About from './components/sections/About.vue';
 import Skills from './components/sections/Skills.vue';
 import Projects from './components/sections/Projects.vue';
-import Projectcontainer from './components/projects/ProjectContainer.vue';
 import Contact from './components/sections/Contact.vue';
 import Error404 from './components/sections/Error404.vue';
 

@@ -39,6 +39,19 @@ router.beforeEach((to, from, next) => {
     i18n.locale = lang;
   }
 
+  const localeMessage = Object.getOwnPropertyDescriptor(i18n.messages, lang);
+  const { title } = localeMessage.value.seo;
+  const { description } = localeMessage.value.seo;
+  document.title = title;
+  document.head.querySelector('meta[name=description]').content = description;
+  document.head.querySelector('link[rel=canonical]').href = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="og:description"]').content = description;
+  document.head.querySelector('meta[property="og:url"]').content = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="og:title"]').content = title;
+  document.head.querySelector('meta[property="twitter:description"]').content = description;
+  document.head.querySelector('meta[property="twitter:url"]').content = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="twitter:title"]').content = title;
+
   return next();
 });
 
