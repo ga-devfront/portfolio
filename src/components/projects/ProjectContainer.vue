@@ -51,16 +51,16 @@
       </p>
       </transition>
       <div id="links">
-        <a v-if="project.links.github" :href="project.links.github" target="_blank">
+        <a v-if="project.links.github" :href="project.links.github" target="_blank" rel="noopener">
           <img :src="Listing.iconsLink.github" alt="GitHub">
         </a>
-        <a v-if="project.links.npm" :href="project.links.npm" target="_blank">
+        <a v-if="project.links.npm" :href="project.links.npm" target="_blank" rel="noopener">
           <img :src="Listing.iconsLink.npm" alt="npm">
         </a>
         <a v-if="project.links.doc" :href="project.links.doc" download>
           <img :src="Listing.iconsLink.doc" alt="documentation">
         </a>
-        <a v-if="project.links.project" :href="project.links.project" target="_blank">
+        <a v-if="project.links.project" :href="project.links.project" target="_blank" rel="noopener">
           <img :src="Listing.iconsLink.project" alt="online project">
         </a>
       </div>
