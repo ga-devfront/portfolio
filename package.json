@@ -11,7 +11,7 @@
     "core-js": "^3.6.5",
     "dns": "^0.2.2",
     "mobile-device-detect": "^0.4.3",
-    "scroll-event-handler": "^1.0.4",
+    "scroll-event-handler": "^1.0.5",
     "vue": "^2.6.11",
     "vue-bus": "^1.2.1",
     "vue-i18n": "^8.18.2",
