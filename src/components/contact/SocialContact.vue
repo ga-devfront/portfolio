@@ -137,11 +137,11 @@ export default {
 
 <style lang="scss" scoped>
 $title-font: 'Aquawax', Arial;
-$twitter-color: #1DA1F2;
+$twitter-color: #0B7BC1;
 $github-color: #181717;
 $linkedin-color: #0077B5;
-$instagram-color: #E4405F;
-$facebook-color: #1877F2;
+$instagram-color: #E02447;
+$facebook-color: #0E70F1;
 
 @function stroke($stroke, $color) {
   $shadow: ();
