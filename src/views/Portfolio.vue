@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     sections() {
-      return this.$router.options.routes[0].children;
+      return this.$router.options.routes[1].children;
     },
     currentSectionName() {
       return this.$route.path.split('/')[2];
@@ -72,7 +72,11 @@ export default {
       }
     },
     nextSection() {
-      const nextPos = this.currentSectionIndex + 1;
+      let currentIndex = this.currentSectionIndex;
+      if (currentIndex < 0) {
+        currentIndex = 0;
+      }
+      const nextPos = currentIndex + 1;
       if (nextPos >= this.sections.length) return;
       const nextSectionName = this.getSectionName(nextPos);
       this.$router.push({ name: nextSectionName });
@@ -177,7 +181,8 @@ export default {
 
 @font-face {
   font-family: "Aquawax";
-  src: url('../../public/Aquawax-Pro-DemiBold.ttf')
+  src: url('../../public/Aquawax-Pro-DemiBold.ttf');
+  font-display: swap;
 }
 
 html {

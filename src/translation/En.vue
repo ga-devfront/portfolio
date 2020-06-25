@@ -1,5 +1,9 @@
 <script>
 export default {
+  seo: {
+    title: 'Portfolio AG dev',
+    description: 'Portfolio of Alexis Guyomar, Frontend developer looking for work in Geneva.',
+  },
   progress: 'I\'m currently coding this page, come back later!',
   home: {
     title: 'Frontend application developer',

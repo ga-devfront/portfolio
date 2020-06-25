@@ -23,7 +23,7 @@
       </article>
     <figure>
       <img src="../../../public/img/about-picture.png" alt="picture">
-      <figcaption><a href="https://www.instagram.com/non_creation/?hl=fr" target="_blank">@non_creation</a></figcaption>
+      <figcaption><a href="https://www.instagram.com/non_creation/?hl=fr" target="_blank" rel="noopener">@non_creation</a></figcaption>
     </figure>
   </section>
 </template>

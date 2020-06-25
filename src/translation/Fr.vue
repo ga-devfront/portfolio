@@ -1,5 +1,9 @@
 <script>
 export default {
+  seo: {
+    title: 'Portfolio AG dev',
+    description: 'Portfolio de Alexis Guyomar, développeur Frontend à la recherche d\'un travail sur Genève.',
+  },
   progress: 'Je suis actuellement entrain de coder cette page, revenez plus tard !',
   home: {
     title: 'Développeur d\'applications frontend',
