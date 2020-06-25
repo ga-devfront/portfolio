@@ -4,7 +4,6 @@ import npmIcon from '../../../public/img/projects/icon/npm.svg';
 import docIcon from '../../../public/img/projects/icon/doc.svg';
 import webIcon from '../../../public/img/projects/icon/web.svg';
 
-
 import scrollEventHandlerDesktopBig from '../../../public/img/projects/scroll_event_handler/desktop-mockup/big.png';
 import scrollEventHandlerDesktopMedium from '../../../public/img/projects/scroll_event_handler/desktop-mockup/medium.png';
 import scrollEventHandlerDesktopSmall from '../../../public/img/projects/scroll_event_handler/desktop-mockup/small.png';

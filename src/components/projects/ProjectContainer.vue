@@ -60,7 +60,11 @@
         <a v-if="project.links.doc" :href="project.links.doc" download>
           <img :src="Listing.iconsLink.doc" alt="documentation">
         </a>
-        <a v-if="project.links.project" :href="project.links.project" target="_blank" rel="noopener">
+        <a
+        v-if="project.links.project"
+        :href="project.links.project"
+        target="_blank"
+        rel="noopener">
           <img :src="Listing.iconsLink.project" alt="online project">
         </a>
       </div>

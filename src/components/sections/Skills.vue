@@ -133,7 +133,6 @@ $icon-size: 40px;
   }
 }
 
-
 section {
   height: 100%;
   width: 100%;
