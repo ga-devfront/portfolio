@@ -234,16 +234,16 @@ p {
   margin: 0px 5px;
   padding: 2px 5px;
   &.html {
-    background: #e45126;
+    background: #CC4319;
   };
   &.css {
     background: #0c73b8;
   };
   &.javascript {
-    background: #e4a228;
+    background: #946714;
   };
   &.sass {
-    background: #cc659a;
+    background: #C14484;
   };
   &.vuejs {
     background: #34495e;
@@ -258,7 +258,7 @@ p {
     background: #1d4515;
   };
   &.api {
-    background: #1a8c70;
+    background: #19866A;
   };
   &.jasmine {
     background: #8a4182;
