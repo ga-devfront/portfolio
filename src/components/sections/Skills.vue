@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $icon-size: 40px;
 
 .techno {

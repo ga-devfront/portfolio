@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 
 article {
   box-shadow: 0 19px 50px rgb(0 0 0 / 40%);

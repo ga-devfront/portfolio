@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 $txt-width: 450px;
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $tablet: 1024px;
 $mobile: 500px;
 $small-mobile: 380px;

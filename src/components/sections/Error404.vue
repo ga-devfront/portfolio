@@ -54,7 +54,7 @@ h1 {
 }
 
 .glitch {
-font-family: 'Aquawax', Arial;
+font-family: 'Aquawax Pro DemiBold', Arial;
 position: relative;
 color: white;
 letter-spacing: .5em;

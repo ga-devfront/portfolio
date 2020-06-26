@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $twitter-color: #0B7BC1;
 $github-color: #181717;
 $linkedin-color: #0077B5;

@@ -201,7 +201,7 @@ p {
     margin: auto;
   }
   .titlePart {
-    font-family: 'Aquawax', Arial;
+    font-family: 'Aquawax Pro DemiBold', Arial;
   }
   #logo {
     margin: {

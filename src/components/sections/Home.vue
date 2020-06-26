@@ -43,7 +43,7 @@ export default {
   justify-content: center;
 }
 
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $txt-font: Arial, 'Courier New', Courier, monospace;
 $white: #ffffff;
 $tablet: 820px;
