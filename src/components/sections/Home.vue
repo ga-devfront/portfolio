@@ -12,7 +12,7 @@
       </transition>
     </div>
     <div id="swip" @click="$router.push({ name: 'about' })">
-      <div id="circle"></div>
+      <div class="swipCircle"></div>
     </div>
   </section>
 </template>
@@ -119,6 +119,7 @@ h2 {
 }
 
 #swip {
+  cursor: pointer;
   position: relative;
   top: 50px;
   height: 80px;
@@ -130,7 +131,7 @@ h2 {
   };
 }
 
-#circle {
+.swipCircle {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
