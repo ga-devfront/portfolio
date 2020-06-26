@@ -8,19 +8,28 @@
       >
       <div id="mokups">
         <picture id="desktop">
-          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
-          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium">
+          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.bigWebp" type="image/webp">
+          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big" type="image/png">
+          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.mediumWebp" type="image/webp">
+          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium" type="image/png">
+          <source :srcset="project.preview.desktop.smallWebp" type="image/webp">
           <img :src="project.preview.desktop.small" alt="desktop project mokup">
         </picture>
         <picture id="mobile" v-if="project.preview.mobile">
-          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big">
-          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium">
+          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.bigWebp" type="image/webp">
+          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big" type="image/png">
+          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.mediumWebp" type="image/webp">
+          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium" type="image/png">
+          <source :srcset="project.preview.mobile.smallWebp" type="image/webp">
           <img :src="project.preview.mobile.small" alt="mobile project mokup">
         </picture>
       </div>
     </div>
     <div id="details">
-      <img id="logo" :src="project.logo.big" :alt="$t(`projects.${project.path}.name`) + ' logo'">
+      <picture id="logo" >
+        <source :srcset="project.logo.bigWebp" type="image/webp">
+        <img :src="project.logo.big" :alt="$t(`projects.${project.path}.name`) + ' logo'">
+      </picture>
       <transition name="fadeTxt0" mode="out-in">
       <p :key="'type' + $i18n.locale">
         <span class="titlePart">
