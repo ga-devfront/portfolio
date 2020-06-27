@@ -100,7 +100,7 @@ $white: #ffffff;
 /* global */
 * {
   box-sizing: border-box;
-  font-family: 'Aquawax', Arial;
+  font-family: 'Aquawax Pro DemiBold', Arial;
   font-weight: bold;
   color: $white;
 }

@@ -346,7 +346,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $error-color: #ff3f3f;
 $valid-color: #17b6e3;
 

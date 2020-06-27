@@ -8,19 +8,28 @@
       >
       <div id="mokups">
         <picture id="desktop">
-          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big">
-          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium">
+          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.bigWebp" type="image/webp">
+          <source media="(min-width: 1540px)" :srcset="project.preview.desktop.big" type="image/png">
+          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.mediumWebp" type="image/webp">
+          <source media="(min-width: 1100px)" :srcset="project.preview.desktop.medium" type="image/png">
+          <source :srcset="project.preview.desktop.smallWebp" type="image/webp">
           <img :src="project.preview.desktop.small" alt="desktop project mokup">
         </picture>
         <picture id="mobile" v-if="project.preview.mobile">
-          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big">
-          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium">
+          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.bigWebp" type="image/webp">
+          <source media="(min-width: 1540px)" :srcset="project.preview.mobile.big" type="image/png">
+          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.mediumWebp" type="image/webp">
+          <source media="(min-width: 1100px)" :srcset="project.preview.mobile.medium" type="image/png">
+          <source :srcset="project.preview.mobile.smallWebp" type="image/webp">
           <img :src="project.preview.mobile.small" alt="mobile project mokup">
         </picture>
       </div>
     </div>
     <div id="details">
-      <img id="logo" :src="project.logo.big" :alt="$t(`projects.${project.path}.name`) + ' logo'">
+      <picture id="logo" >
+        <source :srcset="project.logo.bigWebp" type="image/webp">
+        <img :src="project.logo.big" :alt="$t(`projects.${project.path}.name`) + ' logo'">
+      </picture>
       <transition name="fadeTxt0" mode="out-in">
       <p :key="'type' + $i18n.locale">
         <span class="titlePart">
@@ -60,7 +69,11 @@
         <a v-if="project.links.doc" :href="project.links.doc" download>
           <img :src="Listing.iconsLink.doc" alt="documentation">
         </a>
-        <a v-if="project.links.project" :href="project.links.project" target="_blank" rel="noopener">
+        <a
+        v-if="project.links.project"
+        :href="project.links.project"
+        target="_blank"
+        rel="noopener">
           <img :src="Listing.iconsLink.project" alt="online project">
         </a>
       </div>
@@ -197,7 +210,7 @@ p {
     margin: auto;
   }
   .titlePart {
-    font-family: 'Aquawax', Arial;
+    font-family: 'Aquawax Pro DemiBold', Arial;
   }
   #logo {
     margin: {
@@ -234,16 +247,16 @@ p {
   margin: 0px 5px;
   padding: 2px 5px;
   &.html {
-    background: #e45126;
+    background: #CC4319;
   };
   &.css {
     background: #0c73b8;
   };
   &.javascript {
-    background: #e4a228;
+    background: #946714;
   };
   &.sass {
-    background: #cc659a;
+    background: #C14484;
   };
   &.vuejs {
     background: #34495e;
@@ -258,7 +271,7 @@ p {
     background: #1d4515;
   };
   &.api {
-    background: #1a8c70;
+    background: #19866A;
   };
   &.jasmine {
     background: #8a4182;

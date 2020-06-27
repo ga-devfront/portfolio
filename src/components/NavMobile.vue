@@ -129,7 +129,7 @@ h3 {
     right: 30px;
     top: 10px;
   }
-  font-family: 'Aquawax', Arial;
+  font-family: 'Aquawax Pro DemiBold', Arial;
   color: #ffffff;
   font-size: 40px;
   @media screen and (orientation: landscape) {
@@ -171,7 +171,7 @@ ul {
   margin: 0px;
   z-index: 1;
   list-style: none;
-  font-family: 'Aquawax', Arial;
+  font-family: 'Aquawax Pro DemiBold', Arial;
   color: #ffffff;
   font-size: 20px;
   @media screen and (orientation: landscape) {

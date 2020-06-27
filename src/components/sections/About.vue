@@ -22,7 +22,10 @@
         </p>
       </article>
     <figure>
-      <img src="../../../public/img/about-picture.png" alt="picture">
+        <picture id="desktop">
+          <source srcset="../../../public/img/about-picture.webp" type="image/webp">
+          <img src="../../../public/img/about-picture.png" alt="picture of me">
+        </picture>
       <figcaption><a href="https://www.instagram.com/non_creation/?hl=fr" target="_blank" rel="noopener">@non_creation</a></figcaption>
     </figure>
   </section>
@@ -47,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 $txt-width: 450px;
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $tablet: 1024px;
 $mobile: 500px;
 $small-mobile: 380px;

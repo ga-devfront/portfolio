@@ -179,12 +179,6 @@ export default {
   margin: 0px;
 }
 
-@font-face {
-  font-family: "Aquawax";
-  src: url('../../public/Aquawax-Pro-DemiBold.ttf');
-  font-display: swap;
-}
-
 html {
   @include noPad-noMarg();
 }
@@ -225,7 +219,8 @@ section {
   height: 100vh;
   width: 500%;
   position: absolute;
-  background: center / contain linear-gradient(to right, #240b36, #c31432, #c39e14, #27c2aa, #5E3D72, #D32C2C);
+  background: center / contain
+  linear-gradient(to right, #240b36, #c31432, #c39e14, #27c2aa, #5E3D72, #D32C2C);
   transition: all ease 0.8s;
 }
 

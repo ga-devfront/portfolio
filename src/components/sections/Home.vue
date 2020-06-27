@@ -12,7 +12,7 @@
       </transition>
     </div>
     <div id="swip" @click="$router.push({ name: 'about' })">
-      <div id="circle"></div>
+      <div class="swipCircle"></div>
     </div>
   </section>
 </template>
@@ -43,7 +43,7 @@ export default {
   justify-content: center;
 }
 
-$title-font: 'Aquawax', Arial;
+$title-font: 'Aquawax Pro DemiBold', Arial;
 $txt-font: Arial, 'Courier New', Courier, monospace;
 $white: #ffffff;
 $tablet: 820px;
@@ -119,6 +119,7 @@ h2 {
 }
 
 #swip {
+  cursor: pointer;
   position: relative;
   top: 50px;
   height: 80px;
@@ -130,7 +131,7 @@ h2 {
   };
 }
 
-#circle {
+.swipCircle {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
