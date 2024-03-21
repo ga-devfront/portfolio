@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "dist/*"
-          target: {{ secrets.VPS_PROJECT_FOLDER }}
+          target: ${{ secrets.VPS_PROJECT_FOLDER }}
