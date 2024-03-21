@@ -232,8 +232,8 @@ export default {
         small: portfolioLogoSmall,
       },
       links: {
-        github: 'https://github.com/ga-devfront/portfolio',
-        project: 'https://ag-dev.fr/',
+        github: 'https://github.com/ga-devfront/portfolio-v1',
+        project: 'https://v1.ag-dev.fr/',
       },
       technologies: ['JavaScript', 'Html', 'Css', 'Sass', 'VueJS'],
     },
@@ -265,8 +265,6 @@ export default {
         small: chaletsEtCaviarLogoSmall,
       },
       links: {
-        project: 'https://ag-dev.fr/openclassrooms/wordpress/',
-        doc: 'https://ag-dev.fr/documentation/chalet_et_caviar.pdf',
       },
       technologies: ['Html', 'Css', 'Wordpress'],
     },
@@ -298,8 +296,6 @@ export default {
         small: ffpaLogoSmall,
       },
       links: {
-        project: 'https://ag-dev.fr/openclassrooms/festival/',
-        doc: 'https://ag-dev.fr/documentation/ffpa.docx',
       },
       technologies: ['Html', 'Css', 'Bootstrap'],
     },
@@ -323,7 +319,6 @@ export default {
         small: expressFoodLogoSmall,
       },
       links: {
-        doc: 'https://ag-dev.fr/documentation/expressfood.zip',
       },
       technologies: ['UML'],
     },
@@ -355,7 +350,6 @@ export default {
         small: botGeneratorLogoSmall,
       },
       links: {
-        project: 'https://ag-dev.fr/openclassrooms/generator/',
       },
       technologies: ['JavaScript', 'Html', 'Css'],
     },
@@ -412,8 +406,6 @@ export default {
         small: foodailyLogoSmall,
       },
       links: {
-        github: 'https://github.com/ga-devfront/foodaily-v2',
-        project: 'https://ag-dev.fr/openclassrooms/foodaily/',
       },
       technologies: ['JavaScript', 'Html', 'Css', 'VueJS', 'API'],
     },
@@ -445,8 +437,6 @@ export default {
         small: todoLogoSmall,
       },
       links: {
-        github: 'https://github.com/ga-devfront/To-Do-List',
-        project: 'https://ag-dev.fr/openclassrooms/todolist/',
       },
       technologies: ['JavaScript', 'Html', 'Css', 'Jasmine'],
     },

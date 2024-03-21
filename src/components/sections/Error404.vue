@@ -78,9 +78,9 @@ animation: glitch-skew 1s infinite linear alternate-reverse;
 @keyframes glitch-anim {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(calc(1 / $steps)))} {
       clip: rect(random(100)+px, 9999px, random(100)+px, 0);
-      transform: skew((random(100) / 100) + deg);
+      transform: skew(calc(random(100) / 100) + deg);
     }
   }
 }
@@ -88,9 +88,9 @@ animation: glitch-skew 1s infinite linear alternate-reverse;
 @keyframes glitch-anim2 {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(calc(1 / $steps)))} {
       clip: rect(random(100)+px, 9999px, random(100)+px, 0);
-      transform: skew((random(100) / 100) + deg);
+      transform: skew(calc(random(100) / 100) + deg);
     }
   }
 }
@@ -98,7 +98,7 @@ animation: glitch-skew 1s infinite linear alternate-reverse;
 @keyframes glitch-skew {
   $steps: 10;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(calc(1 / $steps)))} {
       transform: skew((random(10) - 5) + deg);
     }
   }
