@@ -23,9 +23,8 @@ jobs:
           npm install
           npm run build
 
-      - name: Print SSH Key to File
-        run: echo "${{ secrets.VPS_SSH_KEY }}" > ssh_key
-
       - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
-          scp -o StrictHostKeyChecking=no -i ssh_key -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
+          scp -o StrictHostKeyChecking=no -i <(echo "$SSH_PRIVATE_KEY") ssh_key -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
