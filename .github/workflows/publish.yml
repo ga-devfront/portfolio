@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    if: github.event.release.prerelease == false
     steps:
       - uses: actions/checkout@v4
 
@@ -23,11 +23,9 @@ jobs:
           npm install
           npm run build
 
+      - name: Print SSH Key to File
+        run: echo "${{ secrets.VPS_SSH_KEY }}" > ssh_key
+
       - name: Deploy to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "dist/*"
-          target: ${{ secrets.VPS_PROJECT_FOLDER }}
+        run: |
+          scp -o StrictHostKeyChecking=no -i ssh_key -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
