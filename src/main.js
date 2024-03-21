@@ -1,63 +1,71 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import VueI18n from 'vue-i18n';
+import VueRouter from 'vue-router';
+import VueBus from 'vue-bus';
 import Router from './Router.vue';
+import En from './translation/En.vue';
+import Fr from './translation/Fr.vue';
+import Portfolio from './views/Portfolio.vue';
 
-Vue.use(Vuex);
+Vue.use(VueI18n);
+Vue.use(VueRouter);
+Vue.use(VueBus);
 
-const store = new Vuex.Store({
-  state: {
-    language: null,
-    appUrl: window.location.origin,
-    currentPath: window.location.pathname,
-    Router,
-  },
-  mutations: {
-    setSection(state, section) {
-      const futureUrl = (typeof section.url === 'object') ? section.url[this.getters.lang] : section.url;
-      state.currentPath = futureUrl;
-      window.history.pushState(
-        {},
-        this.getters.getSectionName(section),
-        this.getters.currentUrl + state.currentPath,
-      );
-    },
-    setLang(state, lang) {
-      state.language = lang;
-    },
-  },
-  getters: {
-    lang: (state) => (state.language ? state.language : 'fr'),
-    getSectionName: (state, getters) => (section) => section.name[getters.lang],
-    isActive: (state, getters) => (section) => {
-      if (section === getters.currentSection) return 'active';
-      return 'inactive';
-    },
-    isLang: (state, getters) => (lang) => {
-      if (lang === getters.lang) return 'active';
-      return 'inactive';
-    },
-    currentUrl: (state) => state.appUrl,
-    currentSectionKey: (state) => state.Router.sectionMapper[state.currentPath],
-    currentSection: (state, getters) => state.Router.sections[getters.currentSectionKey],
-    currentSectionName: (state, getters) => getters.getSectionName(getters.currentSection),
-  },
+const messages = {
+  en: En,
+  fr: Fr,
+};
+
+const i18n = new VueI18n({
+  fallbackLocale: 'fr',
+  locale: 'fr',
+  messages,
+});
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: Router.routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const { lang } = to.params;
+
+  if (!['en', 'fr'].includes(lang)) {
+    return next(i18n.locale);
+  }
+
+  if (i18n.locale !== lang) {
+    i18n.locale = lang;
+  }
+
+  const localeMessage = Object.getOwnPropertyDescriptor(i18n.messages, lang);
+  const { title } = localeMessage.value.seo;
+  const { description } = localeMessage.value.seo;
+  document.title = title;
+  document.head.querySelector('meta[name=description]').content = description;
+  document.head.querySelector('link[rel=canonical]').href = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="og:description"]').content = description;
+  document.head.querySelector('meta[property="og:url"]').content = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="og:title"]').content = title;
+  document.head.querySelector('meta[property="twitter:description"]').content = description;
+  document.head.querySelector('meta[property="twitter:url"]').content = `https://ag-dev.fr/${lang}`;
+  document.head.querySelector('meta[property="twitter:title"]').content = title;
+
+  return next();
 });
 
 // eslint-disable-next-line
 const vue = new Vue({
+  i18n,
   el: '#app',
-  store,
-  data: {
-    currentPath: window.location.pathname,
-  },
-  computed: {
-    currentView() {
-      return Router.apps[this.currentPath];
-    },
+  router,
+  components: {
+    Portfolio,
   },
   methods: {
   },
   render(h) {
-    return h(this.currentView);
+    return h(Portfolio);
   },
 });

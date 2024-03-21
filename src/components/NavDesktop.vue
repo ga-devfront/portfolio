@@ -2,47 +2,84 @@
   <nav>
     <transition name="fade">
       <span
-      :key="$store.getters.currentSectionName"
+      :key="$route.name + $i18n.locale"
       class="actual">
-      {{$store.getters.currentSectionName}}
+      {{$t(`routes.${$route.name}`)}}
       </span>
     </transition>
-    <ul class="menu">
-        <li
-        v-for="section in $store.state.Router.sections"
-        :id="section.name.en"
-        :class="$store.getters.isActive(section)"
-        v-bind:key="section.name.en"
-        v-on:click.prevent.stop="$store.commit('setSection', section)"
-        >
-            <div class="item">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.svg"></svg>
-            </div>
-            <span>{{section.name[$store.getters.lang]}}</span>
-        </li>
-        <li>
-          <button class="lang">{{$store.getters.lang}}</button>
-          <span>
-            <div
-            :class="$store.getters.isLang('fr')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'fr')">
+    <ul>
+      <li
+      v-for="section in sections"
+      :id="section.name"
+      :class="isActive(section)"
+      :key="section.name + $i18n.locale"
+      v-on:click="switchComponent(section)"
+      >
+        <div class="item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" v-html="section.meta.svg"></svg>
+        </div>
+        <span>{{$t(`routes.${section.name}`)}}</span>
+      </li>
+      <li>
+        <button class="lang">{{$i18n.locale}}</button>
+        <span>
+          <div
+          :class="isLang('fr')"
+          v-on:click="switchLang('fr')">
             fr
-            </div>
-            <div
-            :class="$store.getters.isLang('en')"
-            v-on:click.prevent.stop="$store.commit('setLang', 'en')">
+          </div>
+          <div
+          :class="isLang('en')"
+          v-on:click="switchLang('en')">
             en
-            </div>
-          </span>
-        </li>
-</ul>
-</nav>
+          </div>
+        </span>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
 export default {
   name: 'NavDesktop',
   methods: {
+    isActive(section) {
+      let currentPath = this.$route.path.split('/')[2];
+      if (typeof currentPath === 'undefined') {
+        currentPath = '';
+      }
+      if (section.path === currentPath) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    isLang(lang) {
+      if (lang === this.$i18n.locale) {
+        return 'active';
+      }
+      return 'inactive';
+    },
+    switchLang(lang) {
+      this.$i18n.locale = lang;
+      this.$route.params.lang = lang;
+      this.$router.push({ name: this.$route.name });
+    },
+    switchComponent(section) {
+      this.$router.push({ name: section.name });
+      if (section.name === 'projects') {
+        this.$route.params.currentProject = 'scrolleventhandler';
+        this.$router.push({ name: 'currentProject' });
+      }
+    },
+  },
+  computed: {
+    sections() {
+      const sections = this.$router.options.routes[1].children;
+      for (let x = sections.length; x > 5; x -= 1) {
+        sections.pop();
+      }
+      return sections;
+    },
   },
   data() {
     return {
@@ -52,21 +89,28 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin center() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$white: #ffffff;
 /* global */
 * {
   box-sizing: border-box;
-  font-family: 'Aquawax', Arial;
+  font-family: 'Aquawax Pro DemiBold', Arial;
   font-weight: bold;
-  color: #ffffff;
+  color: $white;
 }
-ul.menu {
+ul {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   list-style: none;
   border-radius: 30px;
-  border: 4px solid #fff;
+  border: 4px solid $white;
   width: max-content;
   padding: 0;
   position: relative;
@@ -79,18 +123,87 @@ li {
   margin: 4px 5px;
   position : relative;
   cursor: pointer;
-}
-
-li span {
-  display: inline-block;
-  opacity: 0;
-  color: white;
-  position: absolute;
-  width: max-content;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 65px;
-  transition: all 0.2s ease-in-out;
+  span {
+    display: inline-block;
+    opacity: 0;
+    color: $white;
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 65px;
+    transition: all 0.2s ease-in-out;
+  };
+  &.active, &:not(.active):hover {
+    >div.item {
+      height: 30px;
+      width: 30px;
+      background: rgb(0 0 0 / 0%);
+      border: 2px solid $white;
+    };
+  };
+  &.active {
+    >span {
+      display: none;
+    };
+  };
+  >div.item {
+    display: block;
+    background-color: rgb(255 255 255 / 100%);
+    border: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    @include center;
+    transition: all 0.2s ease-in-out;
+    >svg {
+      position: absolute;
+      @include center;
+      height: 20px;
+      width: 20px;
+    };
+    &~ span {
+      pointer-events: none;
+    };
+  };
+  &:hover {
+    >div.item ~ span {
+      left: 50px;
+      opacity: 1;
+    };
+  };
+  >button.lang {
+    position: absolute;
+    @include center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: 0;
+    transition: all 0.2s ease-in-out;
+    &~ span {
+      display: flex;
+      visibility: hidden;
+      transition: all 0.2s ease-in-out;
+      >div {
+        padding-left: 15px;
+        &.inactive {
+          opacity: 0.5;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            opacity: 1;
+          }
+        };
+      };
+    };
+    &:focus ~ span {
+      visibility: visible;
+      opacity: 1;
+      left: 40px;
+    };
+  };
 }
 
 nav {
@@ -98,101 +211,14 @@ nav {
   top: 50%;
   left: 25px;
   transform: translateY(-50%);
-}
-
-nav>span.actual {
-  white-space:nowrap;
-  color: white;
-  position: absolute;
-  right: 50%;
-  left: 50%;
-  transform: rotate(-90deg) translate(50%);
-}
-
-/* nav buttons */
-div.item {
-  display: block;
-  background-color: rgba(255, 255, 255, 1);
-  border: none;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-in-out;
-}
-
-li.active>div.item,
-li:not(.active):hover div.item {
-  height: 30px;
-  width: 30px;
-  background: rgba(0, 0, 0, 0);
-  border: 2px solid #fff;
-}
-
-div.item>svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 20px;
-  width: 20px;
-}
-
-li>div.item ~ span {
-  pointer-events: none;
-}
-
-li.active>span {
-  display: none;
-}
-
-
-li:hover>div.item ~ span {
-  left: 50px;
-  opacity: 1;
-}
-
-/* lang button */
-li>button.lang {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  background: none;
-  outline: 0;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang ~ span {
-  display: flex;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang:focus ~ span {
-  visibility: visible;
-  opacity: 1;
-  left: 40px;
-}
-
-li>button.lang ~ span>div {
-  padding-left: 15px;
-}
-
-li>button.lang ~ span>div.inactive {
-  opacity: 0.5;
-  transition: all 0.2s ease-in-out;
-}
-
-li>button.lang ~ span>div.inactive:hover {
-  opacity: 1;
+  >span.actual{
+    white-space:nowrap;
+    color: $white;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    transform: rotate(-90deg) translate(50%);
+  };
 }
 
 /* class animation */
