@@ -26,5 +26,11 @@ jobs:
       - name: Deploy to VPS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+        shell: bash
         run: |
-          scp -o StrictHostKeyChecking=no -i <(echo "$SSH_PRIVATE_KEY") ssh_key -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          ssh-keyscan -H ${{secrets.VPS_HOST}} > ~/.ssh/known_hosts
+          scp -i $SSH_KEY_PATH -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
