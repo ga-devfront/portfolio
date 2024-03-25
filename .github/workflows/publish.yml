@@ -33,4 +33,5 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ../private.key
           sudo chmod 600 ../private.key
           ssh-keyscan -H ${{secrets.VPS_HOST}} > ~/.ssh/known_hosts
+          ssh -i $SSH_KEY_PATH ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} "rm -rf ${{ secrets.VPS_PROJECT_FOLDER }}/*"
           scp -i $SSH_KEY_PATH -r dist/* ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PROJECT_FOLDER }}
