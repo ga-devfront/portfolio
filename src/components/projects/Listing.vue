@@ -199,7 +199,7 @@ export default {
       },
       links: {
         github: 'https://github.com/ga-devfront/scroll-event-handler',
-        project: 'https://ag-dev.fr/private/scroll-event-handler/demo/',
+        project: 'https://scroll-event-handler.ag-dev.fr/',
         npm: 'https://www.npmjs.com/package/scroll-event-handler',
       },
       technologies: ['JavaScript', 'Html', 'Css'],
@@ -374,7 +374,7 @@ export default {
       },
       links: {
         github: 'https://github.com/ga-devfront/spaceship-arenaV2',
-        project: 'https://ag-dev.fr/openclassrooms/spaceship-arena/',
+        project: 'https://spaceship-arena.ag-dev.fr/',
       },
       technologies: ['JavaScript', 'Html', 'Css'],
     },
